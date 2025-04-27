@@ -76,21 +76,32 @@ long Jugador::set_dinero (const long _cantidad_depositar){
 
 //geters
 
-/*
+
 //verificacion blackjack
-bool Jugador::get_valor_mano(){
+int Jugador::get_valor_mano(){
 
     for (size_t i = 0; i < mano.size(); i++)
     {
+        valor_mano += mano[i].get_valor();
         
-    
+    }
+
+    if(valor_mano > 21){
+        for (size_t i = 0; i < mano.size(); i++)
+        {
+            if (mano[i].get_ranck() == "A") {
+                valor_mano -= 10; // Si el jugador tiene un As y su mano supera 21, se le resta 10 al valor total
+            }
+            break; // Salimos del bucle una vez que hemos ajustado el valor del As
+        }
+    }
+    return valor_mano;
 }
 
-
-if (mano[i].get_ranck() == "A" && valor_mano > 21) {
-            valor_mano -= 10; // Si el jugador tiene un As y su mano supera 21, se le resta 10 al valor total
-        }
-        valor_mano += mano[i].get_valor();
+bool Jugador::verificar_blackjack() {
+    if (mano.size() == 2 && valor_mano == 21) {
+        return true; // El jugador tiene blackjack
     }
-        
-*/
+    return false; // El jugador no tiene blackjack
+}
+
