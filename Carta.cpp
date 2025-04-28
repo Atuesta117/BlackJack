@@ -3,20 +3,20 @@ using namespace std;
 #include "Carta.h"
 #include <string>
 
-Carta::Carta(string casta, string ranck, int valor){
+Carta::Carta(string casta, string rank, int valor){
     this->casta = casta;
-    this->ranck = ranck;
+    this->rank = rank;
     this->valor = valor;
 }
-string Carta::get_casta(){
+string Carta::get_casta_carta(){
     return casta;
 }
-int Carta::get_valor(){
+int Carta::get_valor_carta(){
     return valor;
 }
-string Carta::get_ranck(){
-    return ranck;
+string Carta::get_rank_carta(){
+    return rank;
 }
 void Carta::display(){
-    cout << "Casta: " << casta << ", Ranck: " << ranck << ", Valor: " << valor << endl;
+    cout << "Casta: " << casta << ", rank: " << rank << ", Valor: " << valor << endl;
 }

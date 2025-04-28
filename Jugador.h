@@ -8,38 +8,47 @@ using namespace std;
 #include "Mazo.h"
 
 class Jugador{
-    private:
-        string nombre;
-        long dinero_total;
-        long apuesta;
-        int valor_mano;
-        vector<Carta> mano; // Vector para almacenar las cartas del jugador
-        bool estado_jugador; // true si el jugador sigue en juego, false si se ha retirado
+	private:
+		string nombre;
+		long dinero_total_jugador;
+		long apuesta_jugador;
+		int valor_mano_jugador;
+		vector<Carta> mano; // Vector para almacenar las cartas del jugador
+		bool estado_jugador; // true si el jugador sigue en juego, false si se ha retirado
 
-    public:
-        Jugador(const string& _nombre, int _dinero);
-        //estado del jugador        
-        bool iniciar_partida();
-        bool terminar_partida();
-       
-        //acciones
-        long apostar(long _apuesta);
-        void pedir_carta(Mazo &mazo);
-        void pedir_mano(Mazo& mazo);
-        bool plantarse();
-        void ver_mano();
-        int contar_cartas();
-       
-        //seters
-        long set_dinero (long _cantidad_depositar);
-       
-        //geters
-        int get_valor_mano();
+	public:
+		Jugador(const string& _nombre, int _dinero);
+		//estado del jugador        
+		bool iniciar_partida();
+		bool terminar_partida();
+	
+		//acciones
+		void apostar(long _apuesta);
+		void pedir_carta(Mazo &mazo);
+		void pedir_mano(Mazo& mazo);
+		bool plantarse();
+		void mostrar_mano();
+		int contar_cartas();
+		//no es getter porque no devuelve un valor, sino que calcula el valor de la mano
+		//int calcular_valor_mano_jugador();
+	
+		//getter
+		long get_apuesta_jugador() { return apuesta_jugador; }
+		bool get_estado_jugador() { return estado_jugador; }
+		long get_dinero_jugador() { return dinero_total_jugador; }
+		int get_valor_mano_jugador(){return valor_mano_jugador;}
+		
+		//setter
+		long set_dinero (long _cantidad_depositar);
+	
 
-        //verificacion blackjack
-        bool verificar_blackjack();
 
+		//verificacion blackjack
+		bool verificar_blackjack();
+
+		//reiniciar mano
+		void reiniciar_mano();
 };
 
 
-#endif
+#endif // JUGADOR__H
