@@ -1,3 +1,25 @@
+/**
+* @file Jugador.cpp
+* @brief Implementación de la clase Jugador para el juego de Blackjack.
+*
+* @details
+* Este archivo implementa la clase Jugador, que representa a un jugador
+* humano en un juego de Blackjack. El jugador administra su mano de cartas
+* y decide sus acciones durante el transcurso del juego.
+*
+*
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors
+* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - sergio.garcia.ramos@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Abril 2025
+*/
 #include <iostream>
 #include <string>
 #include <vector>

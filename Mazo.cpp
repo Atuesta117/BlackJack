@@ -1,3 +1,23 @@
+/**
+* @file Mazo.cpp
+* @brief Implementación de la clase Mazo para el juego de Blackjack.
+*
+* @details* Este archivo implementa la clase Mazo, que representa una colección de cartas
+* utilizadas en el juego de Blackjack. El mazo permite barajar las cartas y
+* repartirlas a los jugadores. El crupier tiene la libertad de sacar las cartas del mazo.
+*
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors
+* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - sergio.garcia.ramos@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Abril 2025
+*/
 #include <iostream>
 #include "Mazo.h"
 #include <vector>

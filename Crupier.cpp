@@ -1,3 +1,24 @@
+/**
+* @file Crupier.cpp
+* @brief Implementación de la clase Crupier para el juego de Blackjack.
+*
+* @details
+* Este archivo implementa la clase Crupier, que representa al repartidor de cartas
+* en un juego de Blackjack. El crupier administra su propia mano y actúa de acuerdo
+* a las reglas típicas del juego.
+*​
+*
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - sergio.garcia.ramos@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Abril 2025
+*/
 #include "Crupier.h"
 #include <iostream>
 using namespace std;
