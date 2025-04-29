@@ -13,7 +13,7 @@
 * @institution Universidad del Valle
 *
 * @authors* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
-* - David Alejandro Garcia - sergio.garcia.ramos@correounivalle.edu.co
+* - David Alejandro Garcia - david.grueso@correounivalle.edu.co
 * - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
 * - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
 *

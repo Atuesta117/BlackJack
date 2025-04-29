@@ -15,8 +15,8 @@
 
 	Colaboradores: Ninguno.
 
-	Autor: Juan Jose Atuesta, Sergio Garcia Ramos, Paula Mariana Huertas
-	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co]
+	Autor: Juan Jose Atuesta, Sergio Garcia Ramos, Paula Mariana Huertas, David Alejandro Garcia 
+	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co - david.grueso@correounivalle.edu.co]
 	Fecha: Abril 2025
   */
 #ifndef CARTA_H
