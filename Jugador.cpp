@@ -137,3 +137,4 @@ void Jugador::reiniciar_mano() {
 	valor_mano_jugador = 0; // Reinicia el valor de la mano
     apuesta_jugador = 0; // Reinicia la apuesta del jugador
 }
+

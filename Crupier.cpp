@@ -113,27 +113,6 @@ bool Crupier::verificar_blackjack()
 	return false; // El crupier no tiene blackjack
 }
 
-/*
-int Crupier::calcular_valor_mano() {
-	
-	for (size_t i = 0; i < mano_crupier.size(); i++)
-	{
-		valor_mano_crupier += mano_crupier[i].get_valor_carta();
-		
-	}
-
-	if(valor_mano_crupier > 21){
-		for (size_t i = 0; i < mano_crupier.size(); i++)
-		{
-			if (mano_crupier[i].get_rank_carta() == "A") {
-				valor_mano_crupier -= 10; // Si el jugador tiene un As y su mano supera 21, se le resta 10 al valor total
-			}
-			break; // Salimos del bucle una vez que hemos ajustado el valor del As
-		}
-	}
-	return valor_mano_crupier;
-}
-*/
 void Crupier::determinar_ganador(Jugador &jugador)
 {
 	int valor_mano_jugador = jugador.get_valor_mano_jugador(); // Calcular el valor de la mano del jugador

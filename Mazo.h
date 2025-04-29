@@ -1,3 +1,21 @@
+/*
+	Clase: 	Mazo
+	Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+	Universidad del Valle
+
+	Información CRC:
+
+	Clase: Mazo
+	Responsabilidades:
+
+	Gestionar un conjunto de cartas (crear mazo, barajarlo y entregar cartas).
+
+	Colaboradores: Carta
+
+	Autor: Juan Jose Atuesta, Sergio Garcia Ramos, Paula Mariana Huertas
+	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co]
+	Fecha: Abril 2025
+  */
 #ifndef MAZO_H
 #define MAZO_H
 #include <iostream>
