@@ -6,6 +6,7 @@
 #include "Crupier.h"
 using namespace std;
 //g++ main.cpp Carta.cpp Mazo.cpp Jugador.cpp Crupier.cpp -o p
+/*
 int main()
 {
 	cout<<"---------------------------------------------------"<<endl;
@@ -182,4 +183,50 @@ int main()
 	while (jugador.get_estado_jugador() == true); // Inicia la partida}
 	
 	return 0;
+}
+*/
+#include <SFML/Graphics.hpp>
+#include "Button.h"
+#include "AppState.h"
+#include "CreateWindow.h"
+// g++ main.cpp Button.cpp CreateWindow.cpp -lsfml-graphics -lsfml-window -lsfml-system -o prog
+int main() {
+    // Crear ventana
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Mi ventana SFML");
+	Button buttonStart(300, 250, 200, 60, "¡Jugar!");
+	CreateWindow cuadroprueba (0, 0, 0, 0, sf::Color::Green, Forma::RECTANGULO, true);
+	AppState estado = AppState::START;
+    // Bucle principal
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            // Cerrar ventana
+            if (event.type == sf::Event::Closed)
+                window.close();
+			if(estado== AppState::START){
+				//cuadroprueba.mostrar();
+				buttonStart.draw(window);
+				if(buttonStart.isClicked(window, event)){
+					estado = AppState::MENU;
+				}
+			}
+			else if(estado == AppState::MENU){
+
+			}
+			else if (estado == AppState::GAME){
+
+			}
+			
+        }
+
+        // Limpiar ventana
+        window.clear();
+
+        // Aquí dibujas objetos (formas, sprites, etc.)
+
+        // Mostrar ventana
+        window.display();
+    }
+
+    return 0;
 }
