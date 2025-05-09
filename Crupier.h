@@ -25,42 +25,47 @@
 #include "Carta.h"
 #include "Mazo.h"
 #include "Jugador.h"
+#include "Controlador.h"
 #include <string>
 
 
-class Crupier
+class Crupier : public Controlador
 {
 	private:
+
 		// Atributos
 		Mazo& mazo_crupier;
+	/*
 		long dinero_total_crupier;
 		long apuesta_crupier;
 		int valor_mano_crupier;
 		vector<Carta> mano_crupier; // Vector para almacenar las cartas del crupier
-		
+	*/	
 	public:
 	
 		// Constructor
-		Crupier(long _dinero_total_crupier, Mazo& _mazo_crupier); 
+		Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier); 
 		
 		//funciones
-		void obtener_mano(); // El crupier obtiene una mano inicial de 2 cartas
-		void obtener_carta(); // El crupier obtiene una carta del mazo	
-		bool plantarse();
+		//void obtener_mano(); // El crupier obtiene una mano inicial de 2 cartas
+		//void obtener_carta(); // El crupier obtiene una carta del mazo	
+		//bool plantarse();
 		void mostrar_mano_parcial();
-		void mostrar_mano_completa();
-		int contar_cartas();
-		bool verificar_blackjack();
+		//void mostrar_mano_completa();
+		//int contar_cartas();
+		//bool verificar_blackjack();
 		void determinar_ganador(Jugador& jugador);
-        void apostar(long _apuesta);
+		void apostar(Jugador& jugador);
+		void jugar_turno(Mazo& mazo);
+        //void apostar(long _apuesta);
 		//getter
-		int get_valor_mano_crupier(){return valor_mano_crupier;}
+		//int get_valor_mano_crupier(){return valor_mano_crupier;}
 		
 		//setter
-		long set_dinero_crupier(long _cantidad_depositar);
+		//long set_dinero_crupier(long _cantidad_depositar);
 
 		//reiniciar mano
-		void reiniciar_mano();
+		//void reiniciar_mano();
 
 };
 

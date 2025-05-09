@@ -21,40 +21,46 @@
 */
 #include "Crupier.h"
 #include <iostream>
+#include <string>
+#include <vector>
+#include "Jugador.h"
+#include "Controlador.h"
 using namespace std;
 
-Crupier::Crupier(long _dinero_total_crupier, Mazo& _mazo_crupier): mazo_crupier(_mazo_crupier)  // Inicializa el mazo de cartas
+Crupier::Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier): Controlador(_nombre, _dinero), mazo_crupier(_mazo_crupier) // Inicializa el mazo de cartas
 {
-	dinero_total_crupier = _dinero_total_crupier; //representaria el dinero total de la casa
-	apuesta_crupier = 0;
-	valor_mano_crupier = 0;
-	mano_crupier.clear();
+	dinero_total = _dinero; //representaria el dinero total de la casa
+	apuesta = 0;
+	valor_mano= 0;
+	mano.clear();
+	se_planta = false;
 }
 
-
+/*
 void Crupier::obtener_mano()
 {
 	for (int i = 0; i < 2; i++)
 	{
 		Carta carta = mazo_crupier.get_carta();
-		mano_crupier.push_back(carta);
+		mano.push_back(carta);
 	}
-	if(mano_crupier[0].get_rank_carta()=="A" && mano_crupier[1].get_rank_carta() != "A"){
-		valor_mano_crupier += 11 + mano_crupier[1].get_valor_carta();
+	if(mano[0].get_rank_carta()=="A" && mano[1].get_rank_carta() != "A"){
+		valor_mano += 11 + mano[1].get_valor_carta();
 	}
-	else if (mano_crupier[1].get_rank_carta()=="A" && mano_crupier[0].get_rank_carta() != "A"){
-		valor_mano_crupier += 11+mano_crupier[0].get_valor_carta();
+	else if (mano[1].get_rank_carta()=="A" && mano[0].get_rank_carta() != "A"){
+		valor_mano += 11+mano[0].get_valor_carta();
 
 	}
-	else if (mano_crupier[0].get_rank_carta() == "A" && mano_crupier[1].get_rank_carta() == "A" ) {
-		valor_mano_crupier += 1+mano_crupier[1].get_valor_carta();
+	else if (mano[0].get_rank_carta() == "A" && mano[1].get_rank_carta() == "A" ) {
+		valor_mano += 1+mano[1].get_valor_carta();
 	}
 	else{
-		valor_mano_crupier += mano_crupier[0].get_valor_carta() + mano_crupier[1].get_valor_carta();
+		valor_mano+= mano[0].get_valor_carta() + mano[1].get_valor_carta();
 	}
 }
-	
+*/	
 
+/*
 void Crupier::obtener_carta(){
 	Carta carta = mazo_crupier.get_carta();
 	
@@ -82,12 +88,13 @@ bool Crupier::plantarse()
 		return true; // El crupier se planta
 	}
 }
+*/
 
 void Crupier::mostrar_mano_parcial()
 {
-	if(mano_crupier.size() == 2)
+	if(mano.size() == 2)
 	{
-		mano_crupier[0].display();// Muestra la primera carta del crupier
+		mano[0].display();// Muestra la primera carta del crupier
 		cout << endl;
 		cout << "Carta oculta del crupier." << endl; // Muestra la segunda carta como oculta
 	}
@@ -97,6 +104,7 @@ void Crupier::mostrar_mano_parcial()
 	
 }
 
+/*
 void Crupier::mostrar_mano_completa()
 {
 	if(mano_crupier.size() > 0)
@@ -134,75 +142,76 @@ bool Crupier::verificar_blackjack()
 	return false; // El crupier no tiene blackjack
 }
 
+*/
 void Crupier::determinar_ganador(Jugador &jugador)
 {
-	int valor_mano_jugador = jugador.get_valor_mano_jugador(); // Calcular el valor de la mano del jugador
+	int valor_mano_jugador = jugador.get_valor_mano(); // Calcular el valor de la mano del jugador
 	
 	//caso 1: El crupier se pasa y el jugador no
-	if (valor_mano_crupier > 21 && valor_mano_jugador<=21) 
+	if (valor_mano > 21 && valor_mano_jugador<=21) 
 	{
 		if(jugador.verificar_blackjack()) // Verifica si el jugador tiene blackjack
 		{
 			cout << "El jugador tiene blackjack. El jugador gana." << endl;
-			jugador.set_dinero(jugador.get_apuesta_jugador() + jugador.get_apuesta_jugador() * 1.5); //Al jugador se le devuelven su apuesta y se le da el valor de su apuesta por 1.5.
+			jugador.set_dinero(jugador.get_apuesta() + jugador.get_apuesta() * 1.5); //Al jugador se le devuelven su apuesta y se le da el valor de su apuesta por 1.5.
 			//Este es el famoso 3 a 2, que es el pago del blackjack.
 		}
 		else 
 		{
 			cout << "El crupier se ha pasado. El jugador gana." << endl;
-			jugador.set_dinero(2*jugador.get_apuesta_jugador()); // El jugador gana su apuesta (1:1)
+			jugador.set_dinero(2*jugador.get_apuesta()); // El jugador gana su apuesta (1:1)
 		}
 	} 
 	
 	//caso 2: El jugador se pasa y el crupier no
-	else if (valor_mano_jugador > 21 && valor_mano_crupier <= 21) 
+	else if (valor_mano_jugador > 21 && valor_mano <= 21) 
 	{
 		cout << "El jugador se ha pasado. El Crupier gana." << endl;
-		set_dinero_crupier(apuesta_crupier + jugador.get_apuesta_jugador()); // El crupier gana su apuesta. La casa gana 1:1
+		set_dinero(apuesta + jugador.get_apuesta()); // El crupier gana su apuesta. La casa gana 1:1
 			
 	} 
 	
 	//caso 3: ambos se pasan de 21
-	else if ((valor_mano_crupier > 21 && valor_mano_jugador > 21)) 
+	else if ((valor_mano > 21 && valor_mano > 21)) 
 	{
 		cout << "Ambos se han pasado de 21. Tenemos un empate." << endl;
-		jugador.set_dinero(jugador.get_apuesta_jugador()); // El jugador recupera su apuesta
+		jugador.set_dinero(jugador.get_apuesta()); // El jugador recupera su apuesta
 	}
 	//caso 4: ambos tienen blackjack
-	else if (valor_mano_crupier == 21 && valor_mano_jugador == 21) 
+	else if (valor_mano == 21 && valor_mano_jugador == 21) 
 	{
 		cout << "Ambos tienen blackjack. Tenemos un empate." << endl;
-        jugador.set_dinero(jugador.get_apuesta_jugador()); // El jugador recupera su apuesta
+        jugador.set_dinero(jugador.get_apuesta()); // El jugador recupera su apuesta
 	}
 	// caso 5 el crupier y jugador sacan el mismo puntaje 
-	else if((valor_mano_crupier == valor_mano_jugador)){
+	else if((valor_mano == valor_mano_jugador)){
 		cout<< "Ambos sacaron el mismo puntaje. Tenemos un empate." << endl;
-		jugador.set_dinero(jugador.get_apuesta_jugador()); // El jugador recupera su apuesta
+		jugador.set_dinero(jugador.get_apuesta()); // El jugador recupera su apuesta
 
 	} //caso 5: el crupier es mayor que el jugador y  el crupies es menor o igual que 21
-	else if (valor_mano_crupier > valor_mano_jugador && valor_mano_crupier <= 21) 
+	else if (valor_mano > valor_mano_jugador && valor_mano <= 21) 
 	{
 		cout << "El Crupier gana." << endl;
-		set_dinero_crupier(apuesta_crupier+jugador.get_apuesta_jugador()); // al crupier se le devuelve su apuesta "implicita" y se le suma la apuesta del jugador.
+		set_dinero(apuesta+jugador.get_apuesta()); // al crupier se le devuelve su apuesta "implicita" y se le suma la apuesta del jugador.
 	} 
 	// caso 6: el jugador es mayor que el crupier y el jugador es menor o igual que 21
-	else if(valor_mano_jugador > valor_mano_crupier && valor_mano_jugador <= 21)
+	else if(valor_mano_jugador > valor_mano && valor_mano_jugador <= 21)
 	{
 		if(jugador.verificar_blackjack()) // Verifica si el jugador tiene blackjack
 		{
 			cout << "El jugador tiene blackjack. El jugador gana." << endl;
-			jugador.set_dinero(jugador.get_apuesta_jugador()+ jugador.get_apuesta_jugador()* 1.5); //EL jugador gana 1.5 veces su apuesta.
+			jugador.set_dinero(jugador.get_apuesta()+ jugador.get_apuesta()* 1.5); //EL jugador gana 1.5 veces su apuesta.
 		}
 		else 
 		{
 			cout << "El Jugador gana." << endl;
-			jugador.set_dinero(jugador.get_apuesta_jugador()+jugador.get_apuesta_jugador()); // El crupier gana su apuesta (1:1)
+			jugador.set_dinero(jugador.get_apuesta()+jugador.get_apuesta()); // El crupier gana su apuesta (1:1)
 		}
 	} 	
 }
 
 //setter
-
+/*
 long Crupier::set_dinero_crupier(const long _cantidad_depositar){
 	dinero_total_crupier += _cantidad_depositar;
 	return dinero_total_crupier;
@@ -215,9 +224,21 @@ void Crupier::reiniciar_mano()
 	valor_mano_crupier = 0; // Reinicia el valor de la mano del crupier
     apuesta_crupier = 0; // Reinicia la apuesta del crupier
 }	
-
-void Crupier::apostar(long _apuesta) {
-	apuesta_crupier = _apuesta;
-	dinero_total_crupier -= apuesta_crupier;
+*/
+void Crupier::apostar(Jugador& jugador) {
+	apuesta = jugador.get_apuesta();
+	dinero_total -= apuesta;
 
 }
+void Crupier::jugar_turno(Mazo& mazo){
+	while(valor_mano < 17) // El crupier pide cartas hasta que su mano sea 17 o más
+			{
+				cout<<"---------------------------------------------------"<<endl;
+				cout << "El crupier pide otra carta." << endl;
+				pedir_carta(mazo); // El crupier obtiene una carta del mazo
+				mostrar_mano();
+				cout << "Valor de la mano del crupier: " << get_valor_mano() << endl; 
+			}
+	plantarse();
+}
+

@@ -19,20 +19,19 @@
 	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co - david.grueso@correounivalle.edu.co]
 	Fecha: Abril 2025
   */
-#ifndef JUGADOR__H
-#define JUGADOR__H
+#ifndef CONTROLADOR_H
+#define CONTROLADOR_H
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 #include "Carta.h"
 #include "Mazo.h"
-#include "Controlador.h"
 
-class Jugador : public Controlador{
+
+class Controlador{
 	private:
 	protected:
-	/*
 		string nombre;
 		long dinero_total;
 		long apuesta;
@@ -40,17 +39,19 @@ class Jugador : public Controlador{
 		vector<Carta> mano; // Vector para almacenar las cartas del jugador
 		bool esta_jugando; // true si el jugador sigue en juego, false si se ha retirado
 		bool se_planta; // true si el jugador se planta, false si sigue pidiendo cartas
-	*/
-		public:
-	Jugador(const string& _nombre, int _dinero);
-		/*
+	public:
+		Controlador(const string& _nombre, int _dinero);
+        virtual ~Controlador();
 		//estado del jugador        
 		bool iniciar_partida();
 		bool terminar_partida();
 		string get_nombre(){return nombre;};
 	
 		//acciones
-		void pedir_carta(Mazo &mazo);
+		virtual void apostar(long _apuesta);
+        virtual void jugar_turno(); // lo que busco con este metodo es automatizar lo de pedir carta o plantarse, para que no se anecesario poner mucho codigo en el main
+		// la idea es que este metodo este en un bucle, en el que se jugara el turno del grupier o jugador hasta que se plante, cuando se plante entonces sale del bucle
+        void pedir_carta(Mazo &mazo);
 		void pedir_mano(Mazo& mazo);
 		bool plantarse();
 		void mostrar_mano();
@@ -74,11 +75,7 @@ class Jugador : public Controlador{
 
 		//reiniciar mano
 		void reiniciar_mano();
-		*/
-		long get_dinero() { return dinero_total; }
-		void apostar(long _apuesta);
-		void jugar_turno(Mazo& mazo);
 };
 
 
-#endif // JUGADOR__H
+#endif // CONTROLADOR_H

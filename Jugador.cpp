@@ -28,22 +28,23 @@
 #include "Carta.h"
 using namespace std;
 
-Jugador::Jugador(const string& _nombre, int _dinero) {
+Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre, _dinero){
 	nombre = _nombre;
-	dinero_total_jugador = _dinero;
-	apuesta_jugador = 0;
-	valor_mano_jugador = 0;
-	estado_jugador = true; // El jugador inicia en juego
+	dinero_total = _dinero;
+	apuesta = 0;
+	valor_mano= 0;
+	esta_jugando = true; // El jugador inicia en juego
+	se_planta = false;
 }
-
+/*
 bool Jugador::iniciar_partida(){
-	estado_jugador = true;
-	return estado_jugador;
+	esta_jugando = true;
+	return esta_jugando;
 }
 
 bool Jugador::terminar_partida(){
-	estado_jugador = false;
-	return estado_jugador;
+	esta_jugando = false;
+	return esta_jugando;
 }
 
 //acciones
@@ -54,17 +55,17 @@ void Jugador::pedir_mano(Mazo& mazo){
 		mano.push_back(carta);
 	}
 	if(mano[0].get_rank_carta()=="A" && mano[1].get_rank_carta() != "A"){
-		valor_mano_jugador += 11 + mano[1].get_valor_carta();
+		valor_mano += 11 + mano[1].get_valor_carta();
 	}
 	else if (mano[1].get_rank_carta()=="A" && mano[0].get_rank_carta() != "A"){
-		valor_mano_jugador += 11+mano[0].get_valor_carta();
+		valor_mano += 11+mano[0].get_valor_carta();
 
 	}
 	else if (mano[0].get_rank_carta() == "A" && mano[1].get_rank_carta() == "A" ) {
-		valor_mano_jugador += 1+mano[1].get_valor_carta();
+		valor_mano += 1+mano[1].get_valor_carta();
 	}
 	else{
-		valor_mano_jugador += mano[0].get_valor_carta() + mano[1].get_valor_carta();
+		valor_mano += mano[0].get_valor_carta() + mano[1].get_valor_carta();
 	}
 	
 	
@@ -72,20 +73,21 @@ void Jugador::pedir_mano(Mazo& mazo){
 
 void Jugador::pedir_carta(Mazo &mazo) {
 	Carta carta = mazo.get_carta();
-	if(carta.get_rank_carta()== "A" && valor_mano_jugador+11 < 21){
-		valor_mano_jugador += 11;
+	if(carta.get_rank_carta()== "A" && valor_mano+11 < 21){
+		valor_mano += 11;
 	}
-	else if (carta.get_rank_carta()== "A" && valor_mano_jugador+11 > 21) {
-		valor_mano_jugador +=1;
+	else if (carta.get_rank_carta()== "A" && valor_mano+11 > 21) {
+		valor_mano +=1;
 	}
 	else{
-		valor_mano_jugador += carta.get_valor_carta();
+		valor_mano += carta.get_valor_carta();
 	}
 	mano.push_back(carta);
 }
 
 bool Jugador::plantarse(){
-	return true;
+	se_planta = true; // El jugador se planta
+	return se_planta;
 }
 
 void Jugador::mostrar_mano(){
@@ -107,20 +109,24 @@ int Jugador::contar_cartas() {
 	return total;
 	
 }
+*/
 
 void Jugador::apostar(long _apuesta) {
-	apuesta_jugador = _apuesta;
-	dinero_total_jugador -= apuesta_jugador;
+	apuesta = _apuesta;
+	dinero_total -= apuesta; // Resta la apuesta del dinero total del jugador
 }
-
+/*
 //setter
+
 long Jugador::set_dinero (const long _cantidad_depositar){
-	dinero_total_jugador += _cantidad_depositar;
-	return dinero_total_jugador;
+	dinero_total+= _cantidad_depositar;
+	return dinero_total;
 }
+	
+
 
 //getter
-/*
+
 int Jugador::calcular_valor_mano_jugador(){
 
 	for (size_t i = 0; i < mano.size(); i++)
@@ -140,11 +146,11 @@ int Jugador::calcular_valor_mano_jugador(){
 	}
 	return valor_mano_jugador;
 }
-*/
+
 
 //verificacion blackjack
 bool Jugador::verificar_blackjack() {
-	if (mano.size() == 2 && valor_mano_jugador == 21) {
+	if (mano.size() == 2 && valor_mano == 21) {
 		
 		//lo comento porque probablemente no sea lo mejor, modificar todo el dinero total del jugador en esta funcion
 		//dinero_total += apuesta * 1.5; // El jugador gana 1.5 veces su apuesta
@@ -156,7 +162,56 @@ bool Jugador::verificar_blackjack() {
 
 void Jugador::reiniciar_mano() {
 	mano.clear(); // Limpia el vector de cartas del jugador
-	valor_mano_jugador = 0; // Reinicia el valor de la mano
-    apuesta_jugador = 0; // Reinicia la apuesta del jugador
+	valor_mano = 0; // Reinicia el valor de la mano
+    apuesta = 0; // Reinicia la apuesta del jugador
 }
 
+*/
+
+void Jugador::jugar_turno(Mazo& mazo){
+
+	while (se_planta == false)
+			{
+				string opc_jugador;
+				cout<< "Acciones disponibles: " << endl;
+				cout<< "1. Pedir carta" << endl;
+				cout<< "2. Plantarse" << endl;
+				cout<< "3. Ver mano" << endl;
+				cout<< "4. Ver el valor de la mano" << endl;
+				cin >> opc_jugador;
+				if (opc_jugador == "1")
+				{
+					pedir_carta(mazo); // El jugador pide otra carta
+					mostrar_mano(); // Muestra la mano del jugador
+					cout << "Valor de la mano del jugador "<< get_nombre()<< ":" << get_valor_mano() << endl; // Muestra el valor de la mano del jugador
+					cout << endl;
+					if(get_valor_mano() >= 21){
+						if(get_valor_mano() > 21) {
+							cout << "¡Te has pasado de 21! Fin de tu turno." << endl;
+						} else {
+							cout << "¡Tienes 21! Fin de tu turno." << endl;
+						}
+						plantarse(); // Cambia el controlador a false para salir del bucle
+					}
+				}
+				else if (opc_jugador == "2")
+				{
+					plantarse(); // El jugador se planta
+				}
+				else if (opc_jugador == "3")
+				{
+					mostrar_mano(); // Muestra la mano del jugador
+				}
+				else if (opc_jugador == "4")
+				{
+					cout << "Valor de la mano del jugador " << nombre<< ":" << valor_mano << endl; // Muestra el valor de la mano del jugador
+				}
+				else{
+					cout<< "Opción inválida. Por favor, ingrese una opción válida."<<endl;
+				
+
+
+
+			}
+		}
+}
