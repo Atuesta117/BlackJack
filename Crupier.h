@@ -54,9 +54,9 @@ class Crupier : public Controlador
 		//void mostrar_mano_completa();
 		//int contar_cartas();
 		//bool verificar_blackjack();
-		void determinar_ganador(Jugador& jugador);
-		void apostar(Jugador& jugador);
-		void jugar_turno(Mazo& mazo);
+		void determinar_ganador(Jugador* jugador);
+		void apostar(long _apuesta)override;
+		void jugar_turno(Mazo& mazo)override;
         //void apostar(long _apuesta);
 		//getter
 		//int get_valor_mano_crupier(){return valor_mano_crupier;}

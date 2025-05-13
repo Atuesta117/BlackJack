@@ -146,69 +146,69 @@ bool Crupier::verificar_blackjack()
 }
 
 */
-void Crupier::determinar_ganador(Jugador &jugador)
+void Crupier::determinar_ganador(Jugador* jugador)
 {
-	int valor_mano_jugador = jugador.get_valor_mano(); // Calcular el valor de la mano del jugador
+	int valor_mano_jugador = jugador->get_valor_mano(); // Calcular el valor de la mano del jugador
 	
 	//caso 1: El crupier se pasa y el jugador no
 	if (this->valor_mano > 21 && valor_mano_jugador<=21) 
 	{
-		if(jugador.verificar_blackjack()) // Verifica si el jugador tiene blackjack
+		if(jugador->verificar_blackjack()) // Verifica si el jugador tiene blackjack
 		{
 			cout << "El jugador tiene blackjack. El jugador gana." << endl;
-			jugador.set_dinero(jugador.get_apuesta() + jugador.get_apuesta() * 1.5); //Al jugador se le devuelven su apuesta y se le da el valor de su apuesta por 1.5.
+			jugador->set_dinero(jugador->get_apuesta() + jugador->get_apuesta() * 1.5); //Al jugador se le devuelven su apuesta y se le da el valor de su apuesta por 1.5.
 			//Este es el famoso 3 a 2, que es el pago del blackjack.
 		}
 		else 
 		{
 			cout << "El crupier se ha pasado. El jugador gana." << endl;
-			jugador.set_dinero(2*jugador.get_apuesta()); // El jugador gana su apuesta (1:1)
+			jugador->set_dinero(2*jugador->get_apuesta()); // El jugador gana su apuesta (1:1)
 		}
 	} 
 	
 	//caso 2: El jugador se pasa y el crupier no
-	else if (valor_mano_jugador > 21 && valor_mano <= 21) 
+	else if (valor_mano_jugador > 21 && this->valor_mano <= 21) 
 	{
 		cout << "El jugador se ha pasado. El Crupier gana." << endl;
-		set_dinero(apuesta + jugador.get_apuesta()); // El crupier gana su apuesta. La casa gana 1:1
+		set_dinero(apuesta + jugador->get_apuesta()); // El crupier gana su apuesta. La casa gana 1:1
 			
 	} 
 	
 	//caso 3: ambos se pasan de 21
-	else if ((valor_mano > 21 && valor_mano > 21)) 
+	else if ((this->valor_mano > 21 && this->valor_mano > 21)) 
 	{
 		cout << "Ambos se han pasado de 21. Tenemos un empate." << endl;
-		jugador.set_dinero(jugador.get_apuesta()); // El jugador recupera su apuesta
+		jugador->set_dinero(jugador->get_apuesta()); // El jugador recupera su apuesta
 	}
 	//caso 4: ambos tienen blackjack
-	else if (valor_mano == 21 && valor_mano_jugador == 21) 
+	else if (this->valor_mano == 21 && valor_mano_jugador == 21) 
 	{
 		cout << "Ambos tienen blackjack. Tenemos un empate." << endl;
-        jugador.set_dinero(jugador.get_apuesta()); // El jugador recupera su apuesta
+        jugador->set_dinero(jugador->get_apuesta()); // El jugador recupera su apuesta
 	}
 	// caso 5 el crupier y jugador sacan el mismo puntaje 
-	else if((valor_mano == valor_mano_jugador)){
+	else if((this->valor_mano == valor_mano_jugador)){
 		cout<< "Ambos sacaron el mismo puntaje. Tenemos un empate." << endl;
-		jugador.set_dinero(jugador.get_apuesta()); // El jugador recupera su apuesta
+		jugador->set_dinero(jugador->get_apuesta()); // El jugador recupera su apuesta
 
 	} //caso 5: el crupier es mayor que el jugador y  el crupies es menor o igual que 21
-	else if (valor_mano > valor_mano_jugador && valor_mano <= 21) 
+	else if (this->valor_mano > valor_mano_jugador && this->valor_mano <= 21) 
 	{
 		cout << "El Crupier gana." << endl;
-		set_dinero(apuesta+jugador.get_apuesta()); // al crupier se le devuelve su apuesta "implicita" y se le suma la apuesta del jugador.
+		set_dinero(apuesta+jugador->get_apuesta()); // al crupier se le devuelve su apuesta "implicita" y se le suma la apuesta del jugador.
 	} 
 	// caso 6: el jugador es mayor que el crupier y el jugador es menor o igual que 21
-	else if(valor_mano_jugador > valor_mano && valor_mano_jugador <= 21)
+	else if(valor_mano_jugador > this->valor_mano && valor_mano_jugador <= 21)
 	{
-		if(jugador.verificar_blackjack()) // Verifica si el jugador tiene blackjack
+		if(jugador->verificar_blackjack()) // Verifica si el jugador tiene blackjack
 		{
 			cout << "El jugador tiene blackjack. El jugador gana." << endl;
-			jugador.set_dinero(jugador.get_apuesta()+ jugador.get_apuesta()* 1.5); //EL jugador gana 1.5 veces su apuesta.
+			jugador->set_dinero(jugador->get_apuesta()+ jugador->get_apuesta()* 1.5); //EL jugador gana 1.5 veces su apuesta.
 		}
 		else 
 		{
 			cout << "El Jugador gana." << endl;
-			jugador.set_dinero(jugador.get_apuesta()+jugador.get_apuesta()); // El crupier gana su apuesta (1:1)
+			jugador->set_dinero(jugador->get_apuesta()+jugador->get_apuesta()); // El crupier gana su apuesta (1:1)
 		}
 	} 	
 }
@@ -224,10 +224,8 @@ long Crupier::set_dinero_crupier(const long _cantidad_depositar){
     apuesta_crupier = 0; // Reinicia la apuesta del crupier
 }	
 */
-void Crupier::apostar(Jugador& jugador) {
-	apuesta = jugador.get_apuesta();
-	this->dinero_total -= apuesta; // Inicializa la mano del crupierCrupier::jugar_turno(Mazo& mazo){
-	while(valor_mano < 17) // El crupier pide cartas hasta que su mano sea 17 o más
+void Crupier::jugar_turno(Mazo& mazo) {
+	while(this->valor_mano < 17) // El crupier pide cartas hasta que su mano sea 17 o más
 			{
 				cout<<"---------------------------------------------------"<<endl;
 				cout << "El crupier pide otra carta." << endl;
@@ -238,3 +236,7 @@ void Crupier::apostar(Jugador& jugador) {
 	plantarse();
 }
 
+void Crupier::apostar(long _apuesta) {
+	this->apuesta = _apuesta;
+	this->dinero_total -= apuesta; // Resta la apuesta del dinero total del crupier
+}

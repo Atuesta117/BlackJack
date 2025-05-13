@@ -29,12 +29,12 @@
 using namespace std;
 
 Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre, _dinero){
-	nombre = _nombre;
-	dinero_total = _dinero;
-	apuesta = 0;
-	valor_mano= 0;
-	esta_jugando = true; // El jugador inicia en juego
-	se_planta = false;
+	this->nombre = _nombre;
+	this->dinero_total = _dinero;
+	this->apuesta = 0;
+	this->valor_mano= 0;
+	this->esta_jugando = true; // El jugador inicia en juego
+	this->se_planta = false;
 }
 /*
 bool Jugador::iniciar_partida(){
@@ -112,8 +112,8 @@ int Jugador::contar_cartas() {
 */
 
 void Jugador::apostar(long _apuesta) {
-	apuesta = _apuesta;
-	dinero_total -= apuesta; // Resta la apuesta del dinero total del jugador
+	this->apuesta = _apuesta;
+	this->dinero_total -= this->apuesta; // Resta la apuesta del dinero total del jugador
 }
 /*
 //setter
@@ -204,7 +204,7 @@ void Jugador::jugar_turno(Mazo& mazo){
 				}
 				else if (opc_jugador == "4")
 				{
-					cout << "Valor de la mano del jugador " << nombre<< ":" << valor_mano << endl; // Muestra el valor de la mano del jugador
+					cout << "Valor de la mano del jugador " << this->nombre<< ":" << this->valor_mano << endl; // Muestra el valor de la mano del jugador
 				}
 				else{
 					cout<< "Opción inválida. Por favor, ingrese una opción válida."<<endl;

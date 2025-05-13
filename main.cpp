@@ -4,8 +4,9 @@
 #include "Mazo.h"
 #include "Jugador.h"
 #include "Crupier.h"
+#include "Controlador.h"
 using namespace std;
-
+// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp Controlador.cpp -o prog 
 int main()
 {
 	cout << "---------------------------------------------------" << endl;
@@ -18,15 +19,19 @@ int main()
 	cout << "Ingrese su nombre: ";
 	string nombre_jugador;
 	cin >> nombre_jugador;
-
-	Jugador jugador(nombre_jugador, 0);
 	Mazo mazo;
-	Crupier crupier("Crupier", 9999999999, mazo);
+	Controlador* jugador = new Jugador(nombre_jugador, 0);
+	Controlador* crupier = new Crupier("Crupier", 9999999999, mazo);
+	Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
+	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
+	//Jugador jugador(nombre_jugador, 0);
+	
+	//Crupier crupier("Crupier", 9999999999, mazo);
 
 	long dinero_jugador;
 	cout << "Ingrese el dinero total para jugar: ";
 	cin >> dinero_jugador;
-	jugador.set_dinero(dinero_jugador);
+	jugador_ptr->set_dinero(dinero_jugador);
 
 	do
 	{
@@ -44,67 +49,67 @@ int main()
 
 		if (opc_inicial == "1")
 		{
-			if (jugador.get_dinero() <= 0) {
+			if (jugador_ptr->get_dinero() <= 0) {
 				cout << "No tienes dinero suficiente para jugar. Por favor, ingresa dinero." << endl;
 				continue;
 			}
 
-			jugador.iniciar_partida();
+			jugador_ptr->iniciar_partida();
 			mazo.shuffle();
-			jugador.reiniciar_mano();
-			crupier.reiniciar_mano();
+			jugador_ptr->reiniciar_mano();
+			crupier_ptr->reiniciar_mano();
 
 			long apuesta_jugador1;
-			cout << "El dinero total del jugador es: " << jugador.get_dinero() << endl;
+			cout << "El dinero total del jugador es: " << jugador_ptr->get_dinero() << endl;
 			cout << "Ingrese la apuesta: ";
 			cin >> apuesta_jugador1;
 
-			while (apuesta_jugador1 > jugador.get_dinero()) {
+			while (apuesta_jugador1 > jugador_ptr->get_dinero()) {
 				cout << "La apuesta no puede ser mayor que el dinero total. Ingrese una apuesta válida: ";
 				cin >> apuesta_jugador1;
 			}
 
-			jugador.apostar(apuesta_jugador1);
-			crupier.apostar(jugador);
+			jugador_ptr->apostar(apuesta_jugador1);
+			crupier_ptr->apostar(jugador_ptr->get_apuesta());
 
 			cout << "---------------------------------------------------" << endl;
 			cout << "“En el juego de Blackjack, como en el juego de la vida, ganar es duro.\n"
 					"Requiere determinación, preparación y mucha transpiración.”" << endl;
 			cout << "---------------------------------------------------" << endl;
 
-			jugador.pedir_mano(mazo);
-			jugador.mostrar_mano();
-			cout << "Valor de la mano: " << jugador.get_valor_mano() << endl;
+			jugador_ptr->pedir_mano(mazo);
+			jugador_ptr->mostrar_mano();
+			cout << "Valor de la mano: " << jugador->get_valor_mano() << endl;
 
 			cout << endl << "Mano parcial del crupier: " << endl;
-			crupier.pedir_mano(mazo);
-			crupier.mostrar_mano_parcial();
+			crupier_ptr->pedir_mano(mazo);
+			crupier_ptr->mostrar_mano_parcial();
 
 			cout << endl;
-			jugador.jugar_turno(mazo);
+			jugador_ptr->jugar_turno(mazo);
 
 			cout << "---------------------------------------------------" << endl;
 			cout << "Turno Finalizado." << endl;
 
-			crupier.mostrar_mano();
-			cout << "Valor de la mano del crupier: " << crupier.get_valor_mano() << endl;
+			crupier_ptr->mostrar_mano();
+			cout << "Valor de la mano del crupier: " << crupier_ptr->get_valor_mano() << endl;
 
 			cout << "---------------------------------------------------" << endl;
-			crupier.jugar_turno(mazo);
+			crupier_ptr->jugar_turno(mazo);
 			cout << "---------------------------------------------------" << endl;
 			cout << "El crupier se planta." << endl;
-			crupier.mostrar_mano();
-			cout << "Valor de la mano del crupier: " << crupier.get_valor_mano() << endl;
+			crupier_ptr->mostrar_mano();
+			cout << "Valor de la mano del crupier: " << crupier_ptr->get_valor_mano() << endl;
 
 			cout << endl;
-			jugador.mostrar_mano();
-			cout << "Valor de la mano del jugador " << jugador.get_nombre() << ": " << jugador.get_valor_mano() << endl;
+			jugador_ptr->mostrar_mano();
+			cout << "Valor de la mano del jugador " << jugador_ptr->get_nombre() << ": " << jugador_ptr->get_valor_mano() << endl;
 
 			cout << endl;
-			crupier.determinar_ganador(jugador);
+			crupier_ptr->determinar_ganador(jugador_ptr);
 			cout << "---------------------------------------------------" << endl;
 			cout << "Fin de la partida." << endl;
-			cout << "El dinero total del jugador " << jugador.get_nombre() << ": " << jugador.get_dinero() << endl;
+			cout << "El dinero total del jugador " << jugador_ptr->get_nombre() << ": " << jugador_ptr->get_dinero() << endl;
 			cout << "---------------------------------------------------" << endl;
 		}
 		else if (opc_inicial == "2")
@@ -112,16 +117,16 @@ int main()
 			long dinero_ingresar;
 			cout << "Ingrese el dinero a ingresar: ";
 			cin >> dinero_ingresar;
-			jugador.set_dinero(dinero_ingresar);
-			cout << "El dinero total del jugador es: " << jugador.get_dinero() << endl;
+			jugador_ptr->set_dinero(dinero_ingresar);
+			cout << "El dinero total del jugador es: " << jugador_ptr->get_dinero() << endl;
 		}
 		else if (opc_inicial == "3")
 		{
-			cout << "Gracias por jugar! Su dinero total es: " << jugador.get_dinero() << endl;
-			jugador.terminar_partida();
+			cout << "Gracias por jugar! Su dinero total es: " << jugador_ptr->get_dinero() << endl;
+			jugador_ptr->terminar_partida();
 		}
 
-	} while (jugador.get_esta_jugando());
+	} while (jugador_ptr->get_esta_jugando());
 
 	return 0;
 }

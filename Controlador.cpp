@@ -26,6 +26,8 @@
 #include "Controlador.h"
 #include "Mazo.h"
 #include "Carta.h"
+#include "Jugador.h"
+#include "Crupier.h"
 using namespace std;
 
 Controlador::Controlador(const string& _nombre, int _dinero) {
@@ -113,7 +115,7 @@ int Controlador::contar_cartas() {
 }
 
 void Controlador::apostar(long _apuesta) {
-	apuesta = _apuesta;
+	this->apuesta = _apuesta;
 	this->dinero_total -= apuesta; // Resta la apuesta del dinero total del Controlador
 }
 
@@ -167,6 +169,6 @@ void Controlador::reiniciar_mano() {
     apuesta = 0; // Reinicia la apuesta del Controlador
 }
 
-void Controlador::jugar_turno(){
+void Controlador::jugar_turno(Mazo& mazo){
     cout << "Easter egg, este metodo en esta clase realmente no se va a usar";
 }
