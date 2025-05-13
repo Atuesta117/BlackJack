@@ -29,21 +29,23 @@
 using namespace std;
 
 Controlador::Controlador(const string& _nombre, int _dinero) {
-	nombre = _nombre;
-	dinero_total = _dinero;
-	apuesta = 0;
-	valor_mano= 0;
-	esta_jugando = true; // El Controlador inicia en juego
+	this->nombre = _nombre;
+	this->dinero_total = _dinero;
+	this->apuesta = 0;
+	this->valor_mano= 0;
+	this->esta_jugando = false; // El Controlador inicia en juego
+	this->se_planta = false; // El Controlador no se ha plantado al inicio
+	this->mano.clear(); // Inicializa la mano del Controlador
 }
 Controlador::~Controlador(){}
 
 bool Controlador::iniciar_partida(){
-	esta_jugando = true;
+	this->esta_jugando = true;
 	return esta_jugando;
 }
 
 bool Controlador::terminar_partida(){
-	esta_jugando = false;
+	this->esta_jugando = false;
 	return esta_jugando;
 }
 
@@ -112,14 +114,14 @@ int Controlador::contar_cartas() {
 
 void Controlador::apostar(long _apuesta) {
 	apuesta = _apuesta;
-	dinero_total -= apuesta; // Resta la apuesta del dinero total del Controlador
+	this->dinero_total -= apuesta; // Resta la apuesta del dinero total del Controlador
 }
 
 //setter
 
 long Controlador::set_dinero (const long _cantidad_depositar){
-	dinero_total+= _cantidad_depositar;
-	return dinero_total;
+	this->dinero_total+= _cantidad_depositar;
+	return this->dinero_total;
 }
 	
 
@@ -152,7 +154,7 @@ bool Controlador::verificar_blackjack() {
 	if (mano.size() == 2 && valor_mano == 21) {
 		
 		//lo comento porque probablemente no sea lo mejor, modificar todo el dinero total del Controlador en esta funcion
-		//dinero_total += apuesta * 1.5; // El Controlador gana 1.5 veces su apuesta
+		//this->dinero_total += apuesta * 1.5; // El Controlador gana 1.5 veces su apuesta
 		//apuesta = 0; // Se restablece la apuesta
 		return true; // El Controlador tiene blackjack
 	}

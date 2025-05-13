@@ -27,13 +27,16 @@
 #include "Controlador.h"
 using namespace std;
 
-Crupier::Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier): Controlador(_nombre, _dinero), mazo_crupier(_mazo_crupier) // Inicializa el mazo de cartas
+Crupier::Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier): Controlador(_nombre, _dinero), mazo(_mazo_crupier) // Inicializa el mazo de cartas
 {
-	dinero_total = _dinero; //representaria el dinero total de la casa
-	apuesta = 0;
-	valor_mano= 0;
-	mano.clear();
-	se_planta = false;
+	this-> nombre = "Crupier";
+	this->dinero_total = _dinero; //representaria el dinero total de la casa
+	this->apuesta = 0;
+	this->valor_mano= 0;
+	this->mano.clear(); // Inicializa la mano del crupier
+	this->se_planta = false;
+	this->esta_jugando = false; // El crupier no está jugando al inicio
+	this->mazo.shuffle(); // Baraja el mazo de cartas al inicio
 }
 
 /*
@@ -92,9 +95,9 @@ bool Crupier::plantarse()
 
 void Crupier::mostrar_mano_parcial()
 {
-	if(mano.size() == 2)
+	if(this->mano.size() == 2)
 	{
-		mano[0].display();// Muestra la primera carta del crupier
+		this->mano[0].display();// Muestra la primera carta del crupier
 		cout << endl;
 		cout << "Carta oculta del crupier." << endl; // Muestra la segunda carta como oculta
 	}
@@ -148,7 +151,7 @@ void Crupier::determinar_ganador(Jugador &jugador)
 	int valor_mano_jugador = jugador.get_valor_mano(); // Calcular el valor de la mano del jugador
 	
 	//caso 1: El crupier se pasa y el jugador no
-	if (valor_mano > 21 && valor_mano_jugador<=21) 
+	if (this->valor_mano > 21 && valor_mano_jugador<=21) 
 	{
 		if(jugador.verificar_blackjack()) // Verifica si el jugador tiene blackjack
 		{
@@ -213,12 +216,8 @@ void Crupier::determinar_ganador(Jugador &jugador)
 //setter
 /*
 long Crupier::set_dinero_crupier(const long _cantidad_depositar){
-	dinero_total_crupier += _cantidad_depositar;
-	return dinero_total_crupier;
-}
-
-
-void Crupier::reiniciar_mano()
+	this->dinero_total_crupier += _cantidad_depositar;
+	this->return this->dinero_total_crupithis->ethis->this->mano.clear(); // Inicializa la mano del crupierCrupier::reiniciar_mano()
 {
 	mano_crupier.clear(); // Limpia la mano del crupier
 	valor_mano_crupier = 0; // Reinicia el valor de la mano del crupier
@@ -227,15 +226,12 @@ void Crupier::reiniciar_mano()
 */
 void Crupier::apostar(Jugador& jugador) {
 	apuesta = jugador.get_apuesta();
-	dinero_total -= apuesta;
-
-}
-void Crupier::jugar_turno(Mazo& mazo){
+	this->dinero_total -= apuesta; // Inicializa la mano del crupierCrupier::jugar_turno(Mazo& mazo){
 	while(valor_mano < 17) // El crupier pide cartas hasta que su mano sea 17 o más
 			{
 				cout<<"---------------------------------------------------"<<endl;
 				cout << "El crupier pide otra carta." << endl;
-				pedir_carta(mazo); // El crupier obtiene una carta del mazo
+				pedir_carta(this->mazo); // El crupier obtiene una carta del mazo
 				mostrar_mano();
 				cout << "Valor de la mano del crupier: " << get_valor_mano() << endl; 
 			}

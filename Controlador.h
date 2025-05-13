@@ -48,8 +48,8 @@ class Controlador{
 		string get_nombre(){return nombre;};
 	
 		//acciones
-		virtual void apostar(long _apuesta);
-        virtual void jugar_turno(); // lo que busco con este metodo es automatizar lo de pedir carta o plantarse, para que no se anecesario poner mucho codigo en el main
+		virtual void apostar(long _apuesta)=0;
+        virtual void jugar_turno()=0; // lo que busco con este metodo es automatizar lo de pedir carta o plantarse, para que no se anecesario poner mucho codigo en el main
 		// la idea es que este metodo este en un bucle, en el que se jugara el turno del grupier o jugador hasta que se plante, cuando se plante entonces sale del bucle
         void pedir_carta(Mazo &mazo);
 		void pedir_mano(Mazo& mazo);

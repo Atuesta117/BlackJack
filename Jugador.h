@@ -72,12 +72,11 @@ class Jugador : public Controlador{
 		//verificacion blackjack
 		bool verificar_blackjack();
 
-		//reiniciar mano
 		void reiniciar_mano();
 		*/
 		long get_dinero() { return dinero_total; }
-		void apostar(long _apuesta);
-		void jugar_turno(Mazo& mazo);
+		void apostar (long _apuesta) override;
+		void jugar_turno(Mazo& mazo) ;
 };
 
 

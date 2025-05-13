@@ -34,7 +34,7 @@ class Crupier : public Controlador
 	private:
 
 		// Atributos
-		Mazo& mazo_crupier;
+		Mazo& mazo;
 	/*
 		long dinero_total_crupier;
 		long apuesta_crupier;
