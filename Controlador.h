@@ -54,7 +54,7 @@ class Controlador{
 		void pedir_carta(Mazo &mazo);
 		void pedir_mano(Mazo& mazo);
 		bool plantarse();
-		void mostrar_mano();
+		virtual void mostrar_mano()=0;
 		int contar_cartas();
 		//no es getter porque no devuelve un valor, sino que calcula el valor de la mano
 		//int calcular_valor_mano_jugador();
@@ -74,7 +74,7 @@ class Controlador{
 		bool verificar_blackjack();
 
 		//reiniciar mano
-		void reiniciar_mano();
+		void reiniciar_valores();
 };
 
 

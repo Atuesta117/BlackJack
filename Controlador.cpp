@@ -59,17 +59,17 @@ void Controlador::pedir_mano(Mazo& mazo){
 		mano.push_back(carta);
 	}
 	if(mano[0].get_rank_carta()=="A" && mano[1].get_rank_carta() != "A"){
-		valor_mano += 11 + mano[1].get_valor_carta();
+		this->valor_mano += 11 + mano[1].get_valor_carta();
 	}
 	else if (mano[1].get_rank_carta()=="A" && mano[0].get_rank_carta() != "A"){
-		valor_mano += 11+mano[0].get_valor_carta();
+		this->valor_mano += 11+mano[0].get_valor_carta();
 
 	}
 	else if (mano[0].get_rank_carta() == "A" && mano[1].get_rank_carta() == "A" ) {
-		valor_mano += 1+mano[1].get_valor_carta();
+		this->valor_mano += 1+mano[1].get_valor_carta();
 	}
 	else{
-		valor_mano += mano[0].get_valor_carta() + mano[1].get_valor_carta();
+		this->valor_mano += mano[0].get_valor_carta() + mano[1].get_valor_carta();
 	}
 	
 	
@@ -77,28 +77,28 @@ void Controlador::pedir_mano(Mazo& mazo){
 
 void Controlador::pedir_carta(Mazo &mazo) {
 	Carta carta = mazo.get_carta();
-	if(carta.get_rank_carta()== "A" && valor_mano+11 < 21){
-		valor_mano += 11;
+	if(carta.get_rank_carta()== "A" && this->valor_mano+11 < 21){
+		this->valor_mano += 11;
 	}
-	else if (carta.get_rank_carta()== "A" && valor_mano+11 > 21) {
-		valor_mano +=1;
+	else if (carta.get_rank_carta()== "A" && this->valor_mano+11 > 21) {
+		this->valor_mano +=1;
 	}
 	else{
-		valor_mano += carta.get_valor_carta();
+		this->valor_mano += carta.get_valor_carta();
 	}
-	mano.push_back(carta);
+	this->mano.push_back(carta);
 }
 
 bool Controlador::plantarse(){
-	se_planta = true; // El Controlador se planta
-	return se_planta;
+	this->se_planta = true; // El Controlador se planta
+	return this->se_planta;
 }
 
 void Controlador::mostrar_mano(){
-	cout << "Mano del Controlador: " << endl;
+	cout << "Mano del : " << endl;
 	for (size_t i = 0; i < mano.size(); i++)
 	{
-		mano[i].display();
+		this->mano[i].display();
 		cout<<endl;
 	}
 	
@@ -153,7 +153,7 @@ int Controlador::calcular_valor_mano_Controlador(){
 
 //verificacion blackjack
 bool Controlador::verificar_blackjack() {
-	if (mano.size() == 2 && valor_mano == 21) {
+	if (mano.size() == 2 && this->valor_mano == 21) {
 		
 		//lo comento porque probablemente no sea lo mejor, modificar todo el dinero total del Controlador en esta funcion
 		//this->dinero_total += apuesta * 1.5; // El Controlador gana 1.5 veces su apuesta
@@ -163,10 +163,12 @@ bool Controlador::verificar_blackjack() {
 	return false; // El Controlador no tiene blackjack
 }
 
-void Controlador::reiniciar_mano() {
-	mano.clear(); // Limpia el vector de cartas del Controlador
-	valor_mano = 0; // Reinicia el valor de la mano
-    apuesta = 0; // Reinicia la apuesta del Controlador
+void Controlador::reiniciar_valores() {
+	this->mano.clear(); // Limpia el vector de cartas del Controlador
+	this->valor_mano = 0; // Reinicia el valor de la mano
+    this->apuesta = 0; // Reinicia la apuesta del Controlador
+	this->se_planta = false; // Reinicia el estado de plantarse
+
 }
 
 void Controlador::jugar_turno(Mazo& mazo){

@@ -56,8 +56,8 @@ int main()
 
 			jugador_ptr->iniciar_partida();
 			mazo.shuffle();
-			jugador_ptr->reiniciar_mano();
-			crupier_ptr->reiniciar_mano();
+			jugador_ptr->reiniciar_valores();
+			crupier_ptr->reiniciar_valores();
 
 			long apuesta_jugador1;
 			cout << "El dinero total del jugador es: " << jugador_ptr->get_dinero() << endl;

@@ -169,6 +169,10 @@ void Jugador::reiniciar_mano() {
 */
 
 void Jugador::jugar_turno(Mazo& mazo){
+	if(verificar_blackjack()){
+		plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
+		cout << "¡Tienes blackjack! Fin de tu turno." << endl;
+	}
 
 	while (se_planta == false)
 			{
@@ -214,4 +218,14 @@ void Jugador::jugar_turno(Mazo& mazo){
 
 			}
 		}
+}
+
+void Jugador::mostrar_mano(){
+	cout << "Mano del jugador "<< this->nombre<<":" << endl;
+	for (size_t i = 0; i < mano.size(); i++)
+	{
+		mano[i].display();
+		cout<<endl;
+	}
+	
 }

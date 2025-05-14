@@ -240,3 +240,13 @@ void Crupier::apostar(long _apuesta) {
 	this->apuesta = _apuesta;
 	this->dinero_total -= apuesta; // Resta la apuesta del dinero total del crupier
 }
+
+void Crupier::mostrar_mano(){
+	cout << "Mano del crupier: " << endl;
+	for (size_t i = 0; i < mano.size(); i++)
+	{
+		mano[i].display();
+		cout<<endl;
+	}
+	
+}
