@@ -5,8 +5,15 @@
 #include "Jugador.h"
 #include "Crupier.h"
 #include "Controlador.h"
+#include "Interfaz.h"
 using namespace std;
-// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp Controlador.cpp -o prog 
+// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp Controlador.cpp Interfaz.cpp -o prog 
+/*
+Notas:
+EL programa deberia para si el jugador se pasa de 21 durante su jugada.
+Testear mejor el tema de las sumas
+
+*/
 int main()
 {
 	cout << "---------------------------------------------------" << endl;
@@ -24,6 +31,8 @@ int main()
 	Controlador* crupier = new Crupier("Crupier", 9999999999, mazo);
 	Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
 	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
+	Interfaz interfaz;
+
 	//Jugador jugador(nombre_jugador, 0);
 	
 	//Crupier crupier("Crupier", 9999999999, mazo);
@@ -79,14 +88,16 @@ int main()
 
 			jugador_ptr->pedir_mano(mazo);
 			jugador_ptr->mostrar_mano();
+			interfaz.mostrar_mano(jugador_ptr);
 			cout << "Valor de la mano: " << jugador->get_valor_mano() << endl;
 
 			cout << endl << "Mano parcial del crupier: " << endl;
 			crupier_ptr->pedir_mano(mazo);
 			crupier_ptr->mostrar_mano_parcial();
+			interfaz.mostrar_mano_parcial(crupier_ptr);
 
 			cout << endl;
-			jugador_ptr->jugar_turno(mazo);
+			interfaz.interfaz_turno_jugador(jugador_ptr, mazo);
 
 			cout << "---------------------------------------------------" << endl;
 			cout << "Turno Finalizado." << endl;
@@ -103,6 +114,7 @@ int main()
 
 			cout << endl;
 			jugador_ptr->mostrar_mano();
+			interfaz.mostrar_mano(jugador_ptr);
 			cout << "Valor de la mano del jugador " << jugador_ptr->get_nombre() << ": " << jugador_ptr->get_valor_mano() << endl;
 
 			cout << endl;

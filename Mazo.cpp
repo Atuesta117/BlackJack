@@ -31,7 +31,7 @@ Mazo::Mazo() {
 }
 vector<Carta> Mazo::get_new_mazo() {
     vector<Carta> new_mazo;
-    string castas[] = {"Corazones", "Diamantes", "Tréboles", "Picas"};
+    string castas[] = {"♥", "♦", "♣", "♠"};
     string ranks[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     int valores[] = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 

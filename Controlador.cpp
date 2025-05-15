@@ -77,16 +77,16 @@ void Controlador::pedir_mano(Mazo& mazo){
 
 void Controlador::pedir_carta(Mazo &mazo) {
 	Carta carta = mazo.get_carta();
-	if(carta.get_rank_carta()== "A" && this->valor_mano+11 < 21){
-		this->valor_mano += 11;
+	if(carta.get_rank_carta()== "A" && valor_mano+11 < 21){
+		valor_mano += 11;
 	}
 	else if (carta.get_rank_carta()== "A" && this->valor_mano+11 > 21) {
-		this->valor_mano +=1;
+		valor_mano +=1;
 	}
 	else{
-		this->valor_mano += carta.get_valor_carta();
+		valor_mano += carta.get_valor_carta();
 	}
-	this->mano.push_back(carta);
+	mano.push_back(carta);
 }
 
 bool Controlador::plantarse(){

@@ -224,6 +224,8 @@ long Crupier::set_dinero_crupier(const long _cantidad_depositar){
     apuesta_crupier = 0; // Reinicia la apuesta del crupier
 }	
 */
+
+
 void Crupier::jugar_turno(Mazo& mazo) {
 	while(this->valor_mano < 17) // El crupier pide cartas hasta que su mano sea 17 o más
 			{

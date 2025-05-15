@@ -64,7 +64,8 @@ class Controlador{
 		bool get_esta_jugando() { return esta_jugando; }
 		//long get_dinero() { return dinero_total_jugador; } considero que esto es mas necesario para el jugador que par el crupier
 		int get_valor_mano(){return valor_mano;}
-		
+		vector<Carta> get_cartas() { return mano; } // Getter para obtener la mano del jugador
+		bool get_se_planta() { return se_planta; } // Getter para obtener el estado de plantarse
 		//setter
 		long set_dinero (long _cantidad_depositar);
 	
