@@ -26,6 +26,7 @@
 #include "Jugador.h"
 #include "Mazo.h"
 #include "Carta.h"
+#include "Interfaz.h"
 using namespace std;
 
 Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre, _dinero){
@@ -112,8 +113,12 @@ int Jugador::contar_cartas() {
 */
 
 void Jugador::apostar(long _apuesta) {
-	this->apuesta = _apuesta;
-	this->dinero_total -= this->apuesta; // Resta la apuesta del dinero total del jugador
+
+		this->apuesta = _apuesta;
+		this->dinero_total -= this->apuesta;
+	
+
+ // Resta la apuesta del dinero total del jugador
 }
 /*
 //setter
@@ -166,9 +171,9 @@ void Jugador::reiniciar_mano() {
     apuesta = 0; // Reinicia la apuesta del jugador
 }
 
-*/
 
-void Jugador::jugar_turno(Mazo& mazo){
+*/
+void Jugador::jugar_turno(Mazo& mazo) {
 	if(verificar_blackjack()){
 		plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
 		cout << "¡Tienes blackjack! Fin de tu turno." << endl;
@@ -221,7 +226,7 @@ void Jugador::jugar_turno(Mazo& mazo){
 }
 
 void Jugador::mostrar_mano(){
-	cout << "Mano del jugador "<< this->nombre<<":" << endl;
+	cout << "Mano del jugador "<<nombre<<":" << endl;
 	for (size_t i = 0; i < mano.size(); i++)
 	{
 		mano[i].display();

@@ -212,7 +212,6 @@ void Crupier::determinar_ganador(Jugador* jugador)
 		}
 	} 	
 }
-
 //setter
 /*
 long Crupier::set_dinero_crupier(const long _cantidad_depositar){

@@ -29,8 +29,7 @@
 #include <string>
 
 
-class Crupier : public Controlador
-{
+class Crupier : public Controlador{
 	private:
 
 		// Atributos

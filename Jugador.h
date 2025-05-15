@@ -28,6 +28,7 @@ using namespace std;
 #include "Carta.h"
 #include "Mazo.h"
 #include "Controlador.h"
+#include "Interfaz.h"
 
 class Jugador : public Controlador{
 	private:

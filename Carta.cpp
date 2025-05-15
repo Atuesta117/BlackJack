@@ -25,10 +25,10 @@ using namespace std;
 #include "Carta.h"
 #include <string>
 
-Carta::Carta(string casta, string rank, int valor){
-    this->casta = casta;
-    this->rank = rank;
-    this->valor = valor;
+Carta::Carta(string _casta, string _rank, int _valor){
+    casta = _casta;
+    rank = _rank;
+    valor = _valor;
 }
 string Carta::get_casta_carta(){
     return casta;

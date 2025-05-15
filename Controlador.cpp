@@ -98,7 +98,7 @@ void Controlador::mostrar_mano(){
 	cout << "Mano del : " << endl;
 	for (size_t i = 0; i < mano.size(); i++)
 	{
-		this->mano[i].display();
+		mano[i].display();
 		cout<<endl;
 	}
 	

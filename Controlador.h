@@ -27,7 +27,7 @@
 using namespace std;
 #include "Carta.h"
 #include "Mazo.h"
-
+#include "Interfaz.h"
 
 class Controlador{
 	private:
@@ -64,7 +64,8 @@ class Controlador{
 		bool get_esta_jugando() { return esta_jugando; }
 		//long get_dinero() { return dinero_total_jugador; } considero que esto es mas necesario para el jugador que par el crupier
 		int get_valor_mano(){return valor_mano;}
-		
+		//vector<Carta> get_cartas() { return mano; } // Devuelve el vector de cartas del jugador
+		//bool  get_se_planta() { return se_planta; } // Devuelve el estado de plantarse del jugador
 		//setter
 		long set_dinero (long _cantidad_depositar);
 	
