@@ -26,8 +26,8 @@ class Interfaz{
     int mostrar_menu();
     string mostrar_menu_jugador();
     void imprimir_divicion();
-    void interfaz_turno_jugador(Jugador* jugador, Mazo& mazo);
-    void interfaz_turno_crupier(Crupier* crupier, Jugador* jugador);  
+    void interfaz_turno(Jugador* jugador, Mazo& mazo);
+    void interfaz_turno(Crupier* crupier,Jugador* jugador,  Mazo& mazo);  
 
 
 };

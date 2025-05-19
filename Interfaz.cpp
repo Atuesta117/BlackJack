@@ -120,7 +120,7 @@ void Interfaz::imprimir_divicion() {
     cout << "------------------------------------------" << endl;
 }
 
-void Interfaz::interfaz_turno_jugador(Jugador* jugador, Mazo& mazo) {
+void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
     if(jugador->verificar_blackjack()){
 		jugador->plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
 		cout << "¡Tienes blackjack! Fin de tu turno." << endl;
@@ -172,4 +172,37 @@ void Interfaz::interfaz_turno_jugador(Jugador* jugador, Mazo& mazo) {
                     imprimir_divicion();
 			}
 		}
+} 
+
+void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
+    imprimir_divicion();
+    cout << "Turno del crupier." << endl;
+    imprimir_divicion();
+    cout << "Mano del crupier: " << endl;
+    mostrar_mano(crupier); // Muestra la mano del crupier
+    mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
+    imprimir_divicion();
+    if (jugador->get_valor_mano() > 21) {
+
+        mostrar_mano(crupier); // Muestra la mano del crupier
+        mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
+        crupier->plantarse(); // El crupier se planta
+        cout <<"Turno del crupier finalizado"<<endl;
+        
+    }
+    else{
+        while(crupier->get_valor_mano() < 17) // El crupier pide cartas hasta que su mano sea 17 o más
+            {
+                cout<<"---------------------------------------------------"<<endl;
+                cout << "El crupier pide otra carta." << endl;
+                crupier->pedir_carta(mazo); // El crupier obtiene una carta del mazo
+                mostrar_mano(crupier);
+                mostrar_valor_mano(crupier);
+                imprimir_divicion();
+            }
+        crupier->plantarse();
+        cout <<"El crupier se ha plantado."<<endl;
+        cout << "Turno del crupier finalizado."<<endl;
+        imprimir_divicion();
+    }
 }

@@ -97,8 +97,8 @@ int main()
 			interfaz.mostrar_mano_parcial(crupier_ptr);
 
 			cout << endl;
-			interfaz.interfaz_turno_jugador(jugador_ptr, mazo);
-
+			interfaz.interfaz_turno(jugador_ptr, mazo);
+			/*
 			cout << "---------------------------------------------------" << endl;
 			cout << "Turno Finalizado." << endl;
 
@@ -106,11 +106,13 @@ int main()
 			cout << "Valor de la mano del crupier: " << crupier_ptr->get_valor_mano() << endl;
 
 			cout << "---------------------------------------------------" << endl;
-			crupier_ptr->jugar_turno(mazo);
-			cout << "---------------------------------------------------" << endl;
-			cout << "El crupier se planta." << endl;
-			crupier_ptr->mostrar_mano();
-			cout << "Valor de la mano del crupier: " << crupier_ptr->get_valor_mano() << endl;
+			*/
+			interfaz.interfaz_turno(crupier_ptr, jugador_ptr, mazo);
+			//crupier_ptr->jugar_turno(mazo);
+			//cout << "---------------------------------------------------" << endl;
+			//cout << "El crupier se planta." << endl;
+			//crupier_ptr->mostrar_mano();
+			//cout << "Valor de la mano del crupier: " << crupier_ptr->get_valor_mano() << endl;
 
 			cout << endl;
 			jugador_ptr->mostrar_mano();
