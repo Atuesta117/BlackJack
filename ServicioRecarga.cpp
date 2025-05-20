@@ -7,17 +7,22 @@ ServicioRecarga::ServicioRecarga() {
     // Constructor
 }
 
-bool ServicioRecarga::verificar_monto(double monto) {
+bool ServicioRecarga::verificar_monto(long monto) {
     if (monto <= 0) {
-        return false; // Monto no válido
+        return true; // Monto no válido
     }
     else{
-        return true; // Monto válido
+        return false; // Monto válido
     }
 }
-void ServicioRecarga::realizar_transaccion(bool verificado, Jugador* jugador, double monto) {
+bool ServicioRecarga::realizar_transaccion(bool verificado, Jugador* jugador, long monto) {
     if (verificado){
         jugador->set_dinero(monto);
-        cout << "Recarga exitosa. Su nuevo saldo es: " << jugador->get_dinero() << endl;
+        return true;
     }
+    else
+    {
+        return false;
+    }
+    
 }

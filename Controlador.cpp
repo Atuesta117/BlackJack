@@ -93,7 +93,7 @@ bool Controlador::plantarse(){
 	this->se_planta = true; // El Controlador se planta
 	return this->se_planta;
 }
-
+/*
 void Controlador::mostrar_mano(){
 	cout << "Mano del : " << endl;
 	for (size_t i = 0; i < mano.size(); i++)
@@ -103,6 +103,7 @@ void Controlador::mostrar_mano(){
 	}
 	
 }
+*/
 
 int Controlador::contar_cartas() {
 	int total = 0;
@@ -169,8 +170,4 @@ void Controlador::reiniciar_valores() {
     this->apuesta = 0; // Reinicia la apuesta del Controlador
 	this->se_planta = false; // Reinicia el estado de plantarse
 
-}
-
-void Controlador::jugar_turno(Mazo& mazo){
-    cout << "Easter egg, este metodo en esta clase realmente no se va a usar";
 }

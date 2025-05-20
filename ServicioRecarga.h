@@ -11,8 +11,8 @@ class ServicioRecarga {
  
     public:
         ServicioRecarga();
-        void realizar_transaccion(bool verificado, Jugador* jugador, double monto);
-        bool verificar_monto(double monto);
+        bool realizar_transaccion(bool verificado, Jugador* jugador, long monto);
+        bool verificar_monto(long monto);
     };
 
 #endif // TRANSACCION_H

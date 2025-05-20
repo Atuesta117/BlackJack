@@ -49,12 +49,12 @@ class Controlador{
 	
 		//acciones
 		virtual void apostar(long _apuesta)=0;
-        virtual void jugar_turno(Mazo& mazo)=0; // lo que busco con este metodo es automatizar lo de pedir carta o plantarse, para que no se anecesario poner mucho codigo en el main
+        //virtual void jugar_turno(Mazo& mazo)=0; // lo que busco con este metodo es automatizar lo de pedir carta o plantarse, para que no se anecesario poner mucho codigo en el main
 		// la idea es que este metodo este en un bucle, en el que se jugara el turno del grupier o jugador hasta que se plante, cuando se plante entonces sale del bucle
 		void pedir_carta(Mazo &mazo);
 		void pedir_mano(Mazo& mazo);
 		bool plantarse();
-		virtual void mostrar_mano()=0;
+		//virtual void mostrar_mano()=0;
 		int contar_cartas();
 		//no es getter porque no devuelve un valor, sino que calcula el valor de la mano
 		//int calcular_valor_mano_jugador();
