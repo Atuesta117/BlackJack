@@ -15,6 +15,7 @@ class Interfaz{
     private:
         void dibujar_catra(Carta& cartas);
         void dibujar_carta_oculta();
+        void esperar_enter();
     public:
     Interfaz();
     void mostrar_mano(Jugador* jugador);
@@ -23,13 +24,14 @@ class Interfaz{
     void mostrar_valor_mano(Jugador* jugador);
     void mostrar_valor_mano(Crupier* crupier);
     void mostrar_ganador(string mensaje);
-    int mostrar_menu();
+    string mostrar_menu_inicio();
+    string mostrar_menu_juego(Jugador* jugador);
     string mostrar_menu_jugador();
     void imprimir_divicion();
     void interfaz_turno(Jugador* jugador, Mazo& mazo);
-    void interfaz_turno(Crupier* crupier,Jugador* jugador,  Mazo& mazo);  
-
-
+    void interfaz_turno(Crupier* crupier,Jugador* jugador,  Mazo& mazo); 
+    void logo(); 
+   
 };
 
 #endif // INTERFARE_H

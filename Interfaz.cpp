@@ -2,6 +2,12 @@
 using namespace std;
 #include <string>
 #include "Carta.h"
+
+void Interfaz::esperar_enter() {
+    cout << "Presione Enter para continuar...";
+    cin.ignore(); // Limpia el buffer si hay algo
+    cin.get();    // Espera a que se presione Enter
+}
 void Interfaz::dibujar_catra(Carta& cartas) {
     string top = "┌─────────┐";
     string bottom = "└─────────┘";
@@ -86,18 +92,37 @@ void Interfaz::mostrar_ganador(string mensaje) {
     cout << mensaje;
     cout << "------------------------------------------" << endl;
 }
-int Interfaz::mostrar_menu() {
+string Interfaz::mostrar_menu_inicio() {
     cout << "------------------------------------------" << endl;
     cout << "1. Jugar" << endl;
-    cout << "2. Ingresar dinero" << endl;
-    cout << "3. Salir" << endl;
+    cout << "2. Salir" << endl;
     cout << "------------------------------------------" << endl;
-    int opcion;
+    string opcion;
     cin >> opcion;
-    while (opcion < 1 || opcion > 3) {
+    while (opcion != "1" && opcion != "2") {
         cout << "Opción inválida. Ingrese 1 para jugar, 2 para ingresar dinero o 3 para salir: ";
         cin >> opcion;
     }
+    return opcion;
+}
+
+string Interfaz::mostrar_menu_juego(Jugador* jugador) {
+    cout << "------------------------------------------" << endl;
+    cout << "1. Apostar" << endl;
+    cout << "2. Ingresar dinero" << endl;
+    cout << "------------------------------------------" << endl;
+    string opcion;
+    cin >> opcion;
+    while (opcion != "1" && opcion != "2") {
+        cout << "Opción inválida. Ingrese 1 para jugar o 2 para salir: ";
+        cin >> opcion;
+    }
+    while (opcion == "1" && jugador->get_dinero() <= 0) {
+        cout << "No tienes dinero suficiente para jugar. Por favor, ingresa dinero." << endl;
+        cout << "Opción inválida. Ingrese 1 para jugar o 2 para salir: ";
+        cin >> opcion;
+    }
+
     return opcion;
 }
 string Interfaz::mostrar_menu_jugador() {
@@ -121,6 +146,10 @@ void Interfaz::imprimir_divicion() {
 }
 
 void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
+    esperar_enter();
+    imprimir_divicion();
+    cout << "Turno del jugador " << jugador->get_nombre() << "." << endl;
+    imprimir_divicion();
     if(jugador->verificar_blackjack()){
 		jugador->plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
 		cout << "¡Tienes blackjack! Fin de tu turno." << endl;
@@ -175,6 +204,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
 } 
 
 void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
+    esperar_enter();
     imprimir_divicion();
     cout << "Turno del crupier." << endl;
     imprimir_divicion();
@@ -188,6 +218,7 @@ void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
         mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
         crupier->plantarse(); // El crupier se planta
         cout <<"Turno del crupier finalizado"<<endl;
+        esperar_enter();
         
     }
     else{
@@ -199,10 +230,24 @@ void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
                 mostrar_mano(crupier);
                 mostrar_valor_mano(crupier);
                 imprimir_divicion();
+                esperar_enter();
             }
         crupier->plantarse();
         cout <<"El crupier se ha plantado."<<endl;
         cout << "Turno del crupier finalizado."<<endl;
         imprimir_divicion();
+        esperar_enter();
     }
+}
+
+void Interfaz::logo() {
+    cout << R"(
+██████╗ ██║      █████╗  ██████╗ ██╗  ██╗          ██╗  █████╗  ██████╗ ██╗  ██╗
+██╔══██╗██║     ██╔══██╗██╔════╝ ██║ ██╔╝          ██║ ██╔══██╗██╔════╝ ██║ ██╔╝
+██████╔╝██║     ███████║██║      █████╔╝           ██║ ███████║██║      █████╔╝    |
+██╔══██╗██║     ██╔══██║██║      ██╔═██╗     ██    ██║ ██╔══██║██║      ██╔═██╗    |
+██████╔╝███████╗██║  ██║╚██████╗ ██║  ██╗     ╚█████╔╝ ██║  ██║╚██████╗ ██║  ██╗   |
+╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝      ╚════╝  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   |  
+-----------------------------------------------------------------------------------|
+)"<<endl;
 }
