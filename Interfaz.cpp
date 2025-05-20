@@ -60,6 +60,7 @@ void Interfaz::mostrar_mano(Jugador* jugador) {
     for (size_t i = 0; i < cartas.size(); i++) {
        dibujar_catra(cartas[i]);
 }
+
 }
 
 void Interfaz::mostrar_mano(Crupier* crupier) {
@@ -72,31 +73,56 @@ void Interfaz::mostrar_mano(Crupier* crupier) {
 }
 
 void Interfaz::mostrar_mano_parcial(Crupier* crupier) {
+    imprimir_divicion();
     vector<Carta> cartas = crupier->get_cartas();
+    cout << R"(
+        ╔═══════════════════════════════════╗  
+        ║        MANO PARCIAL CRUPIER       ║  
+        ╚═══════════════════════════════════╝ 
+        )" << endl;
 
     dibujar_catra(cartas[0]); // Muestra solo la primera carta del crupier
     dibujar_carta_oculta(); // Muestra la carta oculta
+
+
 }
 
 void Interfaz::mostrar_valor_mano(Jugador* jugador) {
-    cout << "------------------------------------------" << endl;
-    cout << "Valor de la mano del jugador " << jugador->get_nombre() << ": " << jugador->get_valor_mano() << endl;
+    imprimir_divicion();
+    cout << R"(
+╔════════════════════════════════════════════╗  
+        VALOR DE LA MANO DE )"<<jugador->get_nombre();
+cout<< R"(:)" << jugador->get_valor_mano()<<endl;
+cout<< R"(╚════════════════════════════════════════════╝ 
+)" <<endl;
 }
 void Interfaz::mostrar_valor_mano(Crupier* crupier) {
-    cout << "------------------------------------------" << endl;
-    cout << "Valor de la mano del crupier: " << crupier->get_valor_mano() << endl;
+    imprimir_divicion();
+    cout << R"(
+╔════════════════════════════════════════════════════════╗  
+        VALOR DE LA MANO DEL CRUPIER )"<<crupier->get_nombre();
+cout<< R"(:)" << crupier->get_valor_mano()<<endl;
+cout<< R"(╚════════════════════════════════════════════════════════╝ 
+)" <<endl;
 }
 
 void Interfaz::mostrar_ganador(string mensaje) {
-    cout << "------------------------------------------" << endl;
-    cout << mensaje;
-    cout << "------------------------------------------" << endl;
+imprimir_divicion();
+    cout << R"(
+╔══════════════════════════════════════════════════════════════╗ )"<<endl;
+cout<<mensaje<<endl;
+cout<< R"(╚══════════════════════════════════════════════════════════════╝ 
+)" <<endl;
 }
 string Interfaz::mostrar_menu_inicio() {
-    cout << "------------------------------------------" << endl;
-    cout << "1. Jugar" << endl;
-    cout << "2. Salir" << endl;
-    cout << "------------------------------------------" << endl;
+    imprimir_divicion();
+    logo();
+    cout << R"(
+    ╔════════════╗                                     ╔════════════╗
+    ║  1.JUGAR   ║                                     ║  1.SALIR   ║ 
+    ╚════════════╝                                     ╚════════════╝
+    )" << endl;
+    imprimir_divicion();
     string opcion;
     cin >> opcion;
     while (opcion != "1" && opcion != "2") {
@@ -107,52 +133,83 @@ string Interfaz::mostrar_menu_inicio() {
 }
 
 string Interfaz::mostrar_menu_juego(Jugador* jugador) {
-    cout << "------------------------------------------" << endl;
-    cout << "1. Apostar" << endl;
-    cout << "2. Ingresar dinero" << endl;
-    cout << "------------------------------------------" << endl;
+    imprimir_divicion();
+    logo();
+    cout << R"(
+    ╔════════════╗                       ╔══════════════════════╗                        ╔═══════════════════════╗ 
+    ║  1.APOSTAR ║                       ║  2.INGRESAR DINERO   ║                        ║       3. SALIR        ║ 
+    ╚════════════╝                       ╚══════════════════════╝                        ╚═══════════════════════╝
+)" << endl;
+    imprimir_divicion();
     string opcion;
     cin >> opcion;
-    while (opcion != "1" && opcion != "2") {
-        cout << "Opción inválida. Ingrese 1 para jugar o 2 para salir: ";
+    while (opcion != "1" && opcion != "2" && opcion != "3") {
+        mensaje_error();
         cin >> opcion;
     }
     while (opcion == "1" && jugador->get_dinero() <= 0) {
+        mensaje_error();
         cout << "No tienes dinero suficiente para jugar. Por favor, ingresa dinero." << endl;
-        cout << "Opción inválida. Ingrese 1 para jugar o 2 para salir: ";
+        cout << "Opción inválida. Ingrese Alguna de las opciones validas: ";
+         cout << R"(
+    ╔════════════╗                       ╔══════════════════════╗                        ╔═══════════════════════╗ 
+    ║  1.APOSTAR ║                       ║  2.INGRESAR DINERO   ║                        ║       3. SALIR        ║ 
+    ╚════════════╝                       ╚══════════════════════╝                        ╚═══════════════════════╝
+)" << endl;
+    imprimir_divicion();
         cin >> opcion;
     }
 
     return opcion;
 }
 string Interfaz::mostrar_menu_jugador() {
-    cout << "------------------------------------------" << endl;
-    cout << "Acciones disponibles: " << endl;
-    cout << "1. Pedir carta" << endl;
-    cout << "2. Plantarse" << endl;
-    cout << "3. Ver mano" << endl;
-    cout << "4. Ver el valor de la mano" << endl;
-    cout << "------------------------------------------" << endl;
+    imprimir_divicion();
+cout << R"(
+                                            ╔══════════════════════════╗  
+                                            ║   ACCIONES DISPONIBLES   ║  
+                                            ╚══════════════════════════╝  
+
+    ╔════════════════╗        ╔════════════════╗         ╔════════════════╗         ╔═════════════════════════╗          
+    ║1. PEDIR CARTA  ║        ║ 2. PLANTARSE   ║         ║   3.VER MANO   ║         ║ 4. VER VALOR DE LA MANO ║
+    ╚════════════════╝        ╚════════════════╝         ╚════════════════╝         ╚═════════════════════════╝ 
+    
+    )"<<endl;
+    imprimir_divicion();
     string opcion;
     cin >> opcion;
     while (opcion != "1" && opcion != "2" && opcion != "3" && opcion != "4") {
-        cout << "Opción inválida. Ingrese una opción válida: ";
+        mensaje_error();
         cin >> opcion;
     }
     return opcion;
 }
 void Interfaz::imprimir_divicion() {
-    cout << "------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------------------------------------------------" << endl;
 }
 
+void Interfaz::mensaje_error(){
+    cout << R"(
+        ╔════════════════════════════╗  
+        ║        VALOR ERRONEO       ║  
+        ╚════════════════════════════╝ 
+        )" << endl;
+}
 void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
     esperar_enter();
     imprimir_divicion();
-    cout << "Turno del jugador " << jugador->get_nombre() << "." << endl;
+    cout << R"(
+    ╔══════════════════════════════════════════════╗  
+       TURNO DEL JUGADOR )"<< jugador->get_nombre()<< R"(        
+    ╚══════════════════════════════════════════════╝ 
+    )"<< endl;
     imprimir_divicion();
     if(jugador->verificar_blackjack()){
 		jugador->plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
-		cout << "¡Tienes blackjack! Fin de tu turno." << endl;
+		cout << R"(
+        ╔══════════════════════════╗  
+        ║     TIENES BLACKJACK     ║  
+        ╚══════════════════════════╝ 
+        )" << endl;
         imprimir_divicion();
 	}
 
@@ -165,14 +222,24 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
                     mostrar_mano(jugador); // Muestra la mano del jugador
                     mostrar_valor_mano(jugador); // Muestra el valor de la mano del jugador
                     imprimir_divicion();
+                    esperar_enter();
                     cout << endl;
                     if(jugador->get_valor_mano() >= 21){
                         if(jugador->get_valor_mano() > 21) {
                             imprimir_divicion();
-                            cout << "¡Te has pasado de 21! Fin de tu turno." << endl;
-                        } else {
+                            cout << R"(
+        ╔═══════════════════════════════════════════╗  
+        ║     TE PASASTE DE 21! FIN DE TU TURNO     ║  
+        ╚═══════════════════════════════════════════╝ 
+        )" << endl;
+                        } 
+                        else {
                             imprimir_divicion();
-                            cout << "¡Tienes 21! Fin de tu turno." << endl;
+                            cout << R"(
+        ╔═══════════════════════════════════════════╗  
+        ║        TIENES 21! FIN DE TU TURNO         ║  
+        ╚═══════════════════════════════════════════╝ 
+        )" << endl;
                         }
                         jugador->plantarse(); // Cambia el controlador a false para salir del bucle
                     }
@@ -181,7 +248,11 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
                 {
                     imprimir_divicion();
                     jugador->plantarse(); // El jugador se planta
-                    cout<<"El jugador se ha plantado."<<endl;   
+                    cout << R"(
+        ╔═════════════════════════════╗  
+        ║    EL JUGADOR SE PLANTA     ║  
+        ╚═════════════════════════════╝ 
+        )" << endl;   
                     mostrar_mano(jugador); // Muestra la mano del jugador
                     imprimir_divicion();
                 }
@@ -197,6 +268,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
                 }
                 else{
                     imprimir_divicion();
+                    mensaje_error();
                     cout<< "Opción inválida. Por favor, ingrese una opción válida."<<endl;
                     imprimir_divicion();
 			}
@@ -206,26 +278,44 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
 void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
     esperar_enter();
     imprimir_divicion();
-    cout << "Turno del crupier." << endl;
+    cout << R"(
+        ╔═════════════════════════════════╗  
+        ║       TURNO DEL CRUPIER!!!      ║  
+        ╚═════════════════════════════════╝ 
+        )" << endl;  
     imprimir_divicion();
-    cout << "Mano del crupier: " << endl;
+    cout << R"(
+        ╔═════════════════════════════╗  
+        ║      MANO DEL CRUPIER       ║  
+        ╚═════════════════════════════╝ 
+        )" << endl;  
+    imprimir_divicion();
     mostrar_mano(crupier); // Muestra la mano del crupier
     mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
     imprimir_divicion();
+    esperar_enter();
     if (jugador->get_valor_mano() > 21) {
-
+        imprimir_divicion();
         mostrar_mano(crupier); // Muestra la mano del crupier
         mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
         crupier->plantarse(); // El crupier se planta
-        cout <<"Turno del crupier finalizado"<<endl;
+        cout << R"(
+        ╔══════════════════════════════════════════════════════╗  
+        ║        EL CRUPIER SE PLANTA // TURNO FINALIZADO      ║  
+        ╚══════════════════════════════════════════════════════╝ 
+        )" << endl;
         esperar_enter();
         
     }
     else{
         while(crupier->get_valor_mano() < 17) // El crupier pide cartas hasta que su mano sea 17 o más
             {
-                cout<<"---------------------------------------------------"<<endl;
-                cout << "El crupier pide otra carta." << endl;
+                imprimir_divicion();
+                cout << R"(
+        ╔══════════════════════════════════════════╗  
+        ║        EL CRUPIER PIDE OTRA CARTA        ║  
+        ╚══════════════════════════════════════════╝ 
+        )" << endl;
                 crupier->pedir_carta(mazo); // El crupier obtiene una carta del mazo
                 mostrar_mano(crupier);
                 mostrar_valor_mano(crupier);
@@ -233,8 +323,11 @@ void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
                 esperar_enter();
             }
         crupier->plantarse();
-        cout <<"El crupier se ha plantado."<<endl;
-        cout << "Turno del crupier finalizado."<<endl;
+        cout << R"(
+        ╔══════════════════════════════════════════════════════╗  
+        ║        EL CRUPIER SE PLANTA // TURNO FINALIZADO      ║  
+        ╚══════════════════════════════════════════════════════╝ 
+        )" << endl;
         imprimir_divicion();
         esperar_enter();
     }
@@ -242,12 +335,14 @@ void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
 
 void Interfaz::logo() {
     cout << R"(
-██████╗ ██║      █████╗  ██████╗ ██╗  ██╗          ██╗  █████╗  ██████╗ ██╗  ██╗
-██╔══██╗██║     ██╔══██╗██╔════╝ ██║ ██╔╝          ██║ ██╔══██╗██╔════╝ ██║ ██╔╝
-██████╔╝██║     ███████║██║      █████╔╝           ██║ ███████║██║      █████╔╝    |
-██╔══██╗██║     ██╔══██║██║      ██╔═██╗     ██    ██║ ██╔══██║██║      ██╔═██╗    |
-██████╔╝███████╗██║  ██║╚██████╗ ██║  ██╗     ╚█████╔╝ ██║  ██║╚██████╗ ██║  ██╗   |
-╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝      ╚════╝  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   |  
------------------------------------------------------------------------------------|
+    |-----------------------------------------------------------------------------------|
+    |██████╗ ██║      █████╗  ██████╗ ██╗  ██╗          ██╗  █████╗  ██████╗ ██╗  ██╗   |
+    |██╔══██╗██║     ██╔══██╗██╔════╝ ██║ ██╔╝          ██║ ██╔══██╗██╔════╝ ██║ ██╔╝   |
+    |██████╔╝██║     ███████║██║      █████╔╝           ██║ ███████║██║      █████╔╝    |
+    |██╔══██╗██║     ██╔══██║██║      ██╔═██╗     ██    ██║ ██╔══██║██║      ██╔═██╗    |
+    |██████╔╝███████╗██║  ██║╚██████╗ ██║  ██╗     ╚█████╔╝ ██║  ██║╚██████╗ ██║  ██╗   |
+    |╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝      ╚════╝  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   |  
+    |-----------------------------------------------------------------------------------|
 )"<<endl;
 }
+

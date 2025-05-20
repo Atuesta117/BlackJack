@@ -43,66 +43,15 @@ void Jugador::apostar(long _apuesta) {
 	this->apuesta = _apuesta;
 	this->dinero_total -= this->apuesta; // Resta la apuesta del dinero total del jugador
 }
-
+/*
 void Jugador::jugar_turno(Mazo& mazo){
-	if(verificar_blackjack()){
-		plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
-		cout << "¡Tienes blackjack! Fin de tu turno." << endl;
-	}
-
-	while (se_planta == false)
-			{
-				string opc_jugador;
-				cout<< "Acciones disponibles: " << endl;
-				cout<< "1. Pedir carta" << endl;
-				cout<< "2. Plantarse" << endl;
-				cout<< "3. Ver mano" << endl;
-				cout<< "4. Ver el valor de la mano" << endl;
-				cin >> opc_jugador;
-				if (opc_jugador == "1")
-				{
-					pedir_carta(mazo); // El jugador pide otra carta
-					mostrar_mano(); // Muestra la mano del jugador
-					cout << "Valor de la mano del jugador "<< get_nombre()<< ":" << get_valor_mano() << endl; // Muestra el valor de la mano del jugador
-					cout << endl;
-					if(get_valor_mano() >= 21){
-						if(get_valor_mano() > 21) {
-							cout << "¡Te has pasado de 21! Fin de tu turno." << endl;
-						} else {
-							cout << "¡Tienes 21! Fin de tu turno." << endl;
-						}
-						plantarse(); // Cambia el controlador a false para salir del bucle
-					}
-				}
-				else if (opc_jugador == "2")
-				{
-					plantarse(); // El jugador se planta
-				}
-				else if (opc_jugador == "3")
-				{
-					mostrar_mano(); // Muestra la mano del jugador
-				}
-				else if (opc_jugador == "4")
-				{
-					cout << "Valor de la mano del jugador " << this->nombre<< ":" << this->valor_mano << endl; // Muestra el valor de la mano del jugador
-				}
-				else{
-					cout<< "Opción inválida. Por favor, ingrese una opción válida."<<endl;
-				
-
-
-
-			}
-		}
+	
 }
 
 
 void Jugador::mostrar_mano(){
-	cout << "Mano del jugador "<< this->nombre<<":" << endl;
-	for (size_t i = 0; i < mano.size(); i++)
-	{
-		mano[i].display();
-		cout<<endl;
-	}
+	
 	
 }
+// por ahora las pongo vacias pero tengo que eliminar estass funciones de controlador 
+*/

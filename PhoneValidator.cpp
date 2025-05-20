@@ -1,9 +1,8 @@
 #include "PhoneValidator.h"
-#include <curl/curl.h>
 #include <string>
 #include <iostream>
 #include "json.hpp"
-
+#include <curl/curl.h>
 
 
 using json = nlohmann::json;
