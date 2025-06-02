@@ -71,7 +71,7 @@ int main()
 				cout << R"(
         ╔═══════════════════════════════════════════════════════════════════════════════════╗  
         ║        “En el juego de Blackjack, como en el juego de la vida, ganar es duro.     ║
-        ║		Requiere determinación, preparación y mucha transpiración.”            ║
+        ║		Requiere determinación, preparación y mucha transpiración.”              ║
         ╚═══════════════════════════════════════════════════════════════════════════════════╝ 
         )" << endl;
 				interfaz.imprimir_divicion();
