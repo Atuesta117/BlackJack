@@ -59,6 +59,7 @@ void Interfaz::mostrar_mano(Jugador* jugador) {
 
     for (size_t i = 0; i < cartas.size(); i++) {
        dibujar_catra(cartas[i]);
+       esperar_enter();
 }
 
 }

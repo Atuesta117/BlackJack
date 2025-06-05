@@ -15,7 +15,8 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::stri
 
 PhoneValidator::PhoneValidator(const std::string& apiKey) : apiKey(apiKey) {}
 
-bool PhoneValidator::esNumeroValido(const std::string& numero) {
+bool PhoneValidator::esNumeroValido(std::string& numero) {
+    numero = "+57"+ numero; // Aseguramos que la api reciba el numero con el codigo de pais de Colombia
     CURL* curl = curl_easy_init();
     std::string readBuffer;
     std::string url = "https://api.veriphone.io/v2/verify?phone=" + numero + "&key=" + apiKey;

@@ -4,7 +4,7 @@
 class PhoneValidator {
 public:
     PhoneValidator(const std::string& apiKey);
-    bool esNumeroValido(const std::string& numero);
+    bool esNumeroValido(std::string& numero );
 private:
     std::string apiKey;
 };

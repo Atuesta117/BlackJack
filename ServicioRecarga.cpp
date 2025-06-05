@@ -15,14 +15,15 @@ bool ServicioRecarga::verificar_monto(long monto) {
         return false; // Monto válido
     }
 }
-bool ServicioRecarga::realizar_transaccion(bool verificado, Jugador* jugador, long monto) {
+void ServicioRecarga::realizar_transaccion(bool verificado, Jugador* jugador, long monto) {
     if (verificado){
         jugador->set_dinero(monto);
-        return true;
+        cout << "Transacción exitosa. Se han depositado " << monto << " a la cuenta de " << jugador->get_nombre() << endl<<"Su nuevo saldo es: " << jugador->get_dinero() << endl;
+        
     }
     else
     {
-        return false;
+        cout << "Transacción fallida. El número de cuenta ingresado no es válido." << endl;
     }
     
 }
