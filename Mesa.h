@@ -5,7 +5,9 @@
 using namespace std;
 class Mesa {
     private:
-        vector<Jugador> mesa;
+        vector<Jugador*> mesa;
     public:
+};
+#endif // MESA_H
 
-adsfasdfsadf
+

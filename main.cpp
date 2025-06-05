@@ -71,7 +71,7 @@ int main()
 				cout << R"(
         ╔═══════════════════════════════════════════════════════════════════════════════════╗  
         ║        “En el juego de Blackjack, como en el juego de la vida, ganar es duro.     ║
-        ║		Requiere determinación, preparación y mucha transpiración.”              ║
+        ║		Requiere determinación, preparación y mucha transpiración.”         ║
         ╚═══════════════════════════════════════════════════════════════════════════════════╝ 
         )" << endl;
 				interfaz.imprimir_divicion();
@@ -100,6 +100,7 @@ int main()
 				cout << "Fin de la partida." << endl;
 				cout << "El dinero total del jugador " << jugador_ptr->get_nombre() << ": " << jugador_ptr->get_dinero() << endl;
 				interfaz.imprimir_divicion();
+				interfaz.esperar_enter();
 			}
 			else if (opc_inicial == "2")
 			{
@@ -119,9 +120,11 @@ int main()
 					cin >> dinero_ingresar;
 				}
 				
-				servicio.realizar_transaccion(validator.esNumeroValido("3163759188"), jugador_ptr, dinero_ingresar);
+				servicio.realizar_transaccion(validator.esNumeroValido(numero), jugador_ptr, dinero_ingresar);
+					
+				
 				interfaz.imprimir_divicion();
-				cout << "El dinero total del jugador es: " << jugador_ptr->get_dinero() << endl;
+				
 			}
 			else if (opc_inicial == "3")
 			{
