@@ -28,13 +28,15 @@ class Interfaz{
     string mostrar_menu_inicio();
     string mostrar_menu_juego(Jugador* jugador);
     string mostrar_menu_jugador();
-    
+    string pedir_nombre();
     void interfaz_turno(Jugador* jugador, Mazo& mazo);
     void interfaz_turno(Crupier* crupier,Jugador* jugador,  Mazo& mazo); 
     void logo(); 
     void imprimir_divicion();
     void mensaje_error();
+    void mensaje_exitoso();
     void esperar_enter();
+    void recorer_mesa(int opc); //dependiendo de el numero que le demos, va a recorrer la mesa dando como parametro los jugadores que esten activos
 };
 
 #endif // INTERFARE_H

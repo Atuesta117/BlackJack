@@ -8,6 +8,7 @@
 #include "Interfaz.h"
 #include "PhoneValidator.h"
 #include "ServicioRecarga.h"
+#include "Mesa.h"
 using namespace std;
 // g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp Controlador.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp -o prog -lcurl
 /*
@@ -20,19 +21,13 @@ int main()
 {
 	Interfaz interfaz;
 	interfaz.logo();
-	cout << R"(
-        ╔══════════════════════════╗  
-        ║     INGRESE SU NOMBRE    ║  
-        ╚══════════════════════════╝ 
-        )" << endl;
 	
-	string nombre_jugador;
-	cin >> nombre_jugador;
     Mazo mazo;
 	Controlador* jugador = new Jugador(nombre_jugador, 0);
 	Controlador* crupier = new Crupier("Crupier", 9999999999, mazo);
 	Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
 	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
+	Mesa mesa;
 	string opc_menu;
 	opc_menu = interfaz.mostrar_menu_inicio();
 	while (opc_menu != "1" && opc_menu != "2")
@@ -40,7 +35,30 @@ int main()
 		cout << "Ingrese una opcion valida"<<endl;
 		cin >> opc_menu;
 	}
-	if (opc_menu == "1")
+	if(opc_menu == "1"){
+		string nombre_jugador = interfaz.pedir_nombre();
+		if (mesa.mesa_llena() == false){
+		mesa.agregar_jugador(nombre_jugador);
+		interfaz.mensaje_exitoso();
+		}
+		else{
+			interfaz.mensaje_error();
+			cout<<endl<<"MESA LLENA";
+		}
+	}
+	else if (opc_menu == "2"){
+		string jugador;
+		cout<<"Ingrese el numero de jugador a eliminar"<<endl;
+		cin >> jugador;
+		while(jugador!="1" &&jugador!="2" &&jugador!="3" &&jugador!="4" &&jugador!="5"){
+			interfaz.mensaje_error();
+        cout << "Valor invalido, porfavor elija una opcion correcta";
+		cin >> jugador;
+    }
+	stoi(jugador);
+		mesa.eliminar_jugador(jugador);
+	}
+	else if (opc_menu == "3")
 	{
 			do
 		{

@@ -43,6 +43,10 @@ void Jugador::apostar(long _apuesta) {
 	this->apuesta = _apuesta;
 	this->dinero_total -= this->apuesta; // Resta la apuesta del dinero total del jugador
 }
+
+void Jugador::set_nombre(string nombre){
+	this->nombre == nombre;
+}
 /*
 void Jugador::jugar_turno(Mazo& mazo){
 	

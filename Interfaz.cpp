@@ -2,12 +2,35 @@
 using namespace std;
 #include <string>
 #include "Carta.h"
+#include "Mesa.h"
 
 void Interfaz::esperar_enter() {
     cout << "Presione Enter para continuar...";
     cin.ignore(); // Limpia el buffer si hay algo
     cin.get();    // Espera a que se presione Enter
 }
+string Interfaz::pedir_nombre(){
+    cout << endl;
+    cout << R"(
+        ╔══════════════════════════╗  
+        ║     INGRESE SU NOMBRE    ║  
+        ╚══════════════════════════╝ 
+        )" << endl;
+	
+	string nombre_jugador;
+	cin >> nombre_jugador;
+    return nombre_jugador;
+}
+
+void Interfaz::mensaje_exitoso(){
+    cout << endl;
+    cout << R"(
+        ╔═════════════════════════════════════╗  
+        ║     PROCESO HECHO EXITOSAMENTE!!    ║  
+        ╚═════════════════════════════════════╝ 
+        )" << endl;
+}
+
 void Interfaz::dibujar_catra(Carta& cartas) {
     string top = "┌─────────┐";
     string bottom = "└─────────┘";
@@ -119,19 +142,31 @@ string Interfaz::mostrar_menu_inicio() {
     imprimir_divicion();
     logo();
     cout << R"(
-    ╔════════════╗                                     ╔════════════╗
-    ║  1.JUGAR   ║                                     ║  1.SALIR   ║ 
-    ╚════════════╝                                     ╚════════════╝
+    ╔══════════════════════╗                                     ╔═══════════════════════╗
+    ║  1.AGREGAR JUGADOR   ║                                     ║  2.ELIMINAR JUGADOR   ║ 
+    ╚══════════════════════╝                                     ╚═══════════════════════╝
+        ╔════════════╗                                                 ╔════════════╗
+        ║  3.JUGAR   ║                                                 ║  4.SALIR   ║ 
+        ╚════════════╝                                                 ╚════════════╝
     )" << endl;
     imprimir_divicion();
     string opcion;
     cin >> opcion;
-    while (opcion != "1" && opcion != "2") {
+    while (opcion != "1" && opcion != "2"&& opcion != "3"&& opcion != "4") {
         cout << "Opción inválida. Ingrese 1 para jugar, 2 para ingresar dinero o 3 para salir: ";
+        cout << R"(
+    ╔══════════════════════╗                                     ╔═══════════════════════╗
+    ║  1.AGREGAR JUGADOR   ║                                     ║  2.ELIMINAR JUGADOR   ║ 
+    ╚══════════════════════╝                                     ╚═══════════════════════╝
+        ╔════════════╗                                                 ╔════════════╗
+        ║  3.JUGAR   ║                                                 ║  4.SALIR   ║ 
+        ╚════════════╝                                                 ╚════════════╝
+    )" << endl;
         cin >> opcion;
     }
     return opcion;
 }
+
 
 string Interfaz::mostrar_menu_juego(Jugador* jugador) {
     imprimir_divicion();
@@ -191,7 +226,7 @@ void Interfaz::imprimir_divicion() {
 void Interfaz::mensaje_error(){
     cout << R"(
         ╔════════════════════════════╗  
-        ║        VALOR ERRONEO       ║  
+        ║            ERROR           ║  
         ╚════════════════════════════╝ 
         )" << endl;
 }
@@ -347,3 +382,9 @@ void Interfaz::logo() {
 )"<<endl;
 }
 
+
+void Interfaz::recorer_mesa(int opc){
+    if (opc == 1){
+
+    }
+}

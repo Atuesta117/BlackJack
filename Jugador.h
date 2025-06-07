@@ -36,6 +36,7 @@ class Jugador : public Controlador{
 	Jugador(const string& _nombre, int _dinero);
 		long get_dinero() { return dinero_total; }
 		void apostar (long _apuesta) override;
+		void set_nombre(string nombre);
 		//void jugar_turno(Mazo& mazo)override;
 		//void mostrar_mano()override;
 };

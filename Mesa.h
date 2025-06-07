@@ -8,9 +8,11 @@ class Mesa {
         vector<Jugador*> mesa;
     public:
     Mesa();
-    Jugador* get_jugador(size_t index);
+    vector<Jugador*> get_jugadores_activos(size_t index);
     bool mesa_activa();
-    
+    bool mesa_llena();
+    void agregar_jugador(string nombre);
+    void eliminar_jugador(int jugador);
 };
 #endif // MESA_H
 
