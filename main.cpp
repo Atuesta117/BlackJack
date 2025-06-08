@@ -19,6 +19,7 @@ Testear mejor el tema de las sumas
 */
 int main()
 {
+	while(true){
 	Interfaz interfaz;
 	interfaz.logo();
 	
@@ -36,40 +37,124 @@ int main()
 		cin >> opc_menu;
 	}
 	if(opc_menu == "1"){
-		string nombre_jugador = interfaz.pedir_nombre();
+		
 		if (mesa.mesa_llena() == false){
-		mesa.agregar_jugador(nombre_jugador);
-		interfaz.mensaje_exitoso();
+		string nombre_jugador = interfaz.pedir_nombre();
+		cout << R"(
+        ╔══════════════════════════════════════════════╗  
+        ║     SERVICIO DE RECARGA DE DINERO NEQUI      ║  
+        ╚══════════════════════════════════════════════╝ 
+        )" << endl;
+			long dinero_ingresar;
+			string numero;
+			cout << "Ingrese su numero de cuenta Nequi: ";
+			cin >> numero;
+			cout << "Ingrese la cantidad a recargar: ";
+			cin >> dinero_ingresar;
+			PhoneValidator validator ("4B836698810C4FF6B7C56C4431318D80");
+			ServicioRecarga servicio;
+			while (servicio.verificar_monto(dinero_ingresar))
+			{
+				interfaz.mensaje_error();
+				cout<< "Cantidad no valida";
+				cin >> dinero_ingresar;
+			}
+		for (size_t i = 0; i < 5; i++)
+		{
+			if(mesa.get_jugador(i)->get_esta_jugando() == false)
+		{
+				servicio.realizar_transaccion(validator.esNumeroValido(numero), mesa.get_jugador(i), dinero_ingresar);
+				mesa.agregar_jugador(nombre_jugador);
+				interfaz.mensaje_exitoso();
+				cout << "Jugador agregado correctamente." << endl;
+				cout << "El saldo del jugador " << mesa.get_jugador(i)->get_nombre() << " es: " << mesa.get_jugador(i)->get_dinero() << endl;
+				interfaz.imprimir_divicion();
+				interfaz.esperar_enter();
+				break; // Salir del bucle una vez que se ha agregado el jugador
+				}		
+		
+		
+			}
 		}
 		else{
 			interfaz.mensaje_error();
-			cout<<endl<<"MESA LLENA";
+			cout<<endl<<"ERROR: MESA LLENA";
 		}
 	}
 	else if (opc_menu == "2"){
-		string jugador;
+		string numero_jugador;;
 		cout<<"Ingrese el numero de jugador a eliminar"<<endl;
-		cin >> jugador;
-		while(jugador!="1" &&jugador!="2" &&jugador!="3" &&jugador!="4" &&jugador!="5"){
+		cin >> numero_jugador;
+		while(numero_jugador!="1" &&numero_jugador!="2" &&numero_jugador!="3" &&numero_jugador!="4" &&numero_jugador!="5"){
 			interfaz.mensaje_error();
-        cout << "Valor invalido, porfavor elija una opcion correcta";
-		cin >> jugador;
+        cout << "ERROR: Valor invalido, porfavor elija una opcion correcta";
+		cin >> numero_jugador;
     }
-	stoi(jugador);
-		mesa.eliminar_jugador(jugador);
+		int numero_jugador_aux = stoi(numero_jugador); // Convertir a entero y restar 1 para el índice
+		
+		interfaz.mensaje_exitoso();
+		cout << "Jugador eliminado correctamente." << endl;
+		cout << "EL saldo final del jugador"<< mesa.get_jugador(numero_jugador_aux)->get_nombre() << " es: " << mesa.get_jugador(numero_jugador_aux)->get_dinero()<< endl;
+		mesa.eliminar_jugador(numero_jugador_aux);
 	}
 	else if (opc_menu == "3")
 	{
-			do
-		{
-			string opc_inicial = interfaz.mostrar_menu_juego(jugador_ptr);
-			
+		vector<Jugador*> jugadores_activos = mesa.get_jugadores_activos();
+		for(size_t i = 0; i < 5; i++){
+			string opc_inicial = interfaz.mostrar_menu_juego(mesa.get_jugador(i)); 	
+			while (opc_inicial != "1" && opc_inicial != "2" && opc_inicial != "3")
+			{
+				interfaz.mensaje_error();
+				cout << "Error: Opcion no valida."<<endl;
+				cin >> opc_inicial;
+			}			
 			if (opc_inicial == "1")
 			{
-				jugador_ptr->iniciar_partida();
+				jugadores_activos[i]->iniciar_partida();
+				interfaz.imprimir_divicion();
+				interfaz.esperar_enter();
+			}
+			else if(opc_inicial =="2"){
+				cout << R"(
+        ╔══════════════════════════════════════════════╗  
+        ║     SERVICIO DE RECARGA DE DINERO NEQUI      ║  
+        ╚══════════════════════════════════════════════╝ 
+        )" << endl;
+			long dinero_ingresar;
+			string numero;
+			cout << "Ingrese su numero de cuenta Nequi: ";
+			cin >> numero;
+			cout << "Ingrese la cantidad a recargar: ";
+			cin >> dinero_ingresar;
+			PhoneValidator validator ("4B836698810C4FF6B7C56C4431318D80");
+			ServicioRecarga servicio;
+			while (servicio.verificar_monto(dinero_ingresar))
+			{
+				interfaz.mensaje_error();
+				cout<< "Cantidad no valida";
+				cin >> dinero_ingresar;
+			}
+			servicio.realizar_transaccion(validator.esNumeroValido(numero), mesa.get_jugador(i), dinero_ingresar);
+			interfaz.mensaje_exitoso();
+			cout << "Recarga exitosa. El saldo del jugador " << mesa.get_jugador(i)->get_nombre() << " es: " << mesa.get_jugador(i)->get_dinero() << endl;
+			interfaz.imprimir_divicion();
+			interfaz.esperar_enter();
+			}
+			else if (opc_inicial == "3")
+			{
+				cout << R"(
+		╔════════════════════════════╗  
+		║    	SALIO DEL JUEGO      ║  
+		╚════════════════════════════╝ 
+		)" << endl;
+				cout << "Gracias por jugar! Su dinero total es: " << mesa.get_jugador(i)->get_dinero() << endl;
+				mesa.eliminar_jugador(i);
+				interfaz.imprimir_divicion(); 
+
+			}
+		}
 				mazo.shuffle();
-				jugador_ptr->reiniciar_valores();
-				crupier_ptr->reiniciar_valores();
+				interfaz.imprimir_divicion();	
 
 				long apuesta_jugador1;
 				interfaz.imprimir_divicion();
@@ -155,17 +240,18 @@ int main()
 				jugador_ptr->terminar_partida();
 			}
 
-		} while (jugador_ptr->get_esta_jugando());
+		
 	}
-	else if (opc_menu == "2")
+	else if (opc_menu == "4")
 	{
 		cout << R"(
         ╔════════════════════════════╗  
         ║    	SALIO DEL JUEGO      ║  
         ╚════════════════════════════╝ 
         )" << endl;
+		break; // Salir del bucle y terminar el programa
 	}
-	
+}
 	
 
 	return 0;

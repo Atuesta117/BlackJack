@@ -23,7 +23,14 @@ bool Mesa::mesa_activa() {
     }
     return false; // Si ningún jugador está activo, la mesa no está activa
 }
-vector<Jugador*> Mesa::get_jugadores_activos(size_t index) {
+
+Jugador* Mesa::get_jugador(int index) {
+    if (index >= 0 && index < mesa.size()) {
+        return mesa[index]; // Retorna el jugador en la posición indicada
+    }
+    return nullptr; // Si el índice es inválido, retorna nullptr
+}
+vector<Jugador*> Mesa::get_jugadores_activos() {
     vector<Jugador*> jugadores_activos;
     for (size_t i = 0; i < 5; i++)
     {

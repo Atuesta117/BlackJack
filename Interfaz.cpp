@@ -383,8 +383,3 @@ void Interfaz::logo() {
 }
 
 
-void Interfaz::recorer_mesa(int opc){
-    if (opc == 1){
-
-    }
-}

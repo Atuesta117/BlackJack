@@ -36,7 +36,7 @@ class Interfaz{
     void mensaje_error();
     void mensaje_exitoso();
     void esperar_enter();
-    void recorer_mesa(int opc); //dependiendo de el numero que le demos, va a recorrer la mesa dando como parametro los jugadores que esten activos
+    void mostrar_servicio_recarga();
 };
 
 #endif // INTERFARE_H
