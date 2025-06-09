@@ -14,6 +14,7 @@ class Mesa {
     bool mesa_llena();
     void agregar_jugador(string nombre);
     void eliminar_jugador(int jugador);
+    void repartir_cartas(Mazo& mazo);
 };
 #endif // MESA_H
 

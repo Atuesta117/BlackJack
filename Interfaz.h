@@ -30,7 +30,7 @@ class Interfaz{
     string mostrar_menu_jugador();
     string pedir_nombre();
     void interfaz_turno(Jugador* jugador, Mazo& mazo);
-    void interfaz_turno(Crupier* crupier,Jugador* jugador,  Mazo& mazo); 
+    void interfaz_turno(Crupier* crupier,vector<Jugador*> jugadores_activos,  Mazo& mazo); 
     void logo(); 
     void imprimir_divicion();
     void mensaje_error();

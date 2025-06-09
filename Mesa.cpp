@@ -74,3 +74,10 @@ void Mesa::eliminar_jugador(int jugador){
     mesa[jugador-1]->set_nombre(""); // Limpia el nombre del jugador    
 }
 
+void Mesa::repartir_cartas(Mazo& mazo) {
+    for (Jugador* jugador : mesa) {
+        if (jugador->get_esta_jugando()) {
+            jugador->pedir_mano(mazo); // Reparte cartas a cada jugador activo
+        }
+    }
+}

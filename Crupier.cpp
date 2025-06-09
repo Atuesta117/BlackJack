@@ -159,23 +159,18 @@ string Crupier::determinar_ganador(Jugador* jugador) {
             return "EL CRUPIER SE HA PASADO. EL JUGADOR GANA.";
         }
     } 
-    // Caso 2: El jugador se pasa y el crupier no
-    else if (valor_mano_jugador > 21 && this->valor_mano <= 21) {
+    // Caso 2: El jugador se pasa 
+    else if (valor_mano_jugador > 21) {
         set_dinero(apuesta + jugador->get_apuesta());
         return "EL JUGADOR SE HA PASADO. EL CRUPIER GANA.";
     } 
-    // Caso 3: Ambos se pasan de 21
-    else if (this->valor_mano > 21 && valor_mano_jugador > 21) {
-        jugador->set_dinero(jugador->get_apuesta());
-        return "AMBOS SE HAN PASADO DE 21. TENEMOS UN EMPATE.";
-    }
     // Caso 4: Ambos tienen blackjack
     else if (this->valor_mano == 21 && valor_mano_jugador == 21) {
         jugador->set_dinero(jugador->get_apuesta());
         return "AMBOS TIENEN BLACKJACK. TENEMOS UN EMPATE.";
     }
     // Caso 5: Mismo puntaje
-    else if (this->valor_mano == valor_mano_jugador) {
+    else if (this->valor_mano == valor_mano_jugador && this->valor_mano <= 21) {
         jugador->set_dinero(jugador->get_apuesta());
         return "AMBOS SACARON EL MISMO PUNTAJE. TENEMOS UN EMPATE.";
     } 

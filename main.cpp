@@ -110,6 +110,22 @@ int main()
 			}			
 			if (opc_inicial == "1")
 			{
+				interfaz.imprimir_divicion();	
+
+				long apuesta_jugador1;
+				interfaz.imprimir_divicion();
+				cout << "El dinero total del jugador es: " << jugadores_activos[i]->get_dinero() << endl;
+				cout << "Ingrese la apuesta: ";
+				cin >> apuesta_jugador1;
+
+				while (apuesta_jugador1 > jugadores_activos[i]->get_dinero()) {
+					interfaz.imprimir_divicion();
+					interfaz.mensaje_error();
+					cout << "Error: La apuesta no puede ser mayor que el dinero total. Ingrese una apuesta válida: ";
+					cin >> apuesta_jugador1;
+				}
+
+				mesa.get_jugador(i)->apostar(apuesta_jugador1);
 				jugadores_activos[i]->iniciar_partida();
 				interfaz.imprimir_divicion();
 				interfaz.esperar_enter();
@@ -154,22 +170,7 @@ int main()
 			}
 		}
 				mazo.shuffle();
-				interfaz.imprimir_divicion();	
-
-				long apuesta_jugador1;
-				interfaz.imprimir_divicion();
-				cout << "El dinero total del jugador es: " << jugador_ptr->get_dinero() << endl;
-				cout << "Ingrese la apuesta: ";
-				cin >> apuesta_jugador1;
-
-				while (apuesta_jugador1 > jugador_ptr->get_dinero()) {
-					interfaz.imprimir_divicion();
-					interfaz.mensaje_error();
-					cout << "La apuesta no puede ser mayor que el dinero total. Ingrese una apuesta válida: ";
-					cin >> apuesta_jugador1;
-				}
-
-				jugador_ptr->apostar(apuesta_jugador1);
+				
 				crupier_ptr->apostar(jugador_ptr->get_apuesta());
 				cout << R"(
         ╔═══════════════════════════════════════════════════════════════════════════════════╗  
@@ -178,23 +179,44 @@ int main()
         ╚═══════════════════════════════════════════════════════════════════════════════════╝ 
         )" << endl;
 				interfaz.imprimir_divicion();
-
-				jugador_ptr->pedir_mano(mazo);
-
-				interfaz.mostrar_mano(jugador_ptr);
-				interfaz.mostrar_valor_mano(jugador_ptr);
-				interfaz.esperar_enter();
+				for (int i = 0; i < 5; i++)
+				{
+					cout << R"(
+					╔═══════════════════════════════════════╗ )"<<endl;
+					cout<<"JUGADOR "<<jugadores_activos[i]->get_nombre()<<endl;
+					cout<< R"(╚════════════════════════════════════════╝ 
+					)" <<endl;
+					jugadores_activos[i]->pedir_mano(mazo);
+					interfaz.mostrar_mano(jugadores_activos[i]);
+					interfaz.mostrar_valor_mano(jugadores_activos[i]);
+					interfaz.imprimir_divicion();
+					interfaz.esperar_enter();
+				}
 		
 				crupier_ptr->pedir_mano(mazo);
 				interfaz.mostrar_mano_parcial(crupier_ptr);
 
 				cout << endl;
 				interfaz.imprimir_divicion();
-				interfaz.interfaz_turno(jugador_ptr, mazo);
-				interfaz.interfaz_turno(crupier_ptr, jugador_ptr, mazo);
-
-
+				for(int i = 0; i<5;i++){
+				interfaz.interfaz_turno(jugadores_activos[i], mazo);
+				interfaz.imprimir_divicion();
+				}
+				
+				interfaz.interfaz_turno(crupier_ptr, mesa.get_jugadores_activos(), mazo);
 				cout << endl;
+				cout << R"(
+		╔══════════════════════════════════════════════════════════════╗  
+		║ 	     RESULTADOS DE LA PARTIDA: JUGADORES Y CRUPIER         ║
+		╚══════════════════════════════════════════════════════════════╝ 
+		)" << endl;
+				for (size_t i = 0; i < jugadores_activos.size()  ; i++)
+				{
+					interfaz.mostrar_mano(jugadores_activos[i]);
+					interfaz.mostrar_valor_mano(jugadores_activos[i]);
+					cout << endl;
+				}
+				
 				interfaz.mostrar_mano(jugador_ptr);
 				interfaz.mostrar_valor_mano(jugador_ptr);
 				cout << endl;
@@ -204,42 +226,7 @@ int main()
 				cout << "El dinero total del jugador " << jugador_ptr->get_nombre() << ": " << jugador_ptr->get_dinero() << endl;
 				interfaz.imprimir_divicion();
 				interfaz.esperar_enter();
-			}
-			else if (opc_inicial == "2")
-			{
-				interfaz.imprimir_divicion();
-				long dinero_ingresar;
-				string numero;
-				cout << "Ingrese su numero de cuenta Nequi: ";
-				cin >> numero;
-				cout << "Ingrese la cantidad a recargar: ";
-				cin >> dinero_ingresar;
-				PhoneValidator validator ("4B836698810C4FF6B7C56C4431318D80");
-				ServicioRecarga servicio;
-				while (servicio.verificar_monto(dinero_ingresar))
-				{
-					interfaz.mensaje_error();
-					cout<< "Cantidad no valida";
-					cin >> dinero_ingresar;
-				}
-				
-				servicio.realizar_transaccion(validator.esNumeroValido(numero), jugador_ptr, dinero_ingresar);
-					
-				
-				interfaz.imprimir_divicion();
-				
-			}
-			else if (opc_inicial == "3")
-			{
-				cout << R"(
-        ╔════════════════════════════╗  
-        ║    	SALIO DEL JUEGO      ║  
-        ╚════════════════════════════╝ 
-        )" << endl;
-				cout << "Gracias por jugar! Su dinero total es: " << jugador_ptr->get_dinero() << endl;
-				jugador_ptr->terminar_partida();
-			}
-
+			
 		
 	}
 	else if (opc_menu == "4")

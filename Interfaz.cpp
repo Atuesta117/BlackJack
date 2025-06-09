@@ -79,7 +79,12 @@ void Interfaz::dibujar_carta_oculta() {
 Interfaz::Interfaz(){}
 void Interfaz::mostrar_mano(Jugador* jugador) {
     vector<Carta> cartas = jugador->get_cartas();
-
+        cout << R"(
+    ╔════════════════════════════════════════════╗  
+            MANO DEL JUGADOR )";
+    cout<< jugador->get_nombre()<<endl;
+    cout<< R"(╚════════════════════════════════════════════╝ 
+    )" <<endl;
     for (size_t i = 0; i < cartas.size(); i++) {
        dibujar_catra(cartas[i]);
        esperar_enter();
@@ -311,7 +316,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo) {
 		}
 } 
 
-void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
+void Interfaz::interfaz_turno(Crupier* crupier, vector<Jugador*> jugadores_activos, Mazo& mazo){
     esperar_enter();
     imprimir_divicion();
     cout << R"(
@@ -330,7 +335,21 @@ void Interfaz::interfaz_turno(Crupier* crupier,Jugador* jugador, Mazo& mazo){
     mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
     imprimir_divicion();
     esperar_enter();
-    if (jugador->get_valor_mano() > 21) {
+    vector<Jugador*> jugadores_perdedores;
+    vector<Jugador*> jugadores_restantes;
+    for (size_t i = 0; i < jugadores_activos.size(); i++)
+    {
+        if(jugadores_activos[i]->get_valor_mano()>21){
+            jugadores_perdedores.push_back(jugadores_activos[i]); // Agrega al jugador a la lista de perdedores si su mano es mayor a 21
+        }
+        else{
+
+            jugadores_restantes.push_back(jugadores_activos[i]); // Agrega al jugador a la lista de jugadores restantes si su mano es 21 o menos
+        }
+    }
+    
+
+    if (jugadores_restantes.empty()) {
         imprimir_divicion();
         mostrar_mano(crupier); // Muestra la mano del crupier
         mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
