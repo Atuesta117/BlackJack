@@ -9,10 +9,10 @@ ServicioRecarga::ServicioRecarga() {
 
 bool ServicioRecarga::verificar_monto(long monto) {
     if (monto <= 0) {
-        return true; // Monto no válido
+        return false; // Monto no válido
     }
     else{
-        return false; // Monto válido
+        return true; // Monto válido
     }
 }
 void ServicioRecarga::realizar_transaccion(bool verificado, Jugador* jugador, long monto) {

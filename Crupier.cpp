@@ -153,40 +153,40 @@ string Crupier::determinar_ganador(Jugador* jugador) {
     if (this->valor_mano > 21 && valor_mano_jugador <= 21) {
         if (jugador->verificar_blackjack()) {
             jugador->set_dinero(jugador->get_apuesta() + jugador->get_apuesta() * 1.5);
-            return "EL JUGADOR TIENE BLACKJACK. EL JUGADOR GANA.";
+            return "EL JUGADOR "+ jugador->get_nombre()+" BLACKJACK. EL JUGADOR GANA.";
         } else {
             jugador->set_dinero(2 * jugador->get_apuesta());
-            return "EL CRUPIER SE HA PASADO. EL JUGADOR GANA.";
+            return "EL CRUPIER SE HA PASADO. EL JUGADOR "+ jugador->get_nombre()+" GANA.";
         }
     } 
     // Caso 2: El jugador se pasa 
     else if (valor_mano_jugador > 21) {
         set_dinero(apuesta + jugador->get_apuesta());
-        return "EL JUGADOR SE HA PASADO. EL CRUPIER GANA.";
+        return "EL JUGADOR "+ jugador->get_nombre()+" SE HA PASADO. EL CRUPIER GANA.";
     } 
     // Caso 4: Ambos tienen blackjack
     else if (this->valor_mano == 21 && valor_mano_jugador == 21) {
         jugador->set_dinero(jugador->get_apuesta());
-        return "AMBOS TIENEN BLACKJACK. TENEMOS UN EMPATE.";
+        return "EL CRUPIER Y "+ jugador->get_nombre()+" SACARON BLACKJACK. TENEMOS UN EMPATE.";
     }
     // Caso 5: Mismo puntaje
     else if (this->valor_mano == valor_mano_jugador && this->valor_mano <= 21) {
         jugador->set_dinero(jugador->get_apuesta());
-        return "AMBOS SACARON EL MISMO PUNTAJE. TENEMOS UN EMPATE.";
+        return "EL CRUPIER Y "+ jugador->get_nombre()+" TIENEN EL MISMO PUNTAJE. TENEMOS UN EMPATE.";
     } 
     // Caso 6: Crupier gana
     else if (this->valor_mano > valor_mano_jugador && this->valor_mano <= 21) {
         set_dinero(apuesta + jugador->get_apuesta());
-        return "EL CRUPIER GANA.";
+        return "LA MANO DE "+ jugador->get_nombre()+" ES MENOR, EL CRUPIER GANA.";
     } 
     // Caso 7: Jugador gana
     else if (valor_mano_jugador > this->valor_mano && valor_mano_jugador <= 21) {
         if (jugador->verificar_blackjack()) {
             jugador->set_dinero(jugador->get_apuesta() + jugador->get_apuesta() * 1.5);
-            return "EL JUGADOR TIENE BLACKJACK. EL JUGADOR GANA.";
+            return "EL JUGADOR "+ jugador->get_nombre()+" TIENE BLACKJACK. EL JUGADOR GANA.";
         } else {
             jugador->set_dinero(jugador->get_apuesta() + jugador->get_apuesta());
-            return "EL JUGADOR GANA.";
+            return "EL JUGADOR "+ jugador->get_nombre()+" GANA.";
         }
     }
 

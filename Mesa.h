@@ -6,14 +6,14 @@ using namespace std;
 class Mesa {
     private:
         vector<Jugador*> mesa;
+        bool mesa_activa;
     public:
     Mesa();
-    vector<Jugador*> get_jugadores_activos();
-    Jugador* get_jugador(int index);
-    bool mesa_activa();
-    bool mesa_llena();
-    void agregar_jugador(string nombre);
-    void eliminar_jugador(int jugador);
+    vector<Jugador*> get_jugadores();
+    bool get_mesa_activa();
+    bool mesa_llena();// la idea es que la mesa tenga maximo 5 jugadores
+    void agregar_jugador(Jugador* jugador);
+    void eliminar_jugador(int index);
     void repartir_cartas(Mazo& mazo);
 };
 #endif // MESA_H

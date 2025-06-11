@@ -6,6 +6,7 @@
 #include "Carta.h"
 #include "Jugador.h"
 #include "Crupier.h"
+#include "Mesa.h"
 using namespace std;
 // Interfaz.h
 class Jugador;
@@ -29,7 +30,7 @@ class Interfaz{
     string mostrar_menu_juego(Jugador* jugador);
     string mostrar_menu_jugador();
     string pedir_nombre();
-    void interfaz_turno(Jugador* jugador, Mazo& mazo);
+    void interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier);
     void interfaz_turno(Crupier* crupier,vector<Jugador*> jugadores_activos,  Mazo& mazo); 
     void logo(); 
     void imprimir_divicion();
@@ -37,6 +38,7 @@ class Interfaz{
     void mensaje_exitoso();
     void esperar_enter();
     void mostrar_servicio_recarga();
+    int mostrar_lista_jugadores(Mesa& mesa);
 };
 
 #endif // INTERFARE_H

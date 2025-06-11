@@ -43,8 +43,8 @@ class Controlador{
 		Controlador(const string& _nombre, int _dinero);
         virtual ~Controlador();
 		//estado del jugador        
-		bool iniciar_partida();
-		bool terminar_partida();
+		void iniciar_partida();
+		void terminar_partida();
 		string get_nombre(){return nombre;};
 	
 		//acciones

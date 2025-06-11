@@ -41,14 +41,14 @@ Controlador::Controlador(const string& _nombre, int _dinero) {
 }
 Controlador::~Controlador(){}
 
-bool Controlador::iniciar_partida(){
+void Controlador::iniciar_partida(){
 	this->esta_jugando = true;
-	return esta_jugando;
+	
 }
 
-bool Controlador::terminar_partida(){
+void Controlador::terminar_partida(){
 	this->esta_jugando = false;
-	return esta_jugando;
+	
 }
 
 //acciones
