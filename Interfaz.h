@@ -38,7 +38,9 @@ class Interfaz{
     void mensaje_exitoso();
     void esperar_enter();
     void mostrar_servicio_recarga();
-    int mostrar_lista_jugadores(Mesa& mesa);
+    void mostrar_lista_jugadores(Mesa& mesa);
+    int elegir_jugador_eliminar(Mesa&mesa);
+    void mensaje(int i);
 };
 
 #endif // INTERFARE_H

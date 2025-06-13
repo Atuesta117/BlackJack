@@ -39,7 +39,7 @@ Controlador::Controlador(const string& _nombre, int _dinero) {
 	this->se_planta = false; // El Controlador no se ha plantado al inicio
 	this->mano.clear(); // Inicializa la mano del Controlador
 }
-Controlador::~Controlador(){}
+
 
 void Controlador::iniciar_partida(){
 	this->esta_jugando = true;
@@ -77,11 +77,23 @@ void Controlador::pedir_mano(Mazo& mazo){
 
 void Controlador::pedir_carta(Mazo &mazo) {
 	Carta carta = mazo.get_carta();
+	int contador=0;
+	for (size_t i = 0; i < mano.size(); i++)
+	{
+		if(mano[i].get_rank_carta()=="A"){
+			contador++;
+			break;
+		}
+	}
+	
 	if(carta.get_rank_carta()== "A" && valor_mano+11 < 21){
 		valor_mano += 11;
 	}
 	else if (carta.get_rank_carta()== "A" && this->valor_mano+11 > 21) {
 		valor_mano +=1;
+	}
+	else if(contador == 1 && carta.get_valor_carta()+ valor_mano >21){
+		valor_mano += -10 ;
 	}
 	else{
 		valor_mano += carta.get_valor_carta();

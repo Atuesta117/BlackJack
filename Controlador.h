@@ -41,7 +41,7 @@ class Controlador{
 		bool se_planta; // true si el jugador se planta, false si sigue pidiendo cartas
 	public:
 		Controlador(const string& _nombre, int _dinero);
-        virtual ~Controlador();
+		virtual ~Controlador() = default;
 		//estado del jugador        
 		void iniciar_partida();
 		void terminar_partida();
@@ -76,6 +76,8 @@ class Controlador{
 
 		//reiniciar mano
 		void reiniciar_valores();
+
+		
 };
 
 

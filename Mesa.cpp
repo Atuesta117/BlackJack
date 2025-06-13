@@ -33,17 +33,17 @@ bool Mesa::mesa_llena(){
     }
 }
 
-void Mesa::agregar_jugador(Jugador* jugador){
+void Mesa::agregar_jugador(Jugador* jugador, Controlador* controlador){
 	mesa.push_back(jugador);
+    objetos_padre.push_back(controlador);
 }
 
 
 void Mesa::eliminar_jugador(int index){
-    for(int i = 0; i<5; i++){
-        if(i == index){
-            mesa.erase(mesa.begin() + index-1);
-        }
-    }   
+    index--;
+    delete mesa[index];
+    mesa[index] = nullptr;
+    mesa.erase(mesa.begin()+ index);  
 }
 
 void Mesa::repartir_cartas(Mazo& mazo) {
@@ -51,5 +51,11 @@ void Mesa::repartir_cartas(Mazo& mazo) {
         if (jugador->get_esta_jugando()) {
             jugador->pedir_mano(mazo); // Reparte cartas a cada jugador activo
         }
+    }
+}
+
+void Mesa::eliminar_todos_jugadores(){
+    for(int i =1; i<= mesa.size(); i++){
+        eliminar_jugador(i);
     }
 }

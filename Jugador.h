@@ -34,6 +34,7 @@ class Jugador : public Controlador{
 
 		public:
 	Jugador(const string& _nombre, int _dinero);
+	~Jugador() override{}
 		long get_dinero() { return dinero_total; }
 		void apostar (long _apuesta) override;
 		void set_nombre(string _nombre);

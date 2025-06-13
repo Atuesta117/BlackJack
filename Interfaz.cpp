@@ -116,7 +116,8 @@ void Interfaz::mostrar_mano_parcial(Crupier* crupier) {
 
     dibujar_catra(cartas[0]); // Muestra solo la primera carta del crupier
     dibujar_carta_oculta(); // Muestra la carta oculta
-
+    imprimir_divicion();
+    esperar_enter();
 
 }
 
@@ -149,28 +150,32 @@ string Interfaz::mostrar_menu_inicio() {
     imprimir_divicion();
     logo();
     cout << R"(
-                               ╔═════════════════════════════╗  
-                               ║         MENU GENERAL        ║  
-                               ╚═════════════════════════════╝ 
-    ╔══════════════════════╗                                     ╔═══════════════════════╗
-    ║  1.AGREGAR JUGADOR   ║                                     ║  2.ELIMINAR JUGADOR   ║ 
-    ╚══════════════════════╝                                     ╚═══════════════════════╝
-        ╔════════════╗                                                 ╔════════════╗
-        ║  3.JUGAR   ║                                                 ║  4.SALIR   ║ 
-        ╚════════════╝                                                 ╚════════════╝
+                              ╔═════════════════════════════╗  
+                              ║         MENU GENERAL        ║  
+                              ╚═════════════════════════════╝ 
+   ╔══════════════════════╗   ╔═════════════════════════════╗   ╔═══════════════════════╗
+   ║  1.AGREGAR JUGADOR   ║   ║  2.VER LISTA DE JUGADORES   ║   ║  3.ELIMINAR JUGADOR   ║ 
+   ╚══════════════════════╝   ╚═════════════════════════════╝   ╚═══════════════════════╝
+        ╔════════════╗                                               ╔════════════╗
+        ║  4.JUGAR   ║                                               ║  5.SALIR   ║ 
+        ╚════════════╝                                               ╚════════════╝
     )" << endl;
     imprimir_divicion();
     string opcion;
     cin >> opcion;
-    while (opcion != "1" && opcion != "2"&& opcion != "3"&& opcion != "4") {
-        cout << "Opción inválida. Ingrese 1 para jugar, 2 para ingresar dinero o 3 para salir: ";
+    while (opcion != "1" && opcion != "2"&& opcion != "3"&& opcion != "4"&& opcion != "5") {
+        mensaje_error();
+        cout << "Error: Opción invalida ";
         cout << R"(
-    ╔══════════════════════╗                                     ╔═══════════════════════╗
-    ║  1.AGREGAR JUGADOR   ║                                     ║  2.ELIMINAR JUGADOR   ║ 
-    ╚══════════════════════╝                                     ╚═══════════════════════╝
-        ╔════════════╗                                                 ╔════════════╗
-        ║  3.JUGAR   ║                                                 ║  4.SALIR   ║ 
-        ╚════════════╝                                                 ╚════════════╝
+                              ╔═════════════════════════════╗  
+                              ║         MENU GENERAL        ║  
+                              ╚═════════════════════════════╝ 
+   ╔══════════════════════╗   ╔═════════════════════════════╗   ╔═══════════════════════╗
+   ║  1.AGREGAR JUGADOR   ║   ║  2.VER LISTA DE JUGADORES   ║   ║  3.ELIMINAR JUGADOR   ║ 
+   ╚══════════════════════╝   ╚═════════════════════════════╝   ╚═══════════════════════╝
+        ╔════════════╗                                               ╔════════════╗
+        ║  4.JUGAR   ║                                               ║  5.SALIR   ║ 
+        ╚════════════╝                                               ╚════════════╝
     )" << endl;
         cin >> opcion;
     }
@@ -217,9 +222,9 @@ cout<< R"(                              ╚════════════�
 string Interfaz::mostrar_menu_jugador() {
     imprimir_divicion();
 cout << R"(
-                                            ╔══════════════════════════╗  
-                                            ║   ACCIONES DISPONIBLES   ║  
-                                            ╚══════════════════════════╝  
+                                         ╔══════════════════════════╗  
+                                         ║   ACCIONES DISPONIBLES   ║  
+                                         ╚══════════════════════════╝  
 
                     ╔════════════════╗        ╔════════════════╗         ╔════════════════╗                   
                     ║1. PEDIR CARTA  ║        ║ 2. PLANTARSE   ║         ║   3.VER MANO   ║         
@@ -235,9 +240,9 @@ cout << R"(
         mensaje_error();
         cout << "Error: Ingreso una opcion no valida, intente de nuevo"<<endl;
         cout << R"(
-                                            ╔══════════════════════════╗  
-                                            ║   ACCIONES DISPONIBLES   ║  
-                                            ╚══════════════════════════╝  
+                                         ╔══════════════════════════╗  
+                                         ║   ACCIONES DISPONIBLES   ║  
+                                         ╚══════════════════════════╝  
 
                     ╔════════════════╗        ╔════════════════╗         ╔════════════════╗                   
                     ║1. PEDIR CARTA  ║        ║ 2. PLANTARSE   ║         ║   3.VER MANO   ║         
@@ -265,9 +270,9 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier) {
     esperar_enter();
     imprimir_divicion();
     cout << R"(
-        ╔══════════════════════════════════════════════╗  
-                TURNO DEL JUGADOR )"<< jugador->get_nombre()<< R"(        
-        ╚══════════════════════════════════════════════╝ 
+                          ╔══════════════════════════════════════════════╗  
+                                TURNO DEL JUGADOR )"<< jugador->get_nombre()<< R"(        
+                          ╚══════════════════════════════════════════════╝ 
     )"<< endl;
     if(jugador->verificar_blackjack()){
 		jugador->plantarse(); // Si el jugador tiene blackjack, se planta automáticamente
@@ -383,9 +388,9 @@ void Interfaz::interfaz_turno(Crupier* crupier, vector<Jugador*> jugadores_activ
         mostrar_valor_mano(crupier); // Muestra el valor de la mano del crupier
         crupier->plantarse(); // El crupier se planta
         cout << R"(
-        ╔══════════════════════════════════════════════════════╗  
-        ║        EL CRUPIER SE PLANTA // TURNO FINALIZADO      ║  
-        ╚══════════════════════════════════════════════════════╝ 
+            ╔══════════════════════════════════════════════════════╗  
+            ║        EL CRUPIER SE PLANTA // TURNO FINALIZADO      ║  
+            ╚══════════════════════════════════════════════════════╝ 
         )" << endl;
         esperar_enter();
         
@@ -430,31 +435,71 @@ void Interfaz::logo() {
 }
 
 
-int Interfaz::mostrar_lista_jugadores(Mesa& mesa){
+void Interfaz::mostrar_lista_jugadores(Mesa& mesa){
     vector<Jugador*> jugadores = mesa.get_jugadores();
-    string jugador_eliminar;
+    
     cout << R"(
         ╔════════════════════════════════╗  
         ║        LISTA DE JUGADORES      ║  
         ╚════════════════════════════════╝ 
         )" << endl;
     cout << R"(
-    ╔════════════════════════════════════════════════╗ )"<< endl;
+╔════════════════════════════════════════════════╗ )"<< endl;
     for (int i=0; i<jugadores.size();i++){
         cout <<i+1<<")"<<jugadores[i]->get_nombre()<<endl;
     }
     cout << "╚════════════════════════════════════════════════╝ "<<endl;
     imprimir_divicion();
-    cout<<"Digite el numero del jugador que quiere eliminar: ";
+    esperar_enter();
+}
+int Interfaz::elegir_jugador_eliminar(Mesa& mesa){
+    vector<Jugador*> jugadores = mesa.get_jugadores();
+    int jugador_eliminar;
+    cout<<"Digite el numero del jugador que quiere eliminar o pulse 6 para salir: ";
     cin>>jugador_eliminar;
-    while (jugador_eliminar != "1" &&jugador_eliminar != "2" &&jugador_eliminar != "3" &&jugador_eliminar != "4" &&jugador_eliminar != "5")
+    
+    while(jugador_eliminar > jugadores.size() || jugador_eliminar <= 0 ){
+        if(jugador_eliminar==6){
+            break;
+        }
+        else{
+            mensaje_error();
+            cout <<"Error: Opcion no valida, porfavor intente de nuevo"<<endl;
+            cout<<"Digite el numero del jugador que quiere eliminar: ";
+            cin>>jugador_eliminar;
+        }
+    }
+    string jugador_eliminar_aux = to_string(jugador_eliminar);
+    while (jugador_eliminar_aux != "1" &&jugador_eliminar_aux != "2" &&jugador_eliminar_aux != "3" &&jugador_eliminar_aux != "4" &&jugador_eliminar_aux != "5"&&jugador_eliminar_aux != "6")
     {
         mensaje_error();
         cout <<"Error: Opcion no valida, porfavor intente de nuevo"<<endl;
-        cout<<"Digite el numero del jugador que quiere eliminar: ";
+        cout<<"Digite el numero del jugador que quiere eliminar o 6 para salir: ";
         cin>>jugador_eliminar;
     }
-    int index = stoi(jugador_eliminar);
+    int index = stoi(jugador_eliminar_aux);
     return index;
     
+}
+
+void Interfaz::mensaje(int i){
+    vector<string> mensajes = {R"(
+        ╔══════════════════════════════════════════════╗  
+        ║     SERVICIO DE RECARGA DE DINERO NEQUI      ║  
+        ╚══════════════════════════════════════════════╝ 
+)" , R"(
+		╔════════════════════════════╗  
+		║    	SALIO DEL JUEGO      ║  
+		╚════════════════════════════╝ 
+)", R"(
+        ╔═══════════════════════════════════════════════════════════════════════════════════╗  
+        ║        “En el juego de Blackjack, como en el juego de la vida, ganar es duro.     ║
+        ║		Requiere determinación, preparación y mucha transpiración.”         ║
+        ╚═══════════════════════════════════════════════════════════════════════════════════╝ 
+)",R"(
+	        ╔══════════════════════════════════════════════════════════════╗  
+		    ║ 	     RESUMEN DE LA PARTIDA: JUGADORES Y CRUPIER            ║
+		    ╚══════════════════════════════════════════════════════════════╝ 
+)" };
+    cout << mensajes[i];
 }
