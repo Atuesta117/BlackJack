@@ -39,6 +39,8 @@ class Controlador{
 		vector<Carta> mano; // Vector para almacenar las cartas del jugador
 		bool esta_jugando; // true si el jugador sigue en juego, false si se ha retirado
 		bool se_planta; // true si el jugador se planta, false si sigue pidiendo cartas
+		int contador_as;//pasa que a veces se puede tener un as al pedir la mano, y al pedir carta sabemos que si se pasa de 21 este pasa a valer 1, la idea de este atributo es que nos ayude a saber si al pedir una carta ese as ya paso a valer 1 (restandole 10 al valor de la mano)
+	 //y asi evitar vovler a retarle 10 al valor de la mano
 	public:
 		Controlador(const string& _nombre, int _dinero);
 		virtual ~Controlador() = default;

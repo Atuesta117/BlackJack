@@ -41,6 +41,7 @@ class Interfaz{
     void mostrar_lista_jugadores(Mesa& mesa);
     int elegir_jugador_eliminar(Mesa&mesa);
     void mensaje(int i);
+    void limpiar_consola();
 };
 
 #endif // INTERFARE_H

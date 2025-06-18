@@ -45,6 +45,7 @@ Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre, _diner
 	this->valor_mano= 0;
 	this->se_planta = false;
 	this->esta_jugando= false;
+	this->contador_as =0;
 }
 
 

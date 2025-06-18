@@ -37,6 +37,7 @@ Crupier::Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier): Cont
 	this->se_planta = false;
 	this->esta_jugando = false; // El crupier no está jugando al inicio
 	this->mazo.shuffle(); // Baraja el mazo de cartas al inicio
+	this->contador_as =0;
 }
 
 /*
