@@ -104,7 +104,7 @@ void resumen_partida(Interfaz& interfaz, vector<Jugador*> jugadores,Crupier* cru
 				interfaz.imprimir_divicion();
 				cout << endl;
 }
-void determinar_ganadores(Interfaz& interfaz, vector<Jugador*> jugadores,Crupier* crupier_ptr){
+void determinar_ganadores(Interfaz& interfaz, vector<Jugador*> jugadores,Crupier* crupier_ptr, Mazo& mazo){
 for(size_t i=0;i<jugadores.size();i++){
 	interfaz.limpiar_consola();
 	interfaz.mostrar_ganador(crupier_ptr->determinar_ganador(jugadores[i]));
@@ -112,7 +112,9 @@ for(size_t i=0;i<jugadores.size();i++){
 	cout << "El dinero total del jugador " << jugadores[i]->get_nombre() << ": " << jugadores[i]->get_dinero() << endl;
 	interfaz.imprimir_divicion();
 	interfaz.esperar_enter();
+	mazo.reunir_cartas(jugadores[i]->get_cartas());
 	jugadores[i]->reiniciar_valores();
+	interfaz.esperar_enter();
 	
 	}
 }
@@ -194,6 +196,7 @@ int main()
 			interfaz.limpiar_consola();
 			interfaz.mensaje_error();
 			cout<<endl<<"ERROR: MESA LLENA";
+			interfaz.esperar_enter();
 		}
 	}
 	else if(opc_menu == "2"){
@@ -257,8 +260,8 @@ int main()
 				resumen_partida(interfaz, jugadores, crupier_ptr);
 				
 			//determinar ganadores
-			determinar_ganadores(interfaz, jugadores, crupier_ptr);
-			
+			determinar_ganadores(interfaz, jugadores, crupier_ptr, mazo);
+					mazo.reunir_cartas(crupier_ptr->get_cartas());
 					crupier_ptr->reiniciar_valores();
 					interfaz.limpiar_consola();
 					interfaz.imprimir_divicion();

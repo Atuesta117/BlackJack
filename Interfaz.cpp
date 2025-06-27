@@ -250,7 +250,6 @@ cout<< R"(                              ╚════════════�
     return opcion;
 }
 string Interfaz::mostrar_menu_jugador() {
-    limpiar_consola();
     imprimir_divicion();
     logo();
 cout << R"(
@@ -325,6 +324,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier) {
 				string opcion = mostrar_menu_jugador();
 				if (opcion == "1")
                 {
+                    limpiar_consola();
                     jugador->pedir_carta(mazo); // El jugador pide otra carta
                     mostrar_mano(jugador); // Muestra la mano del jugador
                     mostrar_valor_mano(jugador); // Muestra el valor de la mano del jugador

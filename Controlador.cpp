@@ -67,6 +67,7 @@ void Controlador::pedir_mano(Mazo& mazo){
 
 	}
 	else if (mano[0].get_rank_carta() == "A" && mano[1].get_rank_carta() == "A" ) {
+		contador_as++;
 		this->valor_mano += 1+mano[1].get_valor_carta();
 	}
 	else{
@@ -79,14 +80,37 @@ void Controlador::pedir_mano(Mazo& mazo){
 void Controlador::pedir_carta(Mazo &mazo) {
 	Carta carta = mazo.get_carta();
 	this->valor_mano += carta.get_valor_carta();
-	mano.push_back(carta);
+	this->mano.push_back(carta);
+	int contador =0;
 	for (size_t i = 0; i < mano.size(); i++)
 	{
-		if(mano[i].get_rank_carta()== "A" && this->valor_mano>21){
-			this->valor_mano += -10;
+		if(this->mano[i].get_rank_carta()== "A"){
+			contador++;
 		}
 	}
-	
+	if(this->contador_as != contador){
+		cout <<"en efecto son diferentes";
+		cout << this->contador_as<<endl<<contador;
+		if(this->valor_mano > 21){
+			this->valor_mano += -10;
+			this->contador_as++;
+		}
+	}
+	else{
+		cout <<"son iguales";
+		cout << this->contador_as<<endl<<contador;
+	}
+	/*
+	Idea: hay un conetador de as y un atributo que me dice cuantas as hay en mi mano
+	AHora, se aumenta el valor de la carta primero, y luego se recorre el vector buscando la cantidad
+	de as que hay en la mano actual (obiamente primero se anexa la nueva carta). AHora bien si 
+	hay al menos una carta que sea ass entonces se compara con el contador de as, si son diferentes quiere decir
+	que hay un as que no se ha convertido en 1, entonces se evalua el caso para ver si se debe de convertir en 1, y si es asi
+	entonces al contador de as se le aumenta 1, de esta manera, la cantidad de ases y el contador va a ser igual
+	y si es igual entonces no se hace el proceso de cambiar el valor de la carta, si se pide una nueva carta entonces 
+	la cantidad de cartas cambiariaria con respecto al contador y ahi se evqalua si es necesario cambiar su valor a 1
+	de lo contraro simplemente se deja el valor sumadp.
+	*/
 
 }
 
@@ -170,6 +194,7 @@ void Controlador::reiniciar_valores() {
 	this->valor_mano = 0; // Reinicia el valor de la mano
     this->apuesta = 0; // Reinicia la apuesta del Controlador
 	this->se_planta = false; // Reinicia el estado de plantarse
-	this->contador_as == 0;
-
+	this->contador_as =	 0;
+	cout << "se hizo con exito";
 }
+

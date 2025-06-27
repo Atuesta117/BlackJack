@@ -56,4 +56,10 @@ Carta Mazo::get_carta() {
     cartas.pop_back();
     return carta;
 }
+void Mazo::reunir_cartas(vector<Carta> cartas_jugador){
+    for(Carta carta: cartas_jugador){
+        cartas.push_back(carta);
+    }
+    cartas_jugador.clear();
+}
 

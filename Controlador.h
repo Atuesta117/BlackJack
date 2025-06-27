@@ -41,7 +41,8 @@ class Controlador{
 		bool se_planta; // true si el jugador se planta, false si sigue pidiendo cartas
 		int contador_as;//pasa que a veces se puede tener un as al pedir la mano, y al pedir carta sabemos que si se pasa de 21 este pasa a valer 1, la idea de este atributo es que nos ayude a saber si al pedir una carta ese as ya paso a valer 1 (restandole 10 al valor de la mano)
 	 //y asi evitar vovler a retarle 10 al valor de la mano
-	public:
+		
+	 public:
 		Controlador(const string& _nombre, int _dinero);
 		virtual ~Controlador() = default;
 		//estado del jugador        
@@ -62,12 +63,12 @@ class Controlador{
 		//int calcular_valor_mano_jugador();
 	
 		//getter
-		long get_apuesta() { return apuesta; }
-		bool get_esta_jugando() { return esta_jugando; }
+		long get_apuesta() { return this->apuesta; }
+		bool get_esta_jugando() { return this->esta_jugando; }
 		//long get_dinero() { return dinero_total_jugador; } considero que esto es mas necesario para el jugador que par el crupier
-		int get_valor_mano(){return valor_mano;}
-		vector<Carta> get_cartas() { return mano; } // Getter para obtener la mano del jugador
-		bool get_se_planta() { return se_planta; } // Getter para obtener el estado de plantarse
+		int get_valor_mano(){return this->valor_mano;}
+		vector<Carta> get_cartas() { return this->mano; } // Getter para obtener la mano del jugador
+		bool get_se_planta() { return this->se_planta; } // Getter para obtener el estado de plantarse
 		//setter
 		long set_dinero (long _cantidad_depositar);
 	
@@ -78,6 +79,7 @@ class Controlador{
 
 		//reiniciar mano
 		void reiniciar_valores();
+	
 
 		
 };
