@@ -1,3 +1,23 @@
+/**
+* @file Mesa.cpp
+* @brief Implementación de la clase Mesa para el juego de Blackjack.
+*
+* @details
+* Esta clase lo que permite es representar una mesa de blackjack, permite que hayan desde 1 hasta 5 jugadores 
+* en la mesa jugando. 
+*
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors
+* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - david.grueso@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Julio 2025
+*/
 #include "Mesa.h"
 #include "Jugador.h"
 #include <iostream>

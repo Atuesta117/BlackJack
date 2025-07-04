@@ -1,3 +1,27 @@
+/**
+* @file Interfaz.cpp
+* @brief Implementación de la clase Interfaz para el juego de Blackjack.
+*
+* @details
+* Este archivo implementa la clase Interfaz. Tiene metodos que sirven como menus, los cuales retornan
+* la opcion del jugador. Tiene distintos tipos de mensaje dependiendo de la situacion, por ejemplo cada
+* vez que pasa algun tipo de error, muestra un cuadro con ese tipo de mensaje. Tambien es capaz de mostrar
+* las cartas de los jugadores y crupier y perite jugar de forma grafica los turnos de cada uno
+*
+*
+
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors
+* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - david.grueso@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Julio 2025
+*/
 #include "Interfaz.h"
 #include <cstdlib> // Para system()
 using namespace std;

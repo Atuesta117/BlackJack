@@ -1,3 +1,22 @@
+/**
+* @file ServicioRecarga.cpp
+* @brief Implementación de la clase ServicioRecarga para el juego de Blackjack.
+*
+* @details
+* Hace la recarga al jugador una vez se ha verificado que el numero de telefono es valido 
+*
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors
+* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - david.grueso@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Julio 2025
+*/
 using namespace std;
 #include "ServicioRecarga.h"
 #include "Jugador.h"

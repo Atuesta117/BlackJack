@@ -1,3 +1,28 @@
+/*
+	Clase: 	Interfaz
+	Curso: Fundamentos de Programación Orientada a Objetos (FPOO)
+	Universidad del Valle
+
+  Información CRC:
+
+  Clase: Interfaz
+
+	Responsabilidades:
+
+	Mostrar menus y retornar la opcion que el jugador eligio de estos
+
+    Mostrar mensajes ya sea de error, exito entre otros
+
+    Mostar de forma grafia la partida de cada jugador 
+
+    Mostrar las cartas tanto de los jugadores como del crupier
+
+	Colaboradores: Carta, Jugador, Cruoier, Mesa, .
+
+	Autor: Juan Jose Atuesta, Sergio Garcia Ramos, Paula Mariana Huertas, David Alejandro Garcia 
+	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co - david.grueso@correounivalle.edu.co]
+	Fecha: Julio 2025
+  */
 #ifndef INTERFARE_H
 #define INTERFARE_H
 #include <iostream>

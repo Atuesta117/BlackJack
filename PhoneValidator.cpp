@@ -1,3 +1,22 @@
+/**
+* @file PhoneValidator.cpp
+* @brief Implementación de la clase PhoneValidator para el juego de Blackjack.
+*
+* @details
+* Esta clase verifica si un numero de telefono es valido para colombia 
+*
+* @project Blackjack
+* @course Fundamentos de Programación Orientada a Objetos (FPOO)
+* @institution Universidad del Valle
+*
+* @authors
+* - Juan Jose Atuesta - atuesta.juan@correounivalle.edu.co
+* - David Alejandro Garcia - david.grueso@correounivalle.edu.co
+* - Sergio Garcia Ramos - sergio.garcia.ramos@correounivalle.edu.co
+* - Paula Mariana Murillo - murillo.paula@correounivalle.edu.co
+*
+* @date Julio 2025
+*/
 #include "PhoneValidator.h"
 #include <string>
 #include <iostream>
