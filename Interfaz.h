@@ -33,9 +33,7 @@
 #include "Crupier.h"
 #include "Mesa.h"
 using namespace std;
-// Interfaz.h
-class Jugador;
-class Crupier;
+
 
 class Interfaz{
     private:
