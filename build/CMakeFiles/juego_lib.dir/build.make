@@ -167,19 +167,19 @@ CMakeFiles/juego_lib.dir/src/Crupier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/juego_lib.dir/src/Crupier.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Crupier.cpp -o CMakeFiles/juego_lib.dir/src/Crupier.cpp.s
 
-CMakeFiles/juego_lib.dir/src/Controlador.cpp.o: CMakeFiles/juego_lib.dir/flags.make
-CMakeFiles/juego_lib.dir/src/Controlador.cpp.o: /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp
-CMakeFiles/juego_lib.dir/src/Controlador.cpp.o: CMakeFiles/juego_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/juego_lib.dir/src/Controlador.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/juego_lib.dir/src/Controlador.cpp.o -MF CMakeFiles/juego_lib.dir/src/Controlador.cpp.o.d -o CMakeFiles/juego_lib.dir/src/Controlador.cpp.o -c /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp
+CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o: CMakeFiles/juego_lib.dir/flags.make
+CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o: /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp
+CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o: CMakeFiles/juego_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o -MF CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o.d -o CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o -c /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp
 
-CMakeFiles/juego_lib.dir/src/Controlador.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/juego_lib.dir/src/Controlador.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp > CMakeFiles/juego_lib.dir/src/Controlador.cpp.i
+CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp > CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.i
 
-CMakeFiles/juego_lib.dir/src/Controlador.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/juego_lib.dir/src/Controlador.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp -o CMakeFiles/juego_lib.dir/src/Controlador.cpp.s
+CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp -o CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.s
 
 # Object files for target juego_lib
 juego_lib_OBJECTS = \
@@ -190,7 +190,7 @@ juego_lib_OBJECTS = \
 "CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o" \
 "CMakeFiles/juego_lib.dir/src/Interfaz.cpp.o" \
 "CMakeFiles/juego_lib.dir/src/Crupier.cpp.o" \
-"CMakeFiles/juego_lib.dir/src/Controlador.cpp.o"
+"CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o"
 
 # External object files for target juego_lib
 juego_lib_EXTERNAL_OBJECTS =
@@ -202,7 +202,7 @@ libjuego_lib.a: CMakeFiles/juego_lib.dir/src/Mesa.cpp.o
 libjuego_lib.a: CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o
 libjuego_lib.a: CMakeFiles/juego_lib.dir/src/Interfaz.cpp.o
 libjuego_lib.a: CMakeFiles/juego_lib.dir/src/Crupier.cpp.o
-libjuego_lib.a: CMakeFiles/juego_lib.dir/src/Controlador.cpp.o
+libjuego_lib.a: CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o
 libjuego_lib.a: CMakeFiles/juego_lib.dir/build.make
 libjuego_lib.a: CMakeFiles/juego_lib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libjuego_lib.a"

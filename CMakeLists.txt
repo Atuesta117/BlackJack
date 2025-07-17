@@ -12,7 +12,7 @@ add_library(juego_lib STATIC
     src/ServicioRecarga.cpp
     src/Interfaz.cpp
     src/Crupier.cpp
-    src/Controlador.cpp
+    src/PersonaCasino.cpp
 )
 
 # Pruebas unitarias

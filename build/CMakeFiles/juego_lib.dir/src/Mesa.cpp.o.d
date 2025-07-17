@@ -157,4 +157,4 @@ CMakeFiles/juego_lib.dir/src/Mesa.cpp.o: \
  /usr/include/c++/13/bits/istream.tcc \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Carta.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.h \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.h
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.h

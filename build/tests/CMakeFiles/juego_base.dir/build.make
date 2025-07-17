@@ -97,19 +97,19 @@ tests/CMakeFiles/juego_base.dir/__/src/Mazo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/juego_base.dir/__/src/Mazo.cpp.s"
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.cpp -o CMakeFiles/juego_base.dir/__/src/Mazo.cpp.s
 
-tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o: tests/CMakeFiles/juego_base.dir/flags.make
-tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o: /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp
-tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o: tests/CMakeFiles/juego_base.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o"
-	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o -MF CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o.d -o CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o -c /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp
+tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o: tests/CMakeFiles/juego_base.dir/flags.make
+tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o: /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp
+tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o: tests/CMakeFiles/juego_base.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o"
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o -MF CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o.d -o CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o -c /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp
 
-tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/juego_base.dir/__/src/Controlador.cpp.i"
-	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp > CMakeFiles/juego_base.dir/__/src/Controlador.cpp.i
+tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.i"
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp > CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.i
 
-tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/juego_base.dir/__/src/Controlador.cpp.s"
-	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp -o CMakeFiles/juego_base.dir/__/src/Controlador.cpp.s
+tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.s"
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp -o CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.s
 
 tests/CMakeFiles/juego_base.dir/__/src/Jugador.cpp.o: tests/CMakeFiles/juego_base.dir/flags.make
 tests/CMakeFiles/juego_base.dir/__/src/Jugador.cpp.o: /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Jugador.cpp
@@ -185,7 +185,7 @@ tests/CMakeFiles/juego_base.dir/__/src/Crupier.cpp.s: cmake_force
 juego_base_OBJECTS = \
 "CMakeFiles/juego_base.dir/__/src/Carta.cpp.o" \
 "CMakeFiles/juego_base.dir/__/src/Mazo.cpp.o" \
-"CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o" \
+"CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o" \
 "CMakeFiles/juego_base.dir/__/src/Jugador.cpp.o" \
 "CMakeFiles/juego_base.dir/__/src/Mesa.cpp.o" \
 "CMakeFiles/juego_base.dir/__/src/ServicioRecarga.cpp.o" \
@@ -197,7 +197,7 @@ juego_base_EXTERNAL_OBJECTS =
 
 tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/Carta.cpp.o
 tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/Mazo.cpp.o
-tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o
+tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o
 tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/Jugador.cpp.o
 tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/Mesa.cpp.o
 tests/libjuego_base.a: tests/CMakeFiles/juego_base.dir/__/src/ServicioRecarga.cpp.o

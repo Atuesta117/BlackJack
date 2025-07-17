@@ -5,7 +5,7 @@ include_directories(${GTEST_INCLUDE_DIRS} ../src)
 add_library(juego_base STATIC
     ../src/Carta.cpp
     ../src/Mazo.cpp
-    ../src/Controlador.cpp
+    ../src/PersonaCasino.cpp
     ../src/Jugador.cpp
     ../src/Mesa.cpp
     ../src/ServicioRecarga.cpp

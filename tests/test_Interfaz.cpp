@@ -8,7 +8,7 @@ TEST(InterfazTest, MostrarManoNoCrashea) {
     Interfaz interfaz;
     Mazo mazo;
     Jugador jugador("Ana", 1000);
-    Crupier crupier("Casa", 10000, mazo);
+    Crupier crupier("Casa", mazo);
     
     jugador.pedir_carta(mazo);
     EXPECT_NO_THROW(interfaz.mostrar_mano(&jugador));

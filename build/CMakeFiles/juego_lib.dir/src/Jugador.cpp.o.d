@@ -157,7 +157,7 @@ CMakeFiles/juego_lib.dir/src/Jugador.cpp.o: \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Jugador.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Carta.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.h \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.h \
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.h \
  /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \

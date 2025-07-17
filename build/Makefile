@@ -228,30 +228,6 @@ src/Carta.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/Carta.cpp.s
 .PHONY : src/Carta.cpp.s
 
-src/Controlador.o: src/Controlador.cpp.o
-.PHONY : src/Controlador.o
-
-# target to build an object file
-src/Controlador.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/Controlador.cpp.o
-.PHONY : src/Controlador.cpp.o
-
-src/Controlador.i: src/Controlador.cpp.i
-.PHONY : src/Controlador.i
-
-# target to preprocess a source file
-src/Controlador.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/Controlador.cpp.i
-.PHONY : src/Controlador.cpp.i
-
-src/Controlador.s: src/Controlador.cpp.s
-.PHONY : src/Controlador.s
-
-# target to generate assembly for a file
-src/Controlador.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/Controlador.cpp.s
-.PHONY : src/Controlador.cpp.s
-
 src/Crupier.o: src/Crupier.cpp.o
 .PHONY : src/Crupier.o
 
@@ -372,6 +348,30 @@ src/Mesa.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/Mesa.cpp.s
 .PHONY : src/Mesa.cpp.s
 
+src/PersonaCasino.o: src/PersonaCasino.cpp.o
+.PHONY : src/PersonaCasino.o
+
+# target to build an object file
+src/PersonaCasino.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o
+.PHONY : src/PersonaCasino.cpp.o
+
+src/PersonaCasino.i: src/PersonaCasino.cpp.i
+.PHONY : src/PersonaCasino.i
+
+# target to preprocess a source file
+src/PersonaCasino.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.i
+.PHONY : src/PersonaCasino.cpp.i
+
+src/PersonaCasino.s: src/PersonaCasino.cpp.s
+.PHONY : src/PersonaCasino.s
+
+# target to generate assembly for a file
+src/PersonaCasino.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/juego_lib.dir/build.make CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.s
+.PHONY : src/PersonaCasino.cpp.s
+
 src/ServicioRecarga.o: src/ServicioRecarga.cpp.o
 .PHONY : src/ServicioRecarga.o
 
@@ -414,9 +414,6 @@ help:
 	@echo "... src/Carta.o"
 	@echo "... src/Carta.i"
 	@echo "... src/Carta.s"
-	@echo "... src/Controlador.o"
-	@echo "... src/Controlador.i"
-	@echo "... src/Controlador.s"
 	@echo "... src/Crupier.o"
 	@echo "... src/Crupier.i"
 	@echo "... src/Crupier.s"
@@ -432,6 +429,9 @@ help:
 	@echo "... src/Mesa.o"
 	@echo "... src/Mesa.i"
 	@echo "... src/Mesa.s"
+	@echo "... src/PersonaCasino.o"
+	@echo "... src/PersonaCasino.i"
+	@echo "... src/PersonaCasino.s"
 	@echo "... src/ServicioRecarga.o"
 	@echo "... src/ServicioRecarga.i"
 	@echo "... src/ServicioRecarga.s"

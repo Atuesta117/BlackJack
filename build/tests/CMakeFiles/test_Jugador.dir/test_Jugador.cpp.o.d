@@ -277,4 +277,4 @@ tests/CMakeFiles/test_Jugador.dir/test_Jugador.cpp.o: \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/tests/../src/Jugador.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/tests/../src/Carta.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/tests/../src/Mazo.h \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/tests/../src/Controlador.h
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/tests/../src/PersonaCasino.h

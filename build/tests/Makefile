@@ -220,30 +220,6 @@ __/src/Carta.cpp.s:
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/Carta.cpp.s
 .PHONY : __/src/Carta.cpp.s
 
-__/src/Controlador.o: __/src/Controlador.cpp.o
-.PHONY : __/src/Controlador.o
-
-# target to build an object file
-__/src/Controlador.cpp.o:
-	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.o
-.PHONY : __/src/Controlador.cpp.o
-
-__/src/Controlador.i: __/src/Controlador.cpp.i
-.PHONY : __/src/Controlador.i
-
-# target to preprocess a source file
-__/src/Controlador.cpp.i:
-	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.i
-.PHONY : __/src/Controlador.cpp.i
-
-__/src/Controlador.s: __/src/Controlador.cpp.s
-.PHONY : __/src/Controlador.s
-
-# target to generate assembly for a file
-__/src/Controlador.cpp.s:
-	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/Controlador.cpp.s
-.PHONY : __/src/Controlador.cpp.s
-
 __/src/Crupier.o: __/src/Crupier.cpp.o
 .PHONY : __/src/Crupier.o
 
@@ -363,6 +339,30 @@ __/src/Mesa.s: __/src/Mesa.cpp.s
 __/src/Mesa.cpp.s:
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/Mesa.cpp.s
 .PHONY : __/src/Mesa.cpp.s
+
+__/src/PersonaCasino.o: __/src/PersonaCasino.cpp.o
+.PHONY : __/src/PersonaCasino.o
+
+# target to build an object file
+__/src/PersonaCasino.cpp.o:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.o
+.PHONY : __/src/PersonaCasino.cpp.o
+
+__/src/PersonaCasino.i: __/src/PersonaCasino.cpp.i
+.PHONY : __/src/PersonaCasino.i
+
+# target to preprocess a source file
+__/src/PersonaCasino.cpp.i:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.i
+.PHONY : __/src/PersonaCasino.cpp.i
+
+__/src/PersonaCasino.s: __/src/PersonaCasino.cpp.s
+.PHONY : __/src/PersonaCasino.s
+
+# target to generate assembly for a file
+__/src/PersonaCasino.cpp.s:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/PersonaCasino.cpp.s
+.PHONY : __/src/PersonaCasino.cpp.s
 
 __/src/ServicioRecarga.o: __/src/ServicioRecarga.cpp.o
 .PHONY : __/src/ServicioRecarga.o
@@ -501,9 +501,6 @@ help:
 	@echo "... __/src/Carta.o"
 	@echo "... __/src/Carta.i"
 	@echo "... __/src/Carta.s"
-	@echo "... __/src/Controlador.o"
-	@echo "... __/src/Controlador.i"
-	@echo "... __/src/Controlador.s"
 	@echo "... __/src/Crupier.o"
 	@echo "... __/src/Crupier.i"
 	@echo "... __/src/Crupier.s"
@@ -519,6 +516,9 @@ help:
 	@echo "... __/src/Mesa.o"
 	@echo "... __/src/Mesa.i"
 	@echo "... __/src/Mesa.s"
+	@echo "... __/src/PersonaCasino.o"
+	@echo "... __/src/PersonaCasino.i"
+	@echo "... __/src/PersonaCasino.s"
 	@echo "... __/src/ServicioRecarga.o"
 	@echo "... __/src/ServicioRecarga.i"
 	@echo "... __/src/ServicioRecarga.s"

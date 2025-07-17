@@ -158,6 +158,6 @@ CMakeFiles/juego_lib.dir/src/Interfaz.cpp.o: \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Carta.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Jugador.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.h \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.h \
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Crupier.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mesa.h

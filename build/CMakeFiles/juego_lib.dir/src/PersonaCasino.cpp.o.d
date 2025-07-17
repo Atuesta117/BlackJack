@@ -1,5 +1,5 @@
-CMakeFiles/juego_lib.dir/src/Controlador.cpp.o: \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp \
+CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o: \
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -154,7 +154,7 @@ CMakeFiles/juego_lib.dir/src/Controlador.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.h \
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Carta.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Jugador.h \

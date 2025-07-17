@@ -158,7 +158,7 @@ CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o: \
  /usr/include/c++/13/bits/vector.tcc \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Carta.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.h \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.h \
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PhoneValidator.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Interfaz.h \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Crupier.h \

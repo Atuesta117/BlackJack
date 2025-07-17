@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/juego_lib.dir/src/Carta.cpp.o"
   "CMakeFiles/juego_lib.dir/src/Carta.cpp.o.d"
-  "CMakeFiles/juego_lib.dir/src/Controlador.cpp.o"
-  "CMakeFiles/juego_lib.dir/src/Controlador.cpp.o.d"
   "CMakeFiles/juego_lib.dir/src/Crupier.cpp.o"
   "CMakeFiles/juego_lib.dir/src/Crupier.cpp.o.d"
   "CMakeFiles/juego_lib.dir/src/Interfaz.cpp.o"
@@ -13,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/juego_lib.dir/src/Mazo.cpp.o.d"
   "CMakeFiles/juego_lib.dir/src/Mesa.cpp.o"
   "CMakeFiles/juego_lib.dir/src/Mesa.cpp.o.d"
+  "CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o"
+  "CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o.d"
   "CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o"
   "CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o.d"
   "libjuego_lib.a"

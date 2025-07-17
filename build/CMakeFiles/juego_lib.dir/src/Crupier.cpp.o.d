@@ -158,4 +158,4 @@ CMakeFiles/juego_lib.dir/src/Crupier.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Jugador.h \
- /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.h
+ /home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.h

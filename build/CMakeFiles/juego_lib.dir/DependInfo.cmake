@@ -9,12 +9,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Carta.cpp" "CMakeFiles/juego_lib.dir/src/Carta.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Carta.cpp.o.d"
-  "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Controlador.cpp" "CMakeFiles/juego_lib.dir/src/Controlador.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Controlador.cpp.o.d"
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Crupier.cpp" "CMakeFiles/juego_lib.dir/src/Crupier.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Crupier.cpp.o.d"
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Interfaz.cpp" "CMakeFiles/juego_lib.dir/src/Interfaz.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Interfaz.cpp.o.d"
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Jugador.cpp" "CMakeFiles/juego_lib.dir/src/Jugador.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Jugador.cpp.o.d"
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mazo.cpp" "CMakeFiles/juego_lib.dir/src/Mazo.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Mazo.cpp.o.d"
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/Mesa.cpp" "CMakeFiles/juego_lib.dir/src/Mesa.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/Mesa.cpp.o.d"
+  "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/PersonaCasino.cpp" "CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/PersonaCasino.cpp.o.d"
   "/home/juan-jose/Documentos/VisualStudioCode/BlackJack/src/ServicioRecarga.cpp" "CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o" "gcc" "CMakeFiles/juego_lib.dir/src/ServicioRecarga.cpp.o.d"
   )
 
