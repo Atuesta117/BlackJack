@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_Mazo.dir/test_Mazo.cpp.o -o test_Mazo  libjuego_base.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

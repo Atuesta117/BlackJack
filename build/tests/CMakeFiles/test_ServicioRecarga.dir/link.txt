@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_ServicioRecarga.dir/test_ServicioRecarga.cpp.o -o test_ServicioRecarga  libjuego_base.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

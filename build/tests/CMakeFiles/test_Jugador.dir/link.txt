@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_Jugador.dir/test_Jugador.cpp.o -o test_Jugador  libjuego_base.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 
