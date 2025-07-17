@@ -19,8 +19,8 @@
 	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co - david.grueso@correounivalle.edu.co]
 	Fecha: Abril 2025
   */
-#ifndef CONTROLADOR_H
-#define CONTROLADOR_H
+#ifndef PersonaCasino_H
+#define PersonaCasino_H
 #include <iostream>
 #include <string>
 #include <vector>
@@ -29,7 +29,7 @@ using namespace std;
 #include "Mazo.h"
 
 
-class Controlador{
+class PersonaCasino{
 	private:
 	protected:
 		string nombre;
@@ -43,8 +43,8 @@ class Controlador{
 	 //y asi evitar vovler a retarle 10 al valor de la mano
 		
 	 public:
-		Controlador(const string& _nombre);
-		virtual ~Controlador() = default;
+		PersonaCasino(const string& _nombre);
+		virtual ~PersonaCasino() = default;
 
 		//estado del jugador        
 		void iniciar_partida();
@@ -77,4 +77,4 @@ class Controlador{
 };
 
 
-#endif // CONTROLADOR_H
+#endif // PersonaCasino_H

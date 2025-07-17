@@ -4,13 +4,13 @@
 #include "Mazo.h"
 #include "Jugador.h"
 #include "Crupier.h"
-#include "Controlador.h"
+#include "PersonaCasino.h"
 #include "Interfaz.h"
 #include "PhoneValidator.h"
 #include "ServicioRecarga.h"
 #include "Mesa.h"
 using namespace std;
-// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp Controlador.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp Mesa.cpp -o prog -lcurl
+// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp PersonaCasino.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp Mesa.cpp -o prog -lcurl
 /*
 Notas:
 EL programa deberia para si el jugador se pasa de 21 durante su jugada.
@@ -49,7 +49,7 @@ void agregar_jugador(Interfaz& interfaz, Mesa& mesa){
 	string nombre_jugador = interfaz.pedir_nombre();
 	
 
-	Controlador* jugador = new Jugador(nombre_jugador, 0);
+	PersonaCasino* jugador = new Jugador(nombre_jugador, 0);
 	Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
 	bool comprobar_transaccion = recargar(interfaz, jugador_ptr);
 	if(comprobar_transaccion){
@@ -178,7 +178,7 @@ void apostar(Interfaz& interfaz, Jugador* jugadores){
 int main()
 {
 	Mazo mazo;
-	Controlador* crupier = new Crupier("Crupier",  mazo);
+	PersonaCasino* crupier = new Crupier("Crupier",  mazo);
 	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
 	Mesa mesa;
 	Interfaz interfaz;

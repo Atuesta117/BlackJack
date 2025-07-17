@@ -53,9 +53,9 @@ bool Mesa::mesa_llena(){
     }
 }
 
-void Mesa::agregar_jugador(Jugador* jugador, Controlador* controlador){
+void Mesa::agregar_jugador(Jugador* jugador, PersonaCasino* PersonaCasino){
 	mesa.push_back(jugador);
-    objetos_padre.push_back(controlador);
+    objetos_padre.push_back(PersonaCasino);
 }
 
 

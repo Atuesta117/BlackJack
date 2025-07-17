@@ -24,10 +24,10 @@
 #include <string>
 #include <vector>
 #include "Jugador.h"
-#include "Controlador.h"
+#include "PersonaCasino.h"
 using namespace std;
 
-Crupier::Crupier(const string& _nombre,Mazo& _mazo_crupier): Controlador(_nombre), mazo(_mazo_crupier) // Inicializa el mazo de cartas
+Crupier::Crupier(const string& _nombre,Mazo& _mazo_crupier): PersonaCasino(_nombre), mazo(_mazo_crupier) // Inicializa el mazo de cartas
 {
 	this-> nombre = "Crupier";
 	this->apuesta = 0;

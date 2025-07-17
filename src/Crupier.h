@@ -25,12 +25,11 @@
 #include "Carta.h"
 #include "Mazo.h"
 #include "Jugador.h"
-#include "Controlador.h"
+#include "PersonaCasino.h"
 #include <string>
 
 
-class Crupier : public Controlador
-{
+class Crupier : public PersonaCasino{
 	private:
 
 		// Atributos

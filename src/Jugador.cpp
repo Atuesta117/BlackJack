@@ -27,6 +27,7 @@
 #include "Mazo.h"
 #include "Carta.h"
 using namespace std;
+#include "PersonaCasino.h"
 
 #include <algorithm>
 #include <cctype>
@@ -38,7 +39,7 @@ string aMayusculas(std::string texto) {
         [](unsigned char c){ return std::toupper(c); });
     return texto;
 }
-Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre){
+Jugador::Jugador(const string& _nombre, int _dinero):PersonaCasino(_nombre){
 	this->nombre = aMayusculas(_nombre);
 	this->dinero_total = _dinero;
 	this->apuesta = 0;

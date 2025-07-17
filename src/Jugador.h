@@ -27,9 +27,9 @@
 using namespace std;
 #include "Carta.h"
 #include "Mazo.h"
-#include "Controlador.h"
+#include "PersonaCasino.h"
 
-class Jugador : public Controlador{
+class Jugador : public PersonaCasino{
 	private:
 	
 		public:
