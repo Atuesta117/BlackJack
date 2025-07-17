@@ -50,6 +50,7 @@ void Mazo::shuffle() {
 int Mazo::get_cant_cartas() {
     return cartas.size();
 }
+    
 
 Carta Mazo::get_carta() {
     Carta carta = cartas.back();
