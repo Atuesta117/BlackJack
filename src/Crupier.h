@@ -44,13 +44,13 @@ class Crupier : public Controlador
 	public:
 	
 		// Constructor
-		Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier); 
+		Crupier(const string& _nombre, Mazo& _mazo_crupier); 
 		
 
 		void mostrar_mano_parcial();
 
 		string determinar_ganador(Jugador* jugador);
-		void apostar(long _apuesta)override;
+
 
 
 };

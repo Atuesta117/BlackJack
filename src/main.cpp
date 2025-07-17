@@ -178,7 +178,7 @@ void apostar(Interfaz& interfaz, Jugador* jugadores){
 int main()
 {
 	Mazo mazo;
-	Controlador* crupier = new Crupier("Crupier", 9999999999, mazo);
+	Controlador* crupier = new Crupier("Crupier",  mazo);
 	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
 	Mesa mesa;
 	Interfaz interfaz;

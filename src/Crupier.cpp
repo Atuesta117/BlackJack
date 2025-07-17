@@ -27,10 +27,9 @@
 #include "Controlador.h"
 using namespace std;
 
-Crupier::Crupier(const string& _nombre, long _dinero, Mazo& _mazo_crupier): Controlador(_nombre, _dinero), mazo(_mazo_crupier) // Inicializa el mazo de cartas
+Crupier::Crupier(const string& _nombre,Mazo& _mazo_crupier): Controlador(_nombre), mazo(_mazo_crupier) // Inicializa el mazo de cartas
 {
 	this-> nombre = "Crupier";
-	this->dinero_total = _dinero; //representaria el dinero total de la casa
 	this->apuesta = 0;
 	this->valor_mano= 0;
 	this->mano.clear(); // Inicializa la mano del crupier
@@ -70,7 +69,6 @@ string Crupier::determinar_ganador(Jugador* jugador) {
     } 
     // Caso 2: El jugador se pasa 
     else if (valor_mano_jugador > 21) {
-        set_dinero(apuesta + jugador->get_apuesta());
         return "EL JUGADOR "+ jugador->get_nombre()+" SE HA PASADO. EL CRUPIER GANA.";
     } 
     // Caso 4: Ambos tienen blackjack
@@ -85,7 +83,6 @@ string Crupier::determinar_ganador(Jugador* jugador) {
     } 
     // Caso 6: Crupier gana
     else if (this->valor_mano > valor_mano_jugador && this->valor_mano <= 21) {
-        set_dinero(apuesta + jugador->get_apuesta());
         return "LA MANO DE "+ jugador->get_nombre()+" ES MENOR, EL CRUPIER GANA.";
     } 
     // Caso 7: Jugador gana
@@ -101,8 +98,4 @@ string Crupier::determinar_ganador(Jugador* jugador) {
 
     // Caso no contemplado (¡nunca debería llegar aquí si la lógica es correcta!)
     return "ERROR: CASO NO PREVISTO EN determinar_ganador()";
-}
-void Crupier::apostar(long _apuesta) {
-	this->apuesta = _apuesta;
-	this->dinero_total -= apuesta; // Resta la apuesta del dinero total del crupier
 }

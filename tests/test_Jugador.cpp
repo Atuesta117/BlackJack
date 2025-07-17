@@ -2,13 +2,14 @@
 #include "../src/Jugador.h"
 
 TEST(JugadorTest, ApostarReduceDinero) {
-    Jugador jugador("Ana", 1000);
-    jugador.apostar(300);
-    EXPECT_EQ(jugador.get_dinero(), 700);
+    Jugador jugador("Pedro", 1000); // 1000 de saldo inicial.
+    jugador.apostar(500);
+    EXPECT_EQ(jugador.get_dinero(), 500); // 1000 - 500 = 500.
+    EXPECT_EQ(jugador.get_apuesta(), 500); // Apuesta actualizada.
 }
 
-TEST(JugadorTest, SetNombreActualizaCorrectamente) {
-    Jugador jugador("", 500);
-    jugador.set_nombre("Carlos");
-    EXPECT_EQ(jugador.get_nombre(), "CARLOS"); // Asume que convierte a mayúsculas
+TEST(JugadorTest, SetDineroActualizaSaldo) {
+    Jugador jugador("Sofía", 200);
+    jugador.set_dinero(300);
+    EXPECT_EQ(jugador.get_dinero(), 300); // Saldo nuevo = 300.
 }

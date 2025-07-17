@@ -30,9 +30,8 @@
 #include "Crupier.h"
 using namespace std;
 
-Controlador::Controlador(const string& _nombre, int _dinero) {
+Controlador::Controlador(const string& _nombre) {
 	this->nombre = _nombre;
-	this->dinero_total = _dinero;
 	this->apuesta = 0;
 	this->valor_mano= 0;
 	this->esta_jugando = false; // El Controlador inicia en juego
@@ -109,20 +108,9 @@ bool Controlador::plantarse(){
 }
 
 
-int Controlador::contar_cartas() {
-	int total = 0;
-	for (size_t i = 0; i < mano.size(); i++)
-	{
-		total ++;
-	}
-	return total;
-	
-}
 
-void Controlador::apostar(long _apuesta) {
-	this->apuesta = _apuesta;
-	this->dinero_total -= apuesta; // Resta la apuesta del dinero total del Controlador
-}
+
+
 
 //setter
 

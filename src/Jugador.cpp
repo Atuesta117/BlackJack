@@ -38,7 +38,7 @@ string aMayusculas(std::string texto) {
         [](unsigned char c){ return std::toupper(c); });
     return texto;
 }
-Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre, _dinero){
+Jugador::Jugador(const string& _nombre, int _dinero):Controlador(_nombre){
 	this->nombre = aMayusculas(_nombre);
 	this->dinero_total = _dinero;
 	this->apuesta = 0;

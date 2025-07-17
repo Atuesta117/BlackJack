@@ -43,7 +43,7 @@ class Controlador{
 	 //y asi evitar vovler a retarle 10 al valor de la mano
 		
 	 public:
-		Controlador(const string& _nombre, int _dinero);
+		Controlador(const string& _nombre);
 		virtual ~Controlador() = default;
 
 		//estado del jugador        
@@ -52,13 +52,10 @@ class Controlador{
 		string get_nombre(){return nombre;};
 	
 		//acciones
-		virtual void apostar(long _apuesta)=0;
 		void pedir_carta(Mazo &mazo);
 		void pedir_mano(Mazo& mazo);
 		bool plantarse();
-		int contar_cartas();
 		//getter
-		long get_apuesta() { return this->apuesta; }
 		bool get_esta_jugando() { return this->esta_jugando; }
 		int get_valor_mano(){return this->valor_mano;}
 		vector<Carta> get_cartas() { return this->mano; } 
