@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_PersonaCasino.dir/test_PersonaCasino.cpp.o -o test_PersonaCasino  libjuego_base.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

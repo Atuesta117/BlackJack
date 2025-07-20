@@ -64,3 +64,9 @@ void Jugador::reiniciar_valores(){
 	this->apuesta=0;
 }
 
+
+long Jugador::set_dinero (const long _cantidad_depositar){
+	this->dinero_total+= _cantidad_depositar;
+	return this->dinero_total;
+}
+	

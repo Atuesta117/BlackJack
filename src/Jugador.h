@@ -39,6 +39,8 @@ class Jugador : public PersonaCasino{
 		void apostar (long _apuesta);
 		long get_apuesta(){return apuesta;}
 		void reiniciar_valores()override;
+		//setter
+		long set_dinero (long _cantidad_depositar);
 };
 
 

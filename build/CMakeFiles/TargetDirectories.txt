@@ -6,7 +6,11 @@
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_Jugador.dir
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_Mazo.dir
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_Mesa.dir
+/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_Crupier.dir
+/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_Interfaz.dir
+/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_PersonaCasino.dir
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_ServicioRecarga.dir
+/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test_Carta.dir
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/test.dir
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/edit_cache.dir
 /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/tests/CMakeFiles/rebuild_cache.dir

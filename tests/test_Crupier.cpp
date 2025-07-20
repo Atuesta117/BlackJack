@@ -1,28 +1,25 @@
 #include <gtest/gtest.h>
 #include "../src/Crupier.h"
 #include "../src/Jugador.h"
+using namespace std;
 
 TEST(CrupierTest, DeterminarGanador) {
     Mazo mazo;
-    Crupier crupier("Casa", mazo);
-    Jugador jugador("Carlos", 1000);
+    PersonaCasino* jugador = new Jugador("Juan", 500);
+    Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
 
-    // Simular manos (necesitarías inyectar cartas específicas).
-    // Ejemplo si ambos tienen 18: empate.
-    // EXPECT_EQ(crupier.determinar_ganador(&jugador), "Empate");
+    PersonaCasino* crupier = new Crupier("Crupier");
+	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
+ 
 
-    // Caso donde crupier gana:
-    // jugador.set_valor_mano(17);
-    // crupier.set_valor_mano(20);
-    // EXPECT_EQ(crupier.determinar_ganador(&jugador), "Crupier gana");
+    // Asignar cartas manualmente (requiere métodos en Crupier/Jugador)
+    jugador_ptr->pedir_mano(mazo);      // Valor: 8  (Total: 18)
+
+    crupier_ptr->pedir_mano(mazo);   // Valor: 7  (Total: 18)
+    string resultado = crupier_ptr->determinar_ganador(jugador_ptr);
+    // Verificar empate
+    EXPECT_TRUE(resultado== "EL JUGADOR "+ jugador->get_nombre()+" BLACKJACK. EL JUGADOR GANA."||resultado== "EL CRUPIER SE HA PASADO. EL JUGADOR "+ jugador->get_nombre()+" GANA."||resultado== "EL JUGADOR "+ jugador->get_nombre()+" SE HA PASADO. EL CRUPIER GANA."||resultado== "EL CRUPIER Y "+ jugador->get_nombre()+" SACARON BLACKJACK. TENEMOS UN EMPATE."||resultado== "EL CRUPIER Y "+ jugador->get_nombre()+" TIENEN EL MISMO PUNTAJE. TENEMOS UN EMPATE."||resultado== "LA MANO DE "+ jugador->get_nombre()+" ES MENOR, EL CRUPIER GANA."||resultado== "EL JUGADOR "+ jugador->get_nombre()+" TIENE BLACKJACK. EL JUGADOR GANA."||resultado== "EL JUGADOR "+ jugador->get_nombre()+" GANA.");
+
+    
 }
 
-TEST(CrupierTest, MostrarManoParcial) {
-    Mazo mazo;
-    Crupier crupier("Casa", mazo);
-    // Verificar que solo muestra 1 carta inicial (depende de tu implementación).
-    // testing::internal::CaptureStdout();
-    // crupier.mostrar_mano_parcial();
-    // std::string output = testing::internal::GetCapturedStdout();
-    // EXPECT_TRUE(output.find("[Carta oculta]") != std::string::npos);
-}

@@ -1,34 +1,28 @@
 #include <gtest/gtest.h>
 #include "../src/PersonaCasino.h"
 #include "../src/Mazo.h"
+#include "../src/Crupier.h"
 
 TEST(PersonaCasinoTest, IniciarPartidaCambiaEstado) {
-    PersonaCasino PersonaCasino("Juan");
-    PersonaCasino.iniciar_partida();
-    EXPECT_TRUE(PersonaCasino.get_esta_jugando()); // Debe estar jugando.
-    PersonaCasino.terminar_partida();
-    EXPECT_FALSE(PersonaCasino.get_esta_jugando()); // Debe terminar.
+    PersonaCasino* persona = new Crupier("Juan");
+    persona->iniciar_partida();
+    EXPECT_TRUE(persona->get_esta_jugando()); // Debe estar jugando.
+    persona->terminar_partida();
+    EXPECT_FALSE(persona->get_esta_jugando()); // Debe terminar.
 }
 
 TEST(PersonaCasinoTest, PedirCartaAumentaMano) {
-    PersonaCasino PersonaCasino("Ana");
+    PersonaCasino* persona = new Crupier("Juan");
     Mazo mazo;
     mazo.shuffle();
-    PersonaCasino.pedir_carta(mazo);
-    EXPECT_EQ(PersonaCasino.get_cartas().size(), 1); // 1 carta añadida.
+    persona->pedir_carta(mazo);
+    EXPECT_EQ(persona->get_cartas().size(), 1); // 1 carta añadida.
 }
 
-TEST(PersonaCasinoTest, VerificarBlackjack) {
-    PersonaCasino PersonaCasino("Luis");
-    Mazo mazo;
-    // Simular mano con As + Rey (necesitarías mockear el mazo o forzar cartas).
-    // Asumamos que pedir_carta() añade cartas específicas en un test real.
-    // EXPECT_TRUE(PersonaCasino.verificar_blackjack());
-}
 
 TEST(PersonaCasinoTest, PlantarseDetieneJugada) {
-    PersonaCasino PersonaCasino("Marta");
-    PersonaCasino.iniciar_partida();
-    EXPECT_TRUE(PersonaCasino.plantarse()); // Devuelve true si estaba jugando.
-    EXPECT_TRUE(PersonaCasino.get_se_planta()); // Verifica estado.
+     PersonaCasino* persona = new Crupier("Juan");
+    persona->iniciar_partida();
+    EXPECT_TRUE(persona->plantarse()); // Devuelve true si estaba jugando.
+    EXPECT_TRUE(persona->get_se_planta()); // Verifica estado.
 }

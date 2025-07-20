@@ -183,6 +183,48 @@ test_Mesa/fast:
 .PHONY : test_Mesa/fast
 
 # Convenience name for target.
+tests/CMakeFiles/test_Crupier.dir/rule:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_Crupier.dir/rule
+.PHONY : tests/CMakeFiles/test_Crupier.dir/rule
+
+# Convenience name for target.
+test_Crupier: tests/CMakeFiles/test_Crupier.dir/rule
+.PHONY : test_Crupier
+
+# fast build rule for target.
+test_Crupier/fast:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/build
+.PHONY : test_Crupier/fast
+
+# Convenience name for target.
+tests/CMakeFiles/test_Interfaz.dir/rule:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_Interfaz.dir/rule
+.PHONY : tests/CMakeFiles/test_Interfaz.dir/rule
+
+# Convenience name for target.
+test_Interfaz: tests/CMakeFiles/test_Interfaz.dir/rule
+.PHONY : test_Interfaz
+
+# fast build rule for target.
+test_Interfaz/fast:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/build
+.PHONY : test_Interfaz/fast
+
+# Convenience name for target.
+tests/CMakeFiles/test_PersonaCasino.dir/rule:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_PersonaCasino.dir/rule
+.PHONY : tests/CMakeFiles/test_PersonaCasino.dir/rule
+
+# Convenience name for target.
+test_PersonaCasino: tests/CMakeFiles/test_PersonaCasino.dir/rule
+.PHONY : test_PersonaCasino
+
+# fast build rule for target.
+test_PersonaCasino/fast:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/build
+.PHONY : test_PersonaCasino/fast
+
+# Convenience name for target.
 tests/CMakeFiles/test_ServicioRecarga.dir/rule:
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_ServicioRecarga.dir/rule
 .PHONY : tests/CMakeFiles/test_ServicioRecarga.dir/rule
@@ -195,6 +237,20 @@ test_ServicioRecarga: tests/CMakeFiles/test_ServicioRecarga.dir/rule
 test_ServicioRecarga/fast:
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_ServicioRecarga.dir/build.make tests/CMakeFiles/test_ServicioRecarga.dir/build
 .PHONY : test_ServicioRecarga/fast
+
+# Convenience name for target.
+tests/CMakeFiles/test_Carta.dir/rule:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_Carta.dir/rule
+.PHONY : tests/CMakeFiles/test_Carta.dir/rule
+
+# Convenience name for target.
+test_Carta: tests/CMakeFiles/test_Carta.dir/rule
+.PHONY : test_Carta
+
+# fast build rule for target.
+test_Carta/fast:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/build
+.PHONY : test_Carta/fast
 
 __/src/Carta.o: __/src/Carta.cpp.o
 .PHONY : __/src/Carta.o
@@ -388,6 +444,78 @@ __/src/ServicioRecarga.cpp.s:
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/juego_base.dir/build.make tests/CMakeFiles/juego_base.dir/__/src/ServicioRecarga.cpp.s
 .PHONY : __/src/ServicioRecarga.cpp.s
 
+test_Carta.o: test_Carta.cpp.o
+.PHONY : test_Carta.o
+
+# target to build an object file
+test_Carta.cpp.o:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/test_Carta.cpp.o
+.PHONY : test_Carta.cpp.o
+
+test_Carta.i: test_Carta.cpp.i
+.PHONY : test_Carta.i
+
+# target to preprocess a source file
+test_Carta.cpp.i:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/test_Carta.cpp.i
+.PHONY : test_Carta.cpp.i
+
+test_Carta.s: test_Carta.cpp.s
+.PHONY : test_Carta.s
+
+# target to generate assembly for a file
+test_Carta.cpp.s:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/test_Carta.cpp.s
+.PHONY : test_Carta.cpp.s
+
+test_Crupier.o: test_Crupier.cpp.o
+.PHONY : test_Crupier.o
+
+# target to build an object file
+test_Crupier.cpp.o:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/test_Crupier.cpp.o
+.PHONY : test_Crupier.cpp.o
+
+test_Crupier.i: test_Crupier.cpp.i
+.PHONY : test_Crupier.i
+
+# target to preprocess a source file
+test_Crupier.cpp.i:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/test_Crupier.cpp.i
+.PHONY : test_Crupier.cpp.i
+
+test_Crupier.s: test_Crupier.cpp.s
+.PHONY : test_Crupier.s
+
+# target to generate assembly for a file
+test_Crupier.cpp.s:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/test_Crupier.cpp.s
+.PHONY : test_Crupier.cpp.s
+
+test_Interfaz.o: test_Interfaz.cpp.o
+.PHONY : test_Interfaz.o
+
+# target to build an object file
+test_Interfaz.cpp.o:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/test_Interfaz.cpp.o
+.PHONY : test_Interfaz.cpp.o
+
+test_Interfaz.i: test_Interfaz.cpp.i
+.PHONY : test_Interfaz.i
+
+# target to preprocess a source file
+test_Interfaz.cpp.i:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/test_Interfaz.cpp.i
+.PHONY : test_Interfaz.cpp.i
+
+test_Interfaz.s: test_Interfaz.cpp.s
+.PHONY : test_Interfaz.s
+
+# target to generate assembly for a file
+test_Interfaz.cpp.s:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/test_Interfaz.cpp.s
+.PHONY : test_Interfaz.cpp.s
+
 test_Jugador.o: test_Jugador.cpp.o
 .PHONY : test_Jugador.o
 
@@ -460,6 +588,30 @@ test_Mesa.cpp.s:
 	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Mesa.dir/build.make tests/CMakeFiles/test_Mesa.dir/test_Mesa.cpp.s
 .PHONY : test_Mesa.cpp.s
 
+test_PersonaCasino.o: test_PersonaCasino.cpp.o
+.PHONY : test_PersonaCasino.o
+
+# target to build an object file
+test_PersonaCasino.cpp.o:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/test_PersonaCasino.cpp.o
+.PHONY : test_PersonaCasino.cpp.o
+
+test_PersonaCasino.i: test_PersonaCasino.cpp.i
+.PHONY : test_PersonaCasino.i
+
+# target to preprocess a source file
+test_PersonaCasino.cpp.i:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/test_PersonaCasino.cpp.i
+.PHONY : test_PersonaCasino.cpp.i
+
+test_PersonaCasino.s: test_PersonaCasino.cpp.s
+.PHONY : test_PersonaCasino.s
+
+# target to generate assembly for a file
+test_PersonaCasino.cpp.s:
+	cd /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/test_PersonaCasino.cpp.s
+.PHONY : test_PersonaCasino.cpp.s
+
 test_ServicioRecarga.o: test_ServicioRecarga.cpp.o
 .PHONY : test_ServicioRecarga.o
 
@@ -494,9 +646,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... juego_base"
+	@echo "... test_Carta"
+	@echo "... test_Crupier"
+	@echo "... test_Interfaz"
 	@echo "... test_Jugador"
 	@echo "... test_Mazo"
 	@echo "... test_Mesa"
+	@echo "... test_PersonaCasino"
 	@echo "... test_ServicioRecarga"
 	@echo "... __/src/Carta.o"
 	@echo "... __/src/Carta.i"
@@ -522,6 +678,15 @@ help:
 	@echo "... __/src/ServicioRecarga.o"
 	@echo "... __/src/ServicioRecarga.i"
 	@echo "... __/src/ServicioRecarga.s"
+	@echo "... test_Carta.o"
+	@echo "... test_Carta.i"
+	@echo "... test_Carta.s"
+	@echo "... test_Crupier.o"
+	@echo "... test_Crupier.i"
+	@echo "... test_Crupier.s"
+	@echo "... test_Interfaz.o"
+	@echo "... test_Interfaz.i"
+	@echo "... test_Interfaz.s"
 	@echo "... test_Jugador.o"
 	@echo "... test_Jugador.i"
 	@echo "... test_Jugador.s"
@@ -531,6 +696,9 @@ help:
 	@echo "... test_Mesa.o"
 	@echo "... test_Mesa.i"
 	@echo "... test_Mesa.s"
+	@echo "... test_PersonaCasino.o"
+	@echo "... test_PersonaCasino.i"
+	@echo "... test_PersonaCasino.s"
 	@echo "... test_ServicioRecarga.o"
 	@echo "... test_ServicioRecarga.i"
 	@echo "... test_ServicioRecarga.s"

@@ -192,6 +192,45 @@ test_Mesa/fast:
 .PHONY : test_Mesa/fast
 
 #=============================================================================
+# Target rules for targets named test_Crupier
+
+# Build rule for target.
+test_Crupier: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_Crupier
+.PHONY : test_Crupier
+
+# fast build rule for target.
+test_Crupier/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/build
+.PHONY : test_Crupier/fast
+
+#=============================================================================
+# Target rules for targets named test_Interfaz
+
+# Build rule for target.
+test_Interfaz: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_Interfaz
+.PHONY : test_Interfaz
+
+# fast build rule for target.
+test_Interfaz/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/build
+.PHONY : test_Interfaz/fast
+
+#=============================================================================
+# Target rules for targets named test_PersonaCasino
+
+# Build rule for target.
+test_PersonaCasino: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_PersonaCasino
+.PHONY : test_PersonaCasino
+
+# fast build rule for target.
+test_PersonaCasino/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/build
+.PHONY : test_PersonaCasino/fast
+
+#=============================================================================
 # Target rules for targets named test_ServicioRecarga
 
 # Build rule for target.
@@ -203,6 +242,19 @@ test_ServicioRecarga: cmake_check_build_system
 test_ServicioRecarga/fast:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_ServicioRecarga.dir/build.make tests/CMakeFiles/test_ServicioRecarga.dir/build
 .PHONY : test_ServicioRecarga/fast
+
+#=============================================================================
+# Target rules for targets named test_Carta
+
+# Build rule for target.
+test_Carta: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_Carta
+.PHONY : test_Carta
+
+# fast build rule for target.
+test_Carta/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/build
+.PHONY : test_Carta/fast
 
 src/Carta.o: src/Carta.cpp.o
 .PHONY : src/Carta.o
@@ -407,9 +459,13 @@ help:
 	@echo "... test"
 	@echo "... juego_base"
 	@echo "... juego_lib"
+	@echo "... test_Carta"
+	@echo "... test_Crupier"
+	@echo "... test_Interfaz"
 	@echo "... test_Jugador"
 	@echo "... test_Mazo"
 	@echo "... test_Mesa"
+	@echo "... test_PersonaCasino"
 	@echo "... test_ServicioRecarga"
 	@echo "... src/Carta.o"
 	@echo "... src/Carta.i"

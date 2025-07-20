@@ -149,5 +149,9 @@ set(CMAKE_DEPEND_INFO_FILES
   "tests/CMakeFiles/test_Jugador.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_Mazo.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_Mesa.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_Crupier.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_Interfaz.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_PersonaCasino.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_ServicioRecarga.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_Carta.dir/DependInfo.cmake"
   )

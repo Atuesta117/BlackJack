@@ -12,8 +12,9 @@ TEST(MesaTest, AgregarJugadorAumentaTamanio) {
 
 TEST(MesaTest, EliminarJugadorPorIndice) {
     Mesa mesa;
-    Jugador jugador("Pedro", 500);
-    mesa.agregar_jugador(&jugador, &jugador);
-    mesa.eliminar_jugador(0);
+    PersonaCasino* jugador = new Jugador("Juan", 500);
+    Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
+    mesa.agregar_jugador(jugador_ptr, jugador);
+    mesa.eliminar_jugador(1);
     EXPECT_TRUE(mesa.get_jugadores().empty());
 }

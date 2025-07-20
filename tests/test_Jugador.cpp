@@ -11,5 +11,5 @@ TEST(JugadorTest, ApostarReduceDinero) {
 TEST(JugadorTest, SetDineroActualizaSaldo) {
     Jugador jugador("Sofía", 200);
     jugador.set_dinero(300);
-    EXPECT_EQ(jugador.get_dinero(), 300); // Saldo nuevo = 300.
+    EXPECT_EQ(jugador.get_dinero(), 500); // Saldo nuevo = 300.
 }

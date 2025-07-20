@@ -84,7 +84,11 @@ tests/all: tests/CMakeFiles/juego_base.dir/all
 tests/all: tests/CMakeFiles/test_Jugador.dir/all
 tests/all: tests/CMakeFiles/test_Mazo.dir/all
 tests/all: tests/CMakeFiles/test_Mesa.dir/all
+tests/all: tests/CMakeFiles/test_Crupier.dir/all
+tests/all: tests/CMakeFiles/test_Interfaz.dir/all
+tests/all: tests/CMakeFiles/test_PersonaCasino.dir/all
 tests/all: tests/CMakeFiles/test_ServicioRecarga.dir/all
+tests/all: tests/CMakeFiles/test_Carta.dir/all
 .PHONY : tests/all
 
 # Recursive "preinstall" directory target.
@@ -96,7 +100,11 @@ tests/clean: tests/CMakeFiles/juego_base.dir/clean
 tests/clean: tests/CMakeFiles/test_Jugador.dir/clean
 tests/clean: tests/CMakeFiles/test_Mazo.dir/clean
 tests/clean: tests/CMakeFiles/test_Mesa.dir/clean
+tests/clean: tests/CMakeFiles/test_Crupier.dir/clean
+tests/clean: tests/CMakeFiles/test_Interfaz.dir/clean
+tests/clean: tests/CMakeFiles/test_PersonaCasino.dir/clean
 tests/clean: tests/CMakeFiles/test_ServicioRecarga.dir/clean
+tests/clean: tests/CMakeFiles/test_Carta.dir/clean
 .PHONY : tests/clean
 
 #=============================================================================
@@ -158,7 +166,7 @@ tests/CMakeFiles/juego_base.dir/clean:
 tests/CMakeFiles/test_Jugador.dir/all: tests/CMakeFiles/juego_base.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Jugador.dir/build.make tests/CMakeFiles/test_Jugador.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Jugador.dir/build.make tests/CMakeFiles/test_Jugador.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=19,20 "Built target test_Jugador"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=25,26 "Built target test_Jugador"
 .PHONY : tests/CMakeFiles/test_Jugador.dir/all
 
 # Build rule for subdir invocation for target.
@@ -184,7 +192,7 @@ tests/CMakeFiles/test_Jugador.dir/clean:
 tests/CMakeFiles/test_Mazo.dir/all: tests/CMakeFiles/juego_base.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Mazo.dir/build.make tests/CMakeFiles/test_Mazo.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Mazo.dir/build.make tests/CMakeFiles/test_Mazo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=21,22 "Built target test_Mazo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=27,28 "Built target test_Mazo"
 .PHONY : tests/CMakeFiles/test_Mazo.dir/all
 
 # Build rule for subdir invocation for target.
@@ -210,7 +218,7 @@ tests/CMakeFiles/test_Mazo.dir/clean:
 tests/CMakeFiles/test_Mesa.dir/all: tests/CMakeFiles/juego_base.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Mesa.dir/build.make tests/CMakeFiles/test_Mesa.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Mesa.dir/build.make tests/CMakeFiles/test_Mesa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=23,24 "Built target test_Mesa"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=29,30 "Built target test_Mesa"
 .PHONY : tests/CMakeFiles/test_Mesa.dir/all
 
 # Build rule for subdir invocation for target.
@@ -230,13 +238,91 @@ tests/CMakeFiles/test_Mesa.dir/clean:
 .PHONY : tests/CMakeFiles/test_Mesa.dir/clean
 
 #=============================================================================
+# Target rules for target tests/CMakeFiles/test_Crupier.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_Crupier.dir/all: tests/CMakeFiles/juego_base.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=21,22 "Built target test_Crupier"
+.PHONY : tests/CMakeFiles/test_Crupier.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_Crupier.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_Crupier.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_Crupier.dir/rule
+
+# Convenience name for target.
+test_Crupier: tests/CMakeFiles/test_Crupier.dir/rule
+.PHONY : test_Crupier
+
+# clean rule for target.
+tests/CMakeFiles/test_Crupier.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Crupier.dir/build.make tests/CMakeFiles/test_Crupier.dir/clean
+.PHONY : tests/CMakeFiles/test_Crupier.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/test_Interfaz.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_Interfaz.dir/all: tests/CMakeFiles/juego_base.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=23,24 "Built target test_Interfaz"
+.PHONY : tests/CMakeFiles/test_Interfaz.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_Interfaz.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_Interfaz.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_Interfaz.dir/rule
+
+# Convenience name for target.
+test_Interfaz: tests/CMakeFiles/test_Interfaz.dir/rule
+.PHONY : test_Interfaz
+
+# clean rule for target.
+tests/CMakeFiles/test_Interfaz.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Interfaz.dir/build.make tests/CMakeFiles/test_Interfaz.dir/clean
+.PHONY : tests/CMakeFiles/test_Interfaz.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/test_PersonaCasino.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_PersonaCasino.dir/all: tests/CMakeFiles/juego_base.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=31,32 "Built target test_PersonaCasino"
+.PHONY : tests/CMakeFiles/test_PersonaCasino.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_PersonaCasino.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_PersonaCasino.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_PersonaCasino.dir/rule
+
+# Convenience name for target.
+test_PersonaCasino: tests/CMakeFiles/test_PersonaCasino.dir/rule
+.PHONY : test_PersonaCasino
+
+# clean rule for target.
+tests/CMakeFiles/test_PersonaCasino.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_PersonaCasino.dir/build.make tests/CMakeFiles/test_PersonaCasino.dir/clean
+.PHONY : tests/CMakeFiles/test_PersonaCasino.dir/clean
+
+#=============================================================================
 # Target rules for target tests/CMakeFiles/test_ServicioRecarga.dir
 
 # All Build rule for target.
 tests/CMakeFiles/test_ServicioRecarga.dir/all: tests/CMakeFiles/juego_base.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_ServicioRecarga.dir/build.make tests/CMakeFiles/test_ServicioRecarga.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_ServicioRecarga.dir/build.make tests/CMakeFiles/test_ServicioRecarga.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=25,26 "Built target test_ServicioRecarga"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=33,34 "Built target test_ServicioRecarga"
 .PHONY : tests/CMakeFiles/test_ServicioRecarga.dir/all
 
 # Build rule for subdir invocation for target.
@@ -254,6 +340,32 @@ test_ServicioRecarga: tests/CMakeFiles/test_ServicioRecarga.dir/rule
 tests/CMakeFiles/test_ServicioRecarga.dir/clean:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_ServicioRecarga.dir/build.make tests/CMakeFiles/test_ServicioRecarga.dir/clean
 .PHONY : tests/CMakeFiles/test_ServicioRecarga.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/test_Carta.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_Carta.dir/all: tests/CMakeFiles/juego_base.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles --progress-num=19,20 "Built target test_Carta"
+.PHONY : tests/CMakeFiles/test_Carta.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_Carta.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_Carta.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan-jose/Documentos/VisualStudioCode/BlackJack/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_Carta.dir/rule
+
+# Convenience name for target.
+test_Carta: tests/CMakeFiles/test_Carta.dir/rule
+.PHONY : test_Carta
+
+# clean rule for target.
+tests/CMakeFiles/test_Carta.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_Carta.dir/build.make tests/CMakeFiles/test_Carta.dir/clean
+.PHONY : tests/CMakeFiles/test_Carta.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

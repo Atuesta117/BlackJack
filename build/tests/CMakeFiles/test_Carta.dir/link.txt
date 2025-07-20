@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_Carta.dir/test_Carta.cpp.o -o test_Carta  libjuego_base.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 

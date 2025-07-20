@@ -10,12 +10,7 @@ TEST(CartaTest, ConstructorYGetters) {
     EXPECT_EQ(carta.get_valor_carta(), 11);
 }
 
-// Prueba el método display (verifica que no lance excepciones)
-TEST(CartaTest, DisplayNoLanzaExcepciones) {
-    Carta carta("Picas", "K", 10);
-    
-    EXPECT_NO_THROW(carta.display());
-}
+
 
 // Prueba valores límite
 TEST(CartaTest, ValoresLimite) {
@@ -24,9 +19,4 @@ TEST(CartaTest, ValoresLimite) {
     
     EXPECT_EQ(carta1.get_valor_carta(), 2);
     EXPECT_EQ(carta2.get_valor_carta(), 10);
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

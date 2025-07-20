@@ -110,11 +110,6 @@ bool PersonaCasino::plantarse(){
 
 //setter
 
-long PersonaCasino::set_dinero (const long _cantidad_depositar){
-	this->dinero_total+= _cantidad_depositar;
-	return this->dinero_total;
-}
-	
 
 
 //verificacion blackjack
