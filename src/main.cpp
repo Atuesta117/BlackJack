@@ -13,13 +13,6 @@
 using namespace std;
 // g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp PersonaCasino.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp Mesa.cpp Juego.cpp -o prog -lcurl
 
- 
-
-//////////////////////////////////////////////////////////////
-
-
-
-
 int main()
 {
 	Mazo mazo;
@@ -31,9 +24,9 @@ int main()
 	while(true){
 	interfaz.limpiar_consola();
 	string opc_menu;
-	opc_menu = interfaz.mostrar_menu_inicio();
+	opc_menu = interfaz.mostrar_menu_inicio();//mirar las opciones del menu de inicio para entender esta parte
 
-	if(opc_menu == "1"){
+	if(opc_menu == "1"){//agregar un jugador
 		
 		if (mesa.mesa_llena() == false){
 			juego.agregar_jugador(interfaz, mesa);
@@ -45,35 +38,35 @@ int main()
 			interfaz.esperar_enter();
 		}
 	}
-	else if(opc_menu == "2"){
+	else if(opc_menu == "2"){ //mostrar los jugadores
 		
 		interfaz.mostrar_lista_jugadores(mesa);
 	}
-	else if (opc_menu == "3"){
+	else if (opc_menu == "3"){//eliminar un jugador
 		juego.eliminar_jugador(mesa, interfaz);
 	}
-	else if (opc_menu == "4")
+	else if (opc_menu == "4")//empezar partida con los jugadores registrados
 	{
 		
-		if(mesa.get_mesa_activa()){
+		if(mesa.get_mesa_activa()){//verifica que la mesa tiene al menos un jugador
 		vector<Jugador*> jugadores = mesa.get_jugadores();
 		for(size_t i = 0; i < jugadores.size(); i++){
-			string opc_inicial = interfaz.mostrar_menu_juego(jugadores[i]); 		
+			string opc_inicial = interfaz.mostrar_menu_juego(jugadores[i]);// opciones de menu de juego, apostar, ingresar dinero o salir 		
 			while(true){
-				if (opc_inicial == "1")
+				if (opc_inicial == "1")//el jugador apuesta he inicia partida
 			{
 				juego.apostar(interfaz, jugadores[i]);
 				break;
 				
 			}
-			else if(opc_inicial =="2"){
+			else if(opc_inicial =="2"){//el jugador recarga dinero
 				bool comprobado = juego.recargar(interfaz, jugadores[i]);
 				if(comprobado){
 					cout<<"TRANSACCION FINALIZADA"<<endl;
 				}
 			}
 			
-			else if (opc_inicial == "3")
+			else if (opc_inicial == "3")//el jugador sale antes de iniciar la partida con el crupier
 			{
 				interfaz.limpiar_consola();
 				interfaz.mensaje(1);
@@ -86,12 +79,14 @@ int main()
 			opc_inicial = interfaz.mostrar_menu_juego(jugadores[i]); 			
 		}
 		}
-		
-		if(mesa.get_mesa_activa()){
+		//la idea es repetir esta interfaz a menos que el jugador de apostar o salir, una vez dijitado eso se pasa al siguiente jugador
+		//para que tome sus acciones, si ya no hay mas jugadores se continua 
+		if(mesa.get_mesa_activa()){// se verifica de nuevo por si todos los jugadores en el ciclo anterior decidieron salir antes de empezar la partida con el crupier
 			vector<Jugador*> jugadores = mesa.get_jugadores();
-			mazo.shuffle();
-			juego.mostrar_cartas_jugadores(interfaz, jugadores, mazo);
+			mazo.shuffle();//se varaja el mazo
+			juego.mostrar_cartas_jugadores(interfaz, jugadores, mazo);//se reparte la mano y se pmuestra
 			
+			// el crupier toma su mano y muestra una parte
 				crupier_ptr->pedir_mano(mazo);
 				interfaz.limpiar_consola();
 				interfaz.mostrar_mano_parcial(crupier_ptr);
@@ -116,7 +111,7 @@ int main()
 					interfaz.imprimir_divicion();
 					interfaz.esperar_enter();
 				}
-				else{
+				else{//en caso tal de que todos los jugadores hayan salido
 					interfaz.limpiar_consola();
 					interfaz.imprimir_divicion();
 					interfaz.logo();
@@ -125,7 +120,7 @@ int main()
 				}
 				
 			}
-			else{
+			else{//la mesa no tenia jugadortes
 				interfaz.limpiar_consola();
 				interfaz.imprimir_divicion();
 				interfaz.logo();
@@ -135,7 +130,7 @@ int main()
 			
 		
 	}
-	else if (opc_menu == "5")
+	else if (opc_menu == "5")//se sale del juego completamente
 	{
 		interfaz.limpiar_consola();
 		vector<Jugador*> jugadores = mesa.get_jugadores();
@@ -143,14 +138,16 @@ int main()
 		interfaz.logo();
 		interfaz.mensaje(1);
 		
-			if(jugadores.size()!=0){
+			if(jugadores.size()!=0){//se muestra un resumen de el dinero final de cada jugador
 				for (size_t i = 0; i < jugadores.size(); i++)
 		{
 			cout << "El dinero total del jugador " << jugadores[i]->get_nombre() << ": " << jugadores[i]->get_dinero() << endl;
 		}
+		//se eliminan todos los jugadores
 		mesa.eliminar_todos_jugadores();
 		
 	}
+	//se elimina el crupier
 		delete crupier;
 		break; // Salir del bucle y terminar el programa
 	}
