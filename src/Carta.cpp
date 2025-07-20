@@ -39,6 +39,3 @@ int Carta::get_valor_carta(){
 string Carta::get_rank_carta(){
     return rank;
 }
-void Carta::display(){
-    cout << "Casta: " << casta << ", rank: " << rank << ", Valor: " << valor << endl;
-}

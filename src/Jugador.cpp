@@ -39,7 +39,7 @@ string aMayusculas(std::string texto) {
         [](unsigned char c){ return std::toupper(c); });
     return texto;
 }
-Jugador::Jugador(const string& _nombre, int _dinero):PersonaCasino(_nombre){
+Jugador::Jugador(const string& _nombre, long _dinero):PersonaCasino(_nombre){
 	this->nombre = aMayusculas(_nombre);
 	this->dinero_total = _dinero;
 	this->apuesta = 0;
@@ -56,6 +56,11 @@ void Jugador::apostar(long _apuesta) {
 	this->dinero_total -= this->apuesta; // Resta la apuesta del dinero total del jugador
 }
 
-void Jugador::set_nombre(string _nombre){
-	this->nombre = _nombre;
+void Jugador::reiniciar_valores(){
+	this->mano.clear(); // Limpia el vector de cartas del PersonaCasino
+	this->valor_mano = 0; // Reinicia el valor de la mano
+	this->se_planta = false; // Reinicia el estado de plantarse
+	this->contador_as =	 0;
+	this->apuesta=0;
 }
+

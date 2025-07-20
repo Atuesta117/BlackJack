@@ -33,7 +33,7 @@ class Crupier : public PersonaCasino{
 	private:
 
 		// Atributos
-		Mazo& mazo;
+	
 	/*
 		long dinero_total_crupier;
 		long apuesta_crupier;
@@ -43,12 +43,10 @@ class Crupier : public PersonaCasino{
 	public:
 	
 		// Constructor
-		Crupier(const string& _nombre, Mazo& _mazo_crupier); 
+		Crupier(const string& _nombre); 
 		
-
-		void mostrar_mano_parcial();
-
 		string determinar_ganador(Jugador* jugador);
+		void reiniciar_valores()override;
 
 
 

@@ -27,32 +27,18 @@
 #include "PersonaCasino.h"
 using namespace std;
 
-Crupier::Crupier(const string& _nombre,Mazo& _mazo_crupier): PersonaCasino(_nombre), mazo(_mazo_crupier) // Inicializa el mazo de cartas
+Crupier::Crupier(const string& _nombre): PersonaCasino(_nombre) // Inicializa el mazo de cartas
 {
 	this-> nombre = "Crupier";
-	this->apuesta = 0;
 	this->valor_mano= 0;
 	this->mano.clear(); // Inicializa la mano del crupier
 	this->se_planta = false;
 	this->esta_jugando = false; // El crupier no está jugando al inicio
-	this->mazo.shuffle(); // Baraja el mazo de cartas al inicio
 	this->contador_as =0;
 }
 
 
-void Crupier::mostrar_mano_parcial()
-{
-	if(this->mano.size() == 2)
-	{
-		this->mano[0].display();// Muestra la primera carta del crupier
-		cout << endl;
-		cout << "Carta oculta del crupier." << endl; // Muestra la segunda carta como oculta
-	}
-	else{
-		cout << "El crupier no tiene cartas." << endl;
-	}
-	
-}
+
 
 string Crupier::determinar_ganador(Jugador* jugador) {
     int valor_mano_jugador = jugador->get_valor_mano();
@@ -98,4 +84,11 @@ string Crupier::determinar_ganador(Jugador* jugador) {
 
     // Caso no contemplado (¡nunca debería llegar aquí si la lógica es correcta!)
     return "ERROR: CASO NO PREVISTO EN determinar_ganador()";
+}
+
+void Crupier::reiniciar_valores(){
+	this->mano.clear(); // Limpia el vector de cartas del PersonaCasino
+	this->valor_mano = 0; // Reinicia el valor de la mano
+	this->se_planta = false; // Reinicia el estado de plantarse
+	this->contador_as =	 0;
 }

@@ -32,7 +32,6 @@ using namespace std;
 
 PersonaCasino::PersonaCasino(const string& _nombre) {
 	this->nombre = _nombre;
-	this->apuesta = 0;
 	this->valor_mano= 0;
 	this->esta_jugando = false; // El PersonaCasino inicia en juego
 	this->se_planta = false; // El PersonaCasino no se ha plantado al inicio
@@ -88,15 +87,12 @@ void PersonaCasino::pedir_carta(Mazo &mazo) {
 		}
 	}
 	if(this->contador_as != contador){
-		cout <<"en efecto son diferentes";
-		cout << this->contador_as<<endl<<contador;
 		if(this->valor_mano > 21){
 			this->valor_mano += -10;
 			this->contador_as++;
 		}
 	}
-	else{
-		cout <<"son iguales";
+	else{	
 		cout << this->contador_as<<endl<<contador;
 	}
 
@@ -130,11 +126,5 @@ bool PersonaCasino::verificar_blackjack() {
 	return false; // El PersonaCasino no tiene blackjack
 }
 
-void PersonaCasino::reiniciar_valores() {
-	this->mano.clear(); // Limpia el vector de cartas del PersonaCasino
-	this->valor_mano = 0; // Reinicia el valor de la mano
-    this->apuesta = 0; // Reinicia la apuesta del PersonaCasino
-	this->se_planta = false; // Reinicia el estado de plantarse
-	this->contador_as =	 0;
-}
+
 

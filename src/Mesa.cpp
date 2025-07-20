@@ -66,13 +66,7 @@ void Mesa::eliminar_jugador(int index){
     mesa.erase(mesa.begin()+ index);  
 }
 
-void Mesa::repartir_cartas(Mazo& mazo) {
-    for (Jugador* jugador : mesa) {
-        if (jugador->get_esta_jugando()) {
-            jugador->pedir_mano(mazo); // Reparte cartas a cada jugador activo
-        }
-    }
-}
+
 
 void Mesa::eliminar_todos_jugadores(){
     for(int i =1; i<= mesa.size(); i++){

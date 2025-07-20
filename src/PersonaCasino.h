@@ -34,7 +34,7 @@ class PersonaCasino{
 	protected:
 		string nombre;
 		long dinero_total;
-		long apuesta;
+
 		int valor_mano;
 		vector<Carta> mano;
 		bool esta_jugando; // true si el jugador sigue en juego, false si se ha retirado
@@ -70,7 +70,7 @@ class PersonaCasino{
 		bool verificar_blackjack();
 
 		//reiniciar mano
-		void reiniciar_valores();
+		virtual void reiniciar_valores()=0;
 	
 
 		

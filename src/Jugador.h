@@ -31,16 +31,14 @@ using namespace std;
 
 class Jugador : public PersonaCasino{
 	private:
-	
+	long apuesta;
 		public:
-	Jugador(const string& _nombre, int _dinero);
+	Jugador(const string& _nombre, long _dinero);
 	~Jugador() override{}
 		long get_dinero() { return dinero_total; }
 		void apostar (long _apuesta);
-		void set_nombre(string _nombre);
-		//void jugar_turno(Mazo& mazo)override;
-		//void mostrar_mano()override;
 		long get_apuesta(){return apuesta;}
+		void reiniciar_valores()override;
 };
 
 

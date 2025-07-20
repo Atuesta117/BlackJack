@@ -36,7 +36,7 @@ class Mesa {
     void agregar_jugador(Jugador* jugador, PersonaCasino* PersonaCasino);
     void eliminar_jugador(int index);
     void eliminar_todos_jugadores();
-    void repartir_cartas(Mazo& mazo);
+    
 };
 #endif // MESA_H
 
