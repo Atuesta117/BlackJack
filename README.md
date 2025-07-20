@@ -295,5 +295,105 @@ Nota: en general esta clase bvusca hacer procedimientos generales del proceso de
   Este metodo le pide al jugador la cantidad de dinero que quiere apostar, verifica que el monto sea valido viendo que no sea mayor a la cantidad del dinero del jugador y llama al metodo del jugador apostar con el monto ingresado
 - Metodo: jugador_turnos_jugadores
   Este metodo hace un ciclo for recorriendo a cada uno de los jugadores, permitiendoles jugar su turno en el juego (muestra el menu de opciones al momento de recibir las cartas y todo eso, para mas inform vayan a los metodos de interfaz)
-  
-  
+
+-------------------------------------------------------------------------
+
+Google test
+# Pruebas unitarias con Google Test
+
+Este proyecto utiliza **Google Test** para realizar pruebas unitarias sobre las clases del juego Blackjack. A continuación, se explica cómo funciona el sistema de pruebas y qué archivos son necesarios para ello.
+
+## ¿Para qué sirven los archivos `.cpp` de prueba?
+
+Cada archivo `.cpp` de prueba contiene pruebas unitarias para una clase específica del proyecto. Por ejemplo:
+
+- `Carta_test.cpp`: pruebas para la clase `Carta`.
+- `Mazo_test.cpp`: pruebas para la clase `Mazo`.
+- `Mesa_test.cpp`: pruebas para la clase `Mesa`.
+
+Estos archivos se crean para **verificar que el comportamiento de las clases sea correcto**, por ejemplo, que se inicialicen bien, que las funciones devuelvan lo esperado, que el estado interno se modifique correctamente, etc.
+
+## ¿Qué contiene un archivo de prueba?
+
+Cada archivo de prueba `.cpp` debe tener lo siguiente:
+
+1. **Inclusión de Google Test y la clase a probar**:
+```cpp
+#include <gtest/gtest.h>
+#include "../src/Carta.h"
+
+ejemplo
+
+TEST(CartaTestSimple, ValoresCorrectos) {
+    Carta carta(10, "♠");
+    EXPECT_EQ(carta.get_valor(), 10);
+    EXPECT_EQ(carta.get_simbolo(), "♠");
+}
+```
+Cada prueba ejecuta una parte del código y compara el resultado con lo esperado usando EXPECT_EQ, ASSERT_TRUE, etc.
+# Organización general de archivos para pruebas con Google Test
+
+Cuando se estructura un proyecto con Google Test y CMake, suelen organizarse los archivos de configuración y prueba de la siguiente manera. A continuación, se explica qué va en cada uno de ellos y para qué sirve.
+
+---
+
+## 1. `CMakeLists.txt` (principal, en la raíz del proyecto)
+
+Este archivo principal le indica a CMake cómo compilar el proyecto. En él se define el ejecutable principal del proyecto y también se suele incluir la carpeta de pruebas.
+
+Ejemplo general:
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(BlackJack)
+
+# Incluir carpeta con los headers
+include_directories(include)
+
+# Agregar los archivos fuente del proyecto
+add_subdirectory(src)
+
+# Incluir las pruebas
+enable_testing()
+add_subdirectory(tests)
+```
+2. tests/CMakeLists.txt
+Este archivo es específico para la configuración de las pruebas. Aquí se indican los archivos .cpp de prueba que se deben compilar, y se enlazan con Google Test y con la biblioteca del proyecto (blackjack_lib).
+# Incluir Google Test
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(../include)
+
+# Crear ejecutable de pruebas
+add_executable(tests
+    Carta_test.cpp
+    Mazo_test.cpp
+    Mesa_test.cpp
+    # Agrega aquí más archivos de prueba
+)
+
+# Enlazar con GTest y la biblioteca principal
+target_link_libraries(tests
+    ${GTEST_LIBRARIES}
+    pthread
+    blackjack_lib
+)
+
+# Activar las pruebas
+add_test(NAME RunTests COMMAND tests)
+
+3. Archivos .cpp dentro de la carpeta tests/
+Aquí van los archivos que contienen las pruebas unitarias para cada clase. Suelen tener un nombre como Clase_test.cpp y cada uno prueba funciones específicas de la clase correspondiente.
+
+#include <gtest/gtest.h>
+#include "../include/Carta.h"
+
+TEST(CartaTest, ConstructorCorrecto) {
+    Carta carta(1, "♦");
+    EXPECT_EQ(carta.get_valor(), 1);
+    EXPECT_EQ(carta.get_simbolo(), "♦");
+}
+
+Por ultimo la compilacion se hace en una carpeta llamada build, ejecutando el comando
+
+
+
