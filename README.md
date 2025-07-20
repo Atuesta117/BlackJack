@@ -97,15 +97,6 @@ Coloca un nullptr en la posición.
 
 Usa erase para remover el puntero del vector.
 
-- Método: void repartir_cartas(Mazo& mazo)
-Este método reparte la mano inicial a los jugadores activos.
-
-Recorre el vector mesa con un ciclo for por cada puntero jugador.
-
-Verifica si el jugador está jugando (jugador->get_esta_jugando()).
-
-Si sí, llama a jugador->pedir_mano(mazo), que le da las cartas iniciales desde el mazo.
-
 - Método: void eliminar_todos_jugadores()
 Elimina a todos los jugadores de la mesa.
 
@@ -227,5 +218,53 @@ Nota: Esta clase aumenta un atributo el cual es apuesta, el cual indica la canti
 
 Clase Crupier
 Se relaciona con:
-Usa jugador para determinar quien gana, ademas de carta para tener su mano (vector de cartas) y mazo para obtener cartas o su mano inicial y el crupier es quien tiene el mazo, asi que contiene esta clase
+Usa jugador para determinar quien gana, ademas de carta para tener su mano (vector de cartas) 
+-Metodo: Crupier
+  inicializa las variables de juego al igual que jugador o PersonaCasino
+-Metodo: determinar_ganador
+  Determina el ganador de la partida segunlos casos que se puedan dar: EL crupier se pasa y el jugador no, el jugador se pasa, ambos tienen blackjack o tienen el mismo puntaje, el crupier gana por mayor puntaje
+  el jugador gana por mayor puntaje.
+  El metodo retorna un mensaje con el resultado, esto para imprimirlo de forma mas presentable con ayuda de la clase interfaz
+-Metodo: reiniciar_valores
+  Reinicia los valores importantes del juego, al igual que su clase padre, pero no como el jugador, pues recordemos, el crupier como tal no apuesta dinero
+  
+-------------------------------------------------------------------------
+
+Clase: Interfaz
+Se relaciona con:
+Principalmente con Crupier y Jugador para jugar sus turnos y mostrar sus cartas, aunque usa tambien mesa para mostrar la lista de jugadores o elegir un jugador a eliminar
+
+Nota: los metodos privados de dibujar_carta y su variante, como su nombre dice es para dibujar en consola una carta, dada su casta ysa un algoritmo que imprime el rank de la carta en las esquinas y en el centro la casta
+otra cosa a tener en cuenta es el uso de R"()" este formato de caracteres nos permite que se muestran saltos de linea de forrma mas facil en consola
+
+- Metodos: mostrar_mano crupier | jugador
+  Lo que buscan este metodo es mostrar la mano tanto del crupier o del jugador dependiendo de la entrada del metodo, esto se hace con un ciclo for que recorre el vector de cartas y que imprime cada una de las cartas. previo a esto se
+  hace un cuadro con el nombre del jugador para identificarlo
+- Metodo: mostrar_mano_parcial
+  Es para mostrar una carta boca arriba y otra hacia abajo al inicio de la partida, estas cartas correspondiente a la del crupier, se imprime la primer carta del vector de cartas y luego se imprime una carta como en blanco
+- Metodos: mostrar_valor_mano Jugador | Crupier
+  COmo su nombre lo indica permite mostrar el valor de la mano de una forma mas linda, en un cuadrado, con ayuda del get nombre y get valor mano
+- Metodo mostrar_ganador
+  Este con ayuda del metodo determinar_ganador de crupier muestra en pantalla un mensaje con el resultado de cada uno de los jugadores, determinando quien gana
+- Metodo mostrar_menu_inicio
+  Este muestra el menu de inicio del juego, retornando la opcion elegida por el jugador. Para las opciones se eligio hacer con string para tener un mejor rango a la hora de ver una correcta digitacion de las opciones
+- Metodo mostrar_menu_juego
+  Este tambien retorna la opcion del jugador, y es un menu de opciones individual por cada jugador donde se puede apostar (ingresar la apuesta) recargar dinero o salir del juego
+- Metodo mostrar_menu_jugador
+  Este menu aparece una vez ya se hicieron las apuestas y se repartieron cartas, es para las acciones del jugador durante el juego, como pedir una carta, plantarse, ver sus cartas etc.
+  Este al igual que los anteriores metodos retorna la opcion del jugador
+- Metodos pedir_nombre | logo | imrpimir_divicion | mensaje_error | mensaje_exitodo | mensaje
+  Estos metodos se orientan a mostrar algun tipo de mensaje meramente decorativo en la consola, o en el caso de pedir nombre, una forma mas linda de pedir el nombre del jugador al momento de ingresar uno.
+  EN cuanto a mensaje, contiene un arreglo con varios mensajes, la idea es que se ingrese el numero de la posicion del mensaje que se quiere ingresar a consola. Imprimir_divicion es la forma en que se divide la informacion en pantalla
+  con barras del tipo ----- de una cantidad estandar
+- Metodos esperar_enter|limpiar_consola
+  El primero es para que el usuario como su nombre dice, presione enter para continuar, esto con el fin de hacer mas pausado el juego. Ademas limpiar consola nos permite tener una interfaz mas interactiva y limpia durante el juego
+- Metodo interfaz_turno Jugador | Crupier
+  Este lo que busca es, con ayuda del metodo mostrar_menu_jugador, jugar el turno de un jugador, en otras palabras ejecuta las acciones que muestra el metodo mostrar_menu_jugador. EN el caso de crupier lo que hace es ejecutar la dinamica
+  del crupier a la hora de jugar: levantar la carta que tiene oculta, y dependiendo del puntaje va tomando mas cartas o se planta
+- Metodo: mostrar_lista_jugadores | elegir_jugador_eleiminar
+  Esta es obvia, con ayuda de un ciclo for recorre el vector de jugadores contenido en la clase mesa, para asi imprimir los jugadores activos en la mesa. Ahora bien, este metodo se usa en conjunto con el metodo elegir_jugador_eliminar
+  pues la idea es que se muestre la lista y el jugador dijite el numero del jugador a eliminar. Se elimina del vector el numero digitado menos uno, es decir si eligio al jugador uno, se elimina el jugador en la posicion cero del vector
+  
+
   
