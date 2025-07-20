@@ -1,3 +1,7 @@
+Nota: PersonaCasino* jugador = new Jugador(nombre_jugador, 0);
+	Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
+ eso de dynamic_cast es para crear un objeto Jugador que tambien pueda usar sus propios metodos, dado que se usa polimorfismo y herencia pero igual las clases hijas ocupan sus popios metodos
+
 Clase: Carta
 Se relaciona con:
 
@@ -266,5 +270,30 @@ otra cosa a tener en cuenta es el uso de R"()" este formato de caracteres nos pe
   Esta es obvia, con ayuda de un ciclo for recorre el vector de jugadores contenido en la clase mesa, para asi imprimir los jugadores activos en la mesa. Ahora bien, este metodo se usa en conjunto con el metodo elegir_jugador_eliminar
   pues la idea es que se muestre la lista y el jugador dijite el numero del jugador a eliminar. Se elimina del vector el numero digitado menos uno, es decir si eligio al jugador uno, se elimina el jugador en la posicion cero del vector
   
+-------------------------------------------------------------------------
+Clase Juego
+Se relaciona con todas las clases basicamente
 
+Nota: en general esta clase bvusca hacer procedimientos generales del proceso del juego, para que el main quede mas limpio y entendible 
+
+- Metodo: recargar
+  como su nombre lo indica, recarga dinero que haya digitado el jugador, verificando primero que el monto ingresado es valido y despues con phonevalidator y seriviciorecarga hace la transaccion, retornando true si la transaccion
+  se realizo de manera exitosa y false si no
+- Metodo: agregar_jugador
+  como lo dice el nombre del metodo, este agrega un jugador, esto lo hace creando un objeto PersonaCasino y Jugador, una vez hecho esto se recarga con dinero el objeto jugador con el metodo anteriormente visto y se comprueba si la
+  transaccion se realizo de forma exitosa
+- Metodo: mostrasr_cartas_jugadores
+  Este metodo recorre el vector de jugadores de la mesa y lo que hace es un ciclo for, donde primero sale el nombre del jugador, se le asigna una mano con el metodo pedir mano y despues se imprimen la mano y el valor de la mano de dicho jugador
+- Metodo resumen_partida
+  Lo que busca este metodo es que, una vez el crupier mostro sus cartas y que tales. Se muestre por ultimas vez la mano final y el valor de la mano de cada jugador junto con la mano y valor de la mano del crupier, esto a modo de resumen
+- Metodo: determinar_ganadores
+  Este metodo hace un for recorriendo el vector de jugadores, y determinando con el metodo de crupier (deterinar_ganador) para este resultado imprimirlo en consola, y de una verz se reunen las cartas del jugador para devolverlaas al vector de       cartas del mazo, y se reinician los valores de cada jugador por el que pasa el ciclo
+- Metodo: eliminar_jugador
+  Este como su nombre lo indica permite eliminar el jugador, se muestra una lista y se elimina al jugador con el numero que se haya digitado con ayuda del metodo de la clase interfas (elegir_jugador_eliminar), esto lo que hace es de una vez borrar
+  de memoria heap el objeto padre y el hijo
+- Metodo: apostar
+  Este metodo le pide al jugador la cantidad de dinero que quiere apostar, verifica que el monto sea valido viendo que no sea mayor a la cantidad del dinero del jugador y llama al metodo del jugador apostar con el monto ingresado
+- Metodo: jugador_turnos_jugadores
+  Este metodo hace un ciclo for recorriendo a cada uno de los jugadores, permitiendoles jugar su turno en el juego (muestra el menu de opciones al momento de recibir las cartas y todo eso, para mas inform vayan a los metodos de interfaz)
+  
   
