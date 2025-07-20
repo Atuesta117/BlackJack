@@ -9,166 +9,11 @@
 #include "PhoneValidator.h"
 #include "ServicioRecarga.h"
 #include "Mesa.h"
+#include "Juego.h"
 using namespace std;
-// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp PersonaCasino.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp Mesa.cpp -o prog -lcurl
-/*
-Notas:
-EL programa deberia para si el jugador se pasa de 21 durante su jugada.
-Testear mejor el tema de las sumas
+// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp PersonaCasino.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp Mesa.cpp Juego.cpp -o prog -lcurl
 
-*/
-
-bool recargar(Interfaz& interfaz, Jugador* jugador_ptr){
-	interfaz.limpiar_consola();
-	interfaz.imprimir_divicion();
-	interfaz.logo();
-	interfaz.mensaje(0);
-	long dinero_ingresar;
-	string numero;
-	cout << "Ingrese su numero de cuenta Nequi: ";
-	cin >> numero;
-	cout << "Ingrese la cantidad a recargar: ";
-	cin >> dinero_ingresar;
-	PhoneValidator validator ("4B836698810C4FF6B7C56C4431318D80");
-	ServicioRecarga servicio;
-	bool monto_valido = servicio.verificar_monto(dinero_ingresar);
-	while (monto_valido==false) {  
-		interfaz.mensaje_error();
-		cout << "Error: Cantidad no válida. Ingrese un monto positivo: ";
-		cin >> dinero_ingresar;
-		monto_valido = servicio.verificar_monto(dinero_ingresar);
-	}
-
-	bool comprobar_transaccion = servicio.realizar_transaccion(validator.esNumeroValido(numero), jugador_ptr, dinero_ingresar);
-	return comprobar_transaccion;
-}
-void agregar_jugador(Interfaz& interfaz, Mesa& mesa){
-	interfaz.limpiar_consola();
-	interfaz.imprimir_divicion();
-	interfaz.logo();
-	string nombre_jugador = interfaz.pedir_nombre();
-	
-
-	PersonaCasino* jugador = new Jugador(nombre_jugador, 0);
-	Jugador* jugador_ptr = dynamic_cast<Jugador*>(jugador);
-	bool comprobar_transaccion = recargar(interfaz, jugador_ptr);
-	if(comprobar_transaccion){
-		mesa.agregar_jugador(jugador_ptr, jugador);
-		interfaz.imprimir_divicion();
-		interfaz.esperar_enter();
-	}
-	else{
-		interfaz.imprimir_divicion();
-		interfaz.esperar_enter();
-	}
-}
-
-void mostrar_cartas_jugadores(Interfaz& interfaz,vector<Jugador*> jugadores, Mazo& mazo){
-	interfaz.limpiar_consola();
-	interfaz.mensaje(2);
-				interfaz.imprimir_divicion();
-				for (size_t i = 0; i < jugadores.size(); i++)
-				{
-					cout << R"(
-				     ╔════════════════════════════════════════╗ )"<<endl;
-					cout<<				"						  JUGADOR "<<jugadores[i]->get_nombre()<<endl;
-					cout<< R"(				     ╚════════════════════════════════════════╝ 
-					)" <<endl;
-					jugadores[i]->pedir_mano(mazo);
-					interfaz.mostrar_mano(jugadores[i]);
-					interfaz.mostrar_valor_mano(jugadores[i]);
-					interfaz.imprimir_divicion();
-					interfaz.esperar_enter();
-					interfaz.limpiar_consola();
-				}
-}
-void jugar_turnos_jugadores(Interfaz& interfaz, vector<Jugador*> jugadores, Mazo& mazo, Crupier* crupier_ptr){
-	for(size_t i = 0; i<jugadores.size();i++){
-		interfaz.limpiar_consola();
-				interfaz.interfaz_turno(jugadores[i], mazo, crupier_ptr);
-				interfaz.imprimir_divicion();
-				}
-}
-void resumen_partida(Interfaz& interfaz, vector<Jugador*> jugadores,Crupier* crupier_ptr){
-	interfaz.limpiar_consola();
-				for (size_t i = 0; i < jugadores.size()  ; i++)
-				{
-					interfaz.mensaje(3);
-					interfaz.mostrar_mano(jugadores[i]);
-					interfaz.mostrar_valor_mano(jugadores[i]);
-					cout << endl;
-					interfaz.limpiar_consola();
-				}
-				interfaz.mostrar_mano(crupier_ptr);
-				interfaz.mostrar_valor_mano(crupier_ptr);
-				interfaz.imprimir_divicion();
-				cout << endl;
-}
-void determinar_ganadores(Interfaz& interfaz, vector<Jugador*> jugadores,Crupier* crupier_ptr, Mazo& mazo){
-for(size_t i=0;i<jugadores.size();i++){
-	interfaz.limpiar_consola();
-	interfaz.mostrar_ganador(crupier_ptr->determinar_ganador(jugadores[i]));
-	interfaz.imprimir_divicion();
-	cout << "El dinero total del jugador " << jugadores[i]->get_nombre() << ": " << jugadores[i]->get_dinero() << endl;
-	interfaz.imprimir_divicion();
-	interfaz.esperar_enter();
-	mazo.reunir_cartas(jugadores[i]->get_cartas());
-	jugadores[i]->reiniciar_valores();
-	interfaz.esperar_enter();
-	
-	}
-}
-
-void lista_jugadores(Mesa& mesa, Interfaz& interfaz){
-	interfaz.limpiar_consola();
-	vector<Jugador*> jugadores = mesa.get_jugadores();
-		if(jugadores.empty()){
-			interfaz.mensaje_error();
-			cout<<"Error: No se han ingresado jugadores"<<endl;
-		}
-		else{
-			interfaz.mostrar_lista_jugadores(mesa);
-			int numero_jugador = interfaz.elegir_jugador_eliminar(mesa);
-			if(numero_jugador == 6){
-				interfaz.mensaje_exitoso();
-				cout <<"Volviendo al menu principal"<<endl;
-				interfaz.esperar_enter();
-			}
-			else{
-			interfaz.mensaje_exitoso();
-			cout << "Jugador eliminado correctamente." << endl;
-			cout << "EL saldo final del jugador"<< jugadores[numero_jugador-1]->get_nombre() << " es: " << jugadores[numero_jugador-1]->get_dinero()<< endl;
-			mesa.eliminar_jugador(numero_jugador);
-		}
-	}
-}
-
-void apostar(Interfaz& interfaz, Jugador* jugadores){
-	
-	interfaz.limpiar_consola();
-	interfaz.imprimir_divicion();
-	interfaz.logo();
-	interfaz.imprimir_divicion();	
-
-	long apuesta_jugador1;
-	interfaz.imprimir_divicion();
-	cout << "El dinero total del jugador"<< jugadores->get_nombre()<<" es: " << jugadores->get_dinero() << endl;
-	cout << "Ingrese la apuesta: ";
-	cin >> apuesta_jugador1;
-
-	while (apuesta_jugador1 > jugadores->get_dinero()) {
-		interfaz.imprimir_divicion();
-		interfaz.mensaje_error();
-		cout << "Error: La apuesta no puede ser mayor que el dinero total. Ingrese una apuesta válida: ";
-		cin >> apuesta_jugador1;
-	}
-
-	jugadores->apostar(apuesta_jugador1);
-	jugadores->iniciar_partida();
-	interfaz.imprimir_divicion();
-	interfaz.esperar_enter();
-	
-}
+ 
 
 //////////////////////////////////////////////////////////////
 
@@ -178,10 +23,11 @@ void apostar(Interfaz& interfaz, Jugador* jugadores){
 int main()
 {
 	Mazo mazo;
-	PersonaCasino* crupier = new Crupier("Crupier",  mazo);
+	PersonaCasino* crupier = new Crupier("Crupier");
 	Crupier* crupier_ptr = dynamic_cast<Crupier*>(crupier);
 	Mesa mesa;
 	Interfaz interfaz;
+	Juego juego;
 	while(true){
 	interfaz.limpiar_consola();
 	string opc_menu;
@@ -190,7 +36,7 @@ int main()
 	if(opc_menu == "1"){
 		
 		if (mesa.mesa_llena() == false){
-			agregar_jugador(interfaz, mesa);
+			juego.agregar_jugador(interfaz, mesa);
 		}
 		else{
 			interfaz.limpiar_consola();
@@ -204,7 +50,7 @@ int main()
 		interfaz.mostrar_lista_jugadores(mesa);
 	}
 	else if (opc_menu == "3"){
-		lista_jugadores(mesa, interfaz);
+		juego.eliminar_jugador(mesa, interfaz);
 	}
 	else if (opc_menu == "4")
 	{
@@ -216,12 +62,12 @@ int main()
 			while(true){
 				if (opc_inicial == "1")
 			{
-				apostar(interfaz, jugadores[i]);
+				juego.apostar(interfaz, jugadores[i]);
 				break;
 				
 			}
 			else if(opc_inicial =="2"){
-				bool comprobado = recargar(interfaz, jugadores[i]);
+				bool comprobado = juego.recargar(interfaz, jugadores[i]);
 				if(comprobado){
 					cout<<"TRANSACCION FINALIZADA"<<endl;
 				}
@@ -244,7 +90,7 @@ int main()
 		if(mesa.get_mesa_activa()){
 			vector<Jugador*> jugadores = mesa.get_jugadores();
 			mazo.shuffle();
-			mostrar_cartas_jugadores(interfaz, jugadores, mazo);
+			juego.mostrar_cartas_jugadores(interfaz, jugadores, mazo);
 			
 				crupier_ptr->pedir_mano(mazo);
 				interfaz.limpiar_consola();
@@ -252,15 +98,15 @@ int main()
 
 				cout << endl;
 				//Jugar los turnos de los jugadores
-				jugar_turnos_jugadores(interfaz, jugadores, mazo, crupier_ptr);
+				juego.jugar_turnos_jugadores(interfaz, jugadores, mazo, crupier_ptr);
 			
 				interfaz.interfaz_turno(crupier_ptr, jugadores, mazo);
 				cout << endl;
 				//Resumen
-				resumen_partida(interfaz, jugadores, crupier_ptr);
+				juego.resumen_partida(interfaz, jugadores, crupier_ptr);
 				
 			//determinar ganadores
-			determinar_ganadores(interfaz, jugadores, crupier_ptr, mazo);
+			juego.determinar_ganadores(interfaz, jugadores, crupier_ptr, mazo);
 					mazo.reunir_cartas(crupier_ptr->get_cartas());
 					crupier_ptr->reiniciar_valores();
 					interfaz.limpiar_consola();
