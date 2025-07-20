@@ -393,4 +393,7 @@ TEST(CartaTest, ConstructorCorrecto) {
     EXPECT_EQ(carta.get_simbolo(), "♦");
 }
 
+Por ultimo la compilacion se hace en una carpeta llamada build, ejecutando el comando
+
+
 
