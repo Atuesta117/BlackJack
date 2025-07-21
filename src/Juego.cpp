@@ -12,7 +12,7 @@ Juego::Juego(){}
 
 bool Juego::recargar(Interfaz& interfaz, Jugador* jugador_ptr){
 interfaz.limpiar_consola();
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	interfaz.logo();
 	interfaz.mensaje(0);
 	long dinero_ingresar;
@@ -36,7 +36,7 @@ interfaz.limpiar_consola();
 }
 void Juego::agregar_jugador(Interfaz& interfaz, Mesa& mesa){
     interfaz.limpiar_consola();
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	interfaz.logo();
 	string nombre_jugador = interfaz.pedir_nombre();
 	
@@ -46,11 +46,11 @@ void Juego::agregar_jugador(Interfaz& interfaz, Mesa& mesa){
 	bool comprobar_transaccion = recargar(interfaz, jugador_ptr);
 	if(comprobar_transaccion){
 		mesa.agregar_jugador(jugador_ptr, jugador);
-		interfaz.imprimir_divicion();
+		interfaz.imprimir_division();
 		interfaz.esperar_enter();
 	}
 	else{
-		interfaz.imprimir_divicion();
+		interfaz.imprimir_division();
 		interfaz.esperar_enter();
 	}
 }
@@ -58,7 +58,7 @@ void Juego::agregar_jugador(Interfaz& interfaz, Mesa& mesa){
 void Juego::mostrar_cartas_jugadores(Interfaz& interfaz,vector<Jugador*> jugadores, Mazo& mazo){
     interfaz.limpiar_consola();
 	interfaz.mensaje(2);
-				interfaz.imprimir_divicion();
+				interfaz.imprimir_division();
 				for (size_t i = 0; i < jugadores.size(); i++)
 				{
 					cout << R"(
@@ -69,7 +69,7 @@ void Juego::mostrar_cartas_jugadores(Interfaz& interfaz,vector<Jugador*> jugador
 					jugadores[i]->pedir_mano(mazo);
 					interfaz.mostrar_mano(jugadores[i]);
 					interfaz.mostrar_valor_mano(jugadores[i]);
-					interfaz.imprimir_divicion();
+					interfaz.imprimir_division();
 					interfaz.esperar_enter();
 					interfaz.limpiar_consola();
 				}
@@ -87,7 +87,7 @@ void Juego::resumen_partida(Interfaz& interfaz, vector<Jugador*> jugadores,Crupi
 				}
 				interfaz.mostrar_mano(crupier_ptr);
 				interfaz.mostrar_valor_mano(crupier_ptr);
-				interfaz.imprimir_divicion();
+				interfaz.imprimir_division();
 				cout << endl;
 }
 
@@ -95,9 +95,9 @@ void Juego::determinar_ganadores(Interfaz& interfaz, vector<Jugador*> jugadores,
 for(size_t i=0;i<jugadores.size();i++){
 	interfaz.limpiar_consola();
 	interfaz.mostrar_ganador(crupier_ptr->determinar_ganador(jugadores[i]));
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	cout << "El dinero total del jugador " << jugadores[i]->get_nombre() << ": " << jugadores[i]->get_dinero() << endl;
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	interfaz.esperar_enter();
 	mazo.reunir_cartas(jugadores[i]->get_cartas());
 	jugadores[i]->reiniciar_valores();
@@ -134,18 +134,18 @@ void Juego::eliminar_jugador(Mesa& mesa, Interfaz& interfaz){
 void Juego::apostar(Interfaz& interfaz, Jugador* jugadores){
 	
 	interfaz.limpiar_consola();
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	interfaz.logo();
-	interfaz.imprimir_divicion();	
+	interfaz.imprimir_division();	
 
 	long apuesta_jugador1;
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	cout << "El dinero total del jugador"<< jugadores->get_nombre()<<" es: " << jugadores->get_dinero() << endl;
 	cout << "Ingrese la apuesta: ";
 	cin >> apuesta_jugador1;
 
 	while (apuesta_jugador1 > jugadores->get_dinero()) {
-		interfaz.imprimir_divicion();
+		interfaz.imprimir_division();
 		interfaz.mensaje_error();
 		cout << "Error: La apuesta no puede ser mayor que el dinero total. Ingrese una apuesta válida: ";
 		cin >> apuesta_jugador1;
@@ -153,7 +153,7 @@ void Juego::apostar(Interfaz& interfaz, Jugador* jugadores){
 
 	jugadores->apostar(apuesta_jugador1);
 	jugadores->iniciar_partida();
-	interfaz.imprimir_divicion();
+	interfaz.imprimir_division();
 	interfaz.esperar_enter();
 	
 }
@@ -162,6 +162,6 @@ void Juego::jugar_turnos_jugadores(Interfaz& interfaz, vector<Jugador*> jugadore
 	for(size_t i = 0; i<jugadores.size();i++){
 		interfaz.limpiar_consola();
 				interfaz.interfaz_turno(jugadores[i], mazo, crupier_ptr);
-				interfaz.imprimir_divicion();
+				interfaz.imprimir_division();
 				}
 }

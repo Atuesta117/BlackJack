@@ -354,6 +354,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier) {
                     mostrar_valor_mano(jugador); // Muestra el valor de la mano del jugador
                     imprimir_division();
                     esperar_enter();
+                    limpiar_consola();
                     cout << endl;
                     if(jugador->get_valor_mano() >= 21){
                         if(jugador->get_valor_mano() > 21) {
@@ -397,6 +398,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier) {
                     imprimir_division();
                     mostrar_mano(jugador); // Muestra la mano del jugador
                     imprimir_division();
+                    limpiar_consola();
                     
                 }
                 else if (opcion == "4")
@@ -408,6 +410,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier) {
                 else if(opcion == "5"){
                     limpiar_consola();
                     mostrar_mano_parcial(crupier);
+                    limpiar_consola();
                     
                 }
                 else{
@@ -566,7 +569,7 @@ void Interfaz::mensaje(int i){
         ║		Requiere determinación, preparación y mucha transpiración.”         ║
         ╚═══════════════════════════════════════════════════════════════════════════════════╝ 
 )",R"(
-	           ╔══════════════════════════════════════════════════════════════╗  
+	            ╔══════════════════════════════════════════════════════════════╗  
 		    ║ 	     RESUMEN DE LA PARTIDA: JUGADORES Y CRUPIER            ║
 		    ╚══════════════════════════════════════════════════════════════╝ 
 )", R"(
