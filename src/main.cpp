@@ -125,6 +125,7 @@ int main()
 				interfaz.logo();
 				interfaz.mensaje_error();
 				cout << "ERROR: MESA NO ACTIVA. Por favor, agregue al menos un jugador para iniciar una partida." << endl;
+				interfaz.esperar_enter();
 			}
 			
 		
