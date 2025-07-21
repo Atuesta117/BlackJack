@@ -23,8 +23,8 @@
 	Correo: atuesta.juan@correounivalle.edu.co - sergio.garcia.ramos@correounivalle.edu.co - murillo.paula@correounivalle.edu.co - david.grueso@correounivalle.edu.co]
 	Fecha: Julio 2025
   */
-#ifndef INTERFARE_H
-#define INTERFARE_H
+#ifndef INTERFAZ_H
+#define INTERFAZ_H
 #include <iostream>
 #include <string>
 #include <vector>
@@ -37,7 +37,7 @@ using namespace std;
 
 class Interfaz{
     private:
-        void dibujar_catra(Carta& cartas);
+        void dibujar_carta(Carta& cartas);
         void dibujar_carta_oculta();
         
         
@@ -56,7 +56,7 @@ class Interfaz{
     void interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier);
     void interfaz_turno(Crupier* crupier,vector<Jugador*> jugadores_activos,  Mazo& mazo); 
     void logo(); 
-    void imprimir_divicion();
+    void imprimir_division();
     void mensaje_error();
     void mensaje_exitoso();
     void esperar_enter();
@@ -66,4 +66,4 @@ class Interfaz{
     void limpiar_consola();
 };
 
-#endif // INTERFARE_H
+#endif // INTERFAZ_H

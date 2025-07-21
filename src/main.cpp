@@ -11,7 +11,6 @@
 #include "Mesa.h"
 #include "Juego.h"
 using namespace std;
-// g++ main.cpp Crupier.cpp Carta.cpp Mazo.cpp Jugador.cpp PersonaCasino.cpp Interfaz.cpp PhoneValidator.cpp ServicioRecarga.cpp Mesa.cpp Juego.cpp -o prog -lcurl
 
 int main()
 {
@@ -72,7 +71,7 @@ int main()
 				interfaz.mensaje(1);
 				cout << "Gracias por jugar! Su dinero total es: " << jugadores[i]->get_dinero() << endl;
 				mesa.eliminar_jugador(i+1);
-				interfaz.imprimir_divicion(); 
+				interfaz.imprimir_division(); 
 				break;
 				
 			}
@@ -83,7 +82,7 @@ int main()
 		//para que tome sus acciones, si ya no hay mas jugadores se continua 
 		if(mesa.get_mesa_activa()){// se verifica de nuevo por si todos los jugadores en el ciclo anterior decidieron salir antes de empezar la partida con el crupier
 			vector<Jugador*> jugadores = mesa.get_jugadores();
-			mazo.shuffle();//se varaja el mazo
+			mazo.shuffle();//se baraja el mazo
 			juego.mostrar_cartas_jugadores(interfaz, jugadores, mazo);//se reparte la mano y se pmuestra
 			
 			// el crupier toma su mano y muestra una parte
@@ -105,15 +104,15 @@ int main()
 					mazo.reunir_cartas(crupier_ptr->get_cartas());
 					crupier_ptr->reiniciar_valores();
 					interfaz.limpiar_consola();
-					interfaz.imprimir_divicion();
+					interfaz.imprimir_division();
 					interfaz.logo();
 					interfaz.mensaje(4);
-					interfaz.imprimir_divicion();
+					interfaz.imprimir_division();
 					interfaz.esperar_enter();
 				}
 				else{//en caso tal de que todos los jugadores hayan salido
 					interfaz.limpiar_consola();
-					interfaz.imprimir_divicion();
+					interfaz.imprimir_division();
 					interfaz.logo();
 					interfaz.mensaje_error();
 					cout<<"Error: Mesa sin jugadores"<<endl;
@@ -122,7 +121,7 @@ int main()
 			}
 			else{//la mesa no tenia jugadortes
 				interfaz.limpiar_consola();
-				interfaz.imprimir_divicion();
+				interfaz.imprimir_division();
 				interfaz.logo();
 				interfaz.mensaje_error();
 				cout << "ERROR: MESA NO ACTIVA. Por favor, agregue al menos un jugador para iniciar una partida." << endl;
@@ -134,7 +133,7 @@ int main()
 	{
 		interfaz.limpiar_consola();
 		vector<Jugador*> jugadores = mesa.get_jugadores();
-		interfaz.imprimir_divicion();
+		interfaz.imprimir_division();
 		interfaz.logo();
 		interfaz.mensaje(1);
 		
