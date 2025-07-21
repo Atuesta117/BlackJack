@@ -1,0 +1,5 @@
+
+Este comando compila el programa completo,
+estando en la carpeta src del proyecto
+
+g++ *.cpp -o black -lcurl
