@@ -32,14 +32,7 @@
 class Crupier : public PersonaCasino{
 	private:
 
-		// Atributos
 	
-	/*
-		long dinero_total_crupier;
-		long apuesta_crupier;
-		int valor_mano_crupier;
-		vector<Carta> mano_crupier; // Vector para almacenar las cartas del crupier
-	*/	
 	public:
 	
 		// Constructor

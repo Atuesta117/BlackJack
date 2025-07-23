@@ -29,7 +29,6 @@ using namespace std;
 
 Crupier::Crupier(const string& _nombre): PersonaCasino(_nombre) // Inicializa el mazo de cartas
 {
-	this-> nombre = "Crupier";
 	this->valor_mano= 0;
 	this->mano.clear(); // Inicializa la mano del crupier
 	this->se_planta = false;
@@ -57,21 +56,21 @@ string Crupier::determinar_ganador(Jugador* jugador) {
     else if (valor_mano_jugador > 21) {
         return "EL JUGADOR "+ jugador->get_nombre()+" SE HA PASADO. EL CRUPIER GANA.";
     } 
-    // Caso 4: Ambos tienen blackjack
+    // Caso 3: Ambos tienen blackjack
     else if (this->valor_mano == 21 && valor_mano_jugador == 21) {
         jugador->set_dinero(jugador->get_apuesta());
         return "EL CRUPIER Y "+ jugador->get_nombre()+" SACARON BLACKJACK. TENEMOS UN EMPATE.";
     }
-    // Caso 5: Mismo puntaje
+    // Caso 4: Mismo puntaje
     else if (this->valor_mano == valor_mano_jugador && this->valor_mano <= 21) {
         jugador->set_dinero(jugador->get_apuesta());
         return "EL CRUPIER Y "+ jugador->get_nombre()+" TIENEN EL MISMO PUNTAJE. TENEMOS UN EMPATE.";
     } 
-    // Caso 6: Crupier gana
+    // Caso 5: Crupier gana
     else if (this->valor_mano > valor_mano_jugador && this->valor_mano <= 21) {
         return "LA MANO DE "+ jugador->get_nombre()+" ES MENOR, EL CRUPIER GANA.";
     } 
-    // Caso 7: Jugador gana
+    // Caso 6: Jugador tienen mejor mano que crupier
     else if (valor_mano_jugador > this->valor_mano && valor_mano_jugador <= 21) {
         if (jugador->verificar_blackjack()) {
             jugador->set_dinero(jugador->get_apuesta() + jugador->get_apuesta() * 1.5);
@@ -82,8 +81,7 @@ string Crupier::determinar_ganador(Jugador* jugador) {
         }
     }
 
-    // Caso no contemplado (¡nunca debería llegar aquí si la lógica es correcta!)
-    return "ERROR: CASO NO PREVISTO EN determinar_ganador()";
+
 }
 
 void Crupier::reiniciar_valores(){

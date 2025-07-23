@@ -35,7 +35,7 @@ class Carta{
 		string get_casta_carta();
 		string get_rank_carta();
 		int get_valor_carta();
-		void display();
+
 	};
 
 #endif // CARTA_H
