@@ -33,7 +33,7 @@ using namespace std;
 PersonaCasino::PersonaCasino(const string& _nombre) {
 	this->nombre = _nombre;
 	this->valor_mano= 0;
-	this->esta_jugando = false; // El PersonaCasino inicia en juego
+	this->esta_jugando = false; // El PersonaCasino inicia inactivo
 	this->se_planta = false; // El PersonaCasino no se ha plantado al inicio
 	this->mano.clear(); // Inicializa la mano del PersonaCasino
 	this->contador_as = 0;
