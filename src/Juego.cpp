@@ -52,6 +52,7 @@ void Juego::agregar_jugador(Interfaz& interfaz, Mesa& mesa){
 	else{
 		interfaz.imprimir_division();
 		interfaz.esperar_enter();
+		delete jugador;//para no dejar objetos en memoria heap
 	}
 }
 

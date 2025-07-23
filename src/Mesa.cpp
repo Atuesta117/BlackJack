@@ -61,9 +61,15 @@ void Mesa::agregar_jugador(Jugador* jugador, PersonaCasino* PersonaCasino){
 
 void Mesa::eliminar_jugador(int index){
     index--;
+    delete objetos_padre[index];
+    objetos_padre[index] = nullptr;
+    objetos_padre.erase(objetos_padre.begin()+ index); 
+    
     delete mesa[index];
     mesa[index] = nullptr;
     mesa.erase(mesa.begin()+ index);  
+
+    
 }
 
 

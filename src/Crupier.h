@@ -32,6 +32,7 @@
 class Crupier : public PersonaCasino{
 	private:
 
+	
 	public:
 	
 		// Constructor

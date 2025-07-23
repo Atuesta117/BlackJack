@@ -9,7 +9,7 @@ add_library(juego_base STATIC
     ../src/Jugador.cpp
     ../src/Mesa.cpp
     ../src/ServicioRecarga.cpp
-    ../src/Interfaz.cpp      # ¡Nuevo! Añade esto
+    ../src/Interfaz.cpp 
     ../src/Crupier.cpp
 )
 
