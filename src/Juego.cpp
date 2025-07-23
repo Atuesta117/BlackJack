@@ -35,7 +35,7 @@ interfaz.limpiar_consola();
 	return comprobar_transaccion;
 }
 void Juego::agregar_jugador(Interfaz& interfaz, Mesa& mesa){
-    interfaz.limpiar_consola();
+	interfaz.limpiar_consola();
 	interfaz.imprimir_division();
 	interfaz.logo();
 	string nombre_jugador = interfaz.pedir_nombre();
@@ -57,13 +57,13 @@ void Juego::agregar_jugador(Interfaz& interfaz, Mesa& mesa){
 }
 
 void Juego::mostrar_cartas_jugadores(Interfaz& interfaz,vector<Jugador*> jugadores, Mazo& mazo){
-    interfaz.limpiar_consola();
+	interfaz.limpiar_consola();
 	interfaz.mensaje(2);
 				interfaz.imprimir_division();
 				for (size_t i = 0; i < jugadores.size(); i++)
 				{
 					cout << R"(
-				     ╔════════════════════════════════════════╗ )"<<endl;
+					 ╔════════════════════════════════════════╗ )"<<endl;
 					cout<<				"						  JUGADOR "<<jugadores[i]->get_nombre()<<endl;
 					cout<< R"(				     ╚════════════════════════════════════════╝ 
 					)" <<endl;
@@ -132,7 +132,7 @@ void Juego::eliminar_jugador(Mesa& mesa, Interfaz& interfaz){
 	}
 }
 
-void Juego::apostar(Interfaz& interfaz, Jugador* jugadores){
+void Juego::apostar(Interfaz& interfaz, Jugador* jugador){
 	
 	interfaz.limpiar_consola();
 	interfaz.imprimir_division();
@@ -141,19 +141,19 @@ void Juego::apostar(Interfaz& interfaz, Jugador* jugadores){
 
 	long apuesta_jugador1;
 	interfaz.imprimir_division();
-	cout << "El dinero total del jugador"<< jugadores->get_nombre()<<" es: " << jugadores->get_dinero() << endl;
+	cout << "El dinero total del jugador"<< jugador->get_nombre()<<" es: " << jugador->get_dinero() << endl;
 	cout << "Ingrese la apuesta: ";
 	cin >> apuesta_jugador1;
 
-	while (apuesta_jugador1 > jugadores->get_dinero()) {
+	while (apuesta_jugador1 > jugador->get_dinero()) {
 		interfaz.imprimir_division();
 		interfaz.mensaje_error();
 		cout << "Error: La apuesta no puede ser mayor que el dinero total. Ingrese una apuesta válida: ";
 		cin >> apuesta_jugador1;
 	}
 
-	jugadores->apostar(apuesta_jugador1);
-	jugadores->iniciar_partida();
+	jugador->apostar(apuesta_jugador1);
+	jugador->iniciar_partida();
 	interfaz.imprimir_division();
 	interfaz.esperar_enter();
 	

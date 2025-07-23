@@ -70,11 +70,7 @@ string Crupier::determinar_ganador(Jugador* jugador) {
     else if (this->valor_mano > valor_mano_jugador && this->valor_mano <= 21) {
         return "LA MANO DE "+ jugador->get_nombre()+" ES MENOR, EL CRUPIER GANA.";
     } 
-<<<<<<< HEAD
-    // Caso 6: Jugador tienen mejor mano que crupier
-=======
     // Caso 6: Jugador gana
->>>>>>> f55a5e6d68451ee641cf5ba1947573bc54820344
     else if (valor_mano_jugador > this->valor_mano && valor_mano_jugador <= 21) {
         if (jugador->verificar_blackjack()) {
             jugador->set_dinero(jugador->get_apuesta() + jugador->get_apuesta() * 1.5);
