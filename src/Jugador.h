@@ -32,6 +32,7 @@ using namespace std;
 class Jugador : public PersonaCasino{
 	private:
 	long apuesta;
+	long dinero_total;
 		public:
 	Jugador(const string& _nombre, long _dinero);
 	~Jugador() override{}

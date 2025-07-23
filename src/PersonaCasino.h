@@ -33,7 +33,6 @@ class PersonaCasino{
 	private:
 	protected:
 		string nombre;
-		long dinero_total;
 
 		int valor_mano;
 		vector<Carta> mano;
@@ -60,7 +59,6 @@ class PersonaCasino{
 		int get_valor_mano(){return this->valor_mano;}
 		vector<Carta> get_cartas() { return this->mano; } 
 		bool get_se_planta() { return this->se_planta; } 
-		long get_dinero(){return this-> dinero_total;}
 
 		
 	

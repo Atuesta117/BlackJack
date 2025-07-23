@@ -81,7 +81,7 @@ string Crupier::determinar_ganador(Jugador* jugador) {
         }
     }
 
-
+    return "CASO IMPROVISTO";
 }
 
 void Crupier::reiniciar_valores(){
