@@ -420,6 +420,7 @@ void Interfaz::interfaz_turno(Jugador* jugador, Mazo& mazo, Crupier* crupier) {
                     cout<< "Opción inválida. Por favor, ingrese una opción válida."<<endl;
                     imprimir_division();
                     esperar_enter();
+                    limpiar_consola();
                     
 			}
 		}

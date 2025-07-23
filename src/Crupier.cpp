@@ -57,7 +57,7 @@ string Crupier::determinar_ganador(Jugador* jugador) {
         return "EL JUGADOR "+ jugador->get_nombre()+" SE HA PASADO. EL CRUPIER GANA.";
     } 
     // Caso 3: Ambos tienen blackjack
-    else if (this->valor_mano == 21 && valor_mano_jugador == 21) {
+    else if (verificar_blackjack()==true && jugador->verificar_blackjack() == true) {
         jugador->set_dinero(jugador->get_apuesta());
         return "EL CRUPIER Y "+ jugador->get_nombre()+" SACARON BLACKJACK. TENEMOS UN EMPATE.";
     }
