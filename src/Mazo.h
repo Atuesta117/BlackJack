@@ -34,7 +34,7 @@ class Mazo{
 		void shuffle();
 		int get_cant_cartas();
 		Carta get_carta();
-		void reunir_cartas(vector<Carta> cartas_jugador);
+		void reunir_cartas(vector<Carta> &cartas_jugador);
 };
 
 

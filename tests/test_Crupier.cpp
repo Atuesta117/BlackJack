@@ -13,9 +13,9 @@ TEST(CrupierTest, DeterminarGanador) {
  
 
     // Asignar cartas manualmente (requiere métodos en Crupier/Jugador)
-    jugador_ptr->pedir_mano(mazo);      // Valor: 8  (Total: 18)
+    jugador_ptr->pedir_mano(mazo);      
 
-    crupier_ptr->pedir_mano(mazo);   // Valor: 7  (Total: 18)
+    crupier_ptr->pedir_mano(mazo);   
     string resultado = crupier_ptr->determinar_ganador(jugador_ptr);
     // Verificar empate
     EXPECT_TRUE(resultado== "EL JUGADOR "+ jugador->get_nombre()+" BLACKJACK. EL JUGADOR GANA."||resultado== "EL CRUPIER SE HA PASADO. EL JUGADOR "+ jugador->get_nombre()+" GANA."||resultado== "EL JUGADOR "+ jugador->get_nombre()+" SE HA PASADO. EL CRUPIER GANA."||resultado== "EL CRUPIER Y "+ jugador->get_nombre()+" SACARON BLACKJACK. TENEMOS UN EMPATE."||resultado== "EL CRUPIER Y "+ jugador->get_nombre()+" TIENEN EL MISMO PUNTAJE. TENEMOS UN EMPATE."||resultado== "LA MANO DE "+ jugador->get_nombre()+" ES MENOR, EL CRUPIER GANA."||resultado== "EL JUGADOR "+ jugador->get_nombre()+" TIENE BLACKJACK. EL JUGADOR GANA."||resultado== "EL JUGADOR "+ jugador->get_nombre()+" GANA.");
