@@ -149,6 +149,7 @@ int main()
 	}
 	//se elimina el crupier
 		delete crupier;
+		
 		break; // Salir del bucle y terminar el programa
 	}
 }
